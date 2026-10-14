@@ -1,0 +1,2222 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Estudio financiero</title>
+<meta name="description" content="Estudio financiero de Luis Rodrigo Aguilar: ingreso recurrente, interés compuesto y los estudios que se sumen.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Estudio financiero">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#FCFCFD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101A2D" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<style>
+:root{
+  --ground:#F5F6F9;
+  --surface:#FCFCFD;
+  --surface-sunk:#EDF0F5;
+  --ink:#0F1A2B;
+  --ink-2:#47536B;
+  --ink-3:#7A8599;
+  --rule:#DBE0EA;
+  --rule-strong:#C0C8D8;
+  --brand:#1B3A67;
+  --brand-2:#28518F;
+  --brand-tint:#DCE5F2;
+  --gold:#8F6E22;
+  --gold-2:#A8842F;
+  --gold-tint:#F0E6CD;
+  --warn:#8A5A12;
+  --crit:#9A3227;
+  --series-a:#28518F;
+  --series-b:#A8842F;
+  --on-bar:#FCFCFD;
+  --serif:"Source Serif 4",Charter,Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0A1120;
+    --surface:#101A2D;
+    --surface-sunk:#152039;
+    --ink:#E6EBF4;
+    --ink-2:#A6B2C8;
+    --ink-3:#7E8BA3;
+    --rule:#212E49;
+    --rule-strong:#31405E;
+    --brand:#8FB4F2;
+    --brand-2:#5E93E6;
+    --brand-tint:#1B2C4C;
+    --gold:#D7B05A;
+    --gold-2:#CBA451;
+    --gold-tint:#3A3117;
+    --warn:#D4A24E;
+    --crit:#E38B7D;
+    --series-a:#5E93E6;
+    --series-b:#B38D3D;
+    --on-bar:#0A1120;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A1120;
+  --surface:#101A2D;
+  --surface-sunk:#152039;
+  --ink:#E6EBF4;
+  --ink-2:#A6B2C8;
+  --ink-3:#7E8BA3;
+  --rule:#212E49;
+  --rule-strong:#31405E;
+  --brand:#8FB4F2;
+  --brand-2:#5E93E6;
+  --brand-tint:#1B2C4C;
+  --gold:#D7B05A;
+  --gold-2:#CBA451;
+  --gold-tint:#3A3117;
+  --warn:#D4A24E;
+  --crit:#E38B7D;
+  --series-a:#5E93E6;
+  --series-b:#B38D3D;
+  --on-bar:#0A1120;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.62;
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- header ---------- */
+.topbar{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:20;
+  background:var(--surface);
+  border-bottom:1px solid var(--rule);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:10px 20px;
+}
+.mark{
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.22em;
+  color:var(--ink-2);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+.mark .dot{width:7px;height:7px;background:var(--gold-2);border-radius:50%;flex:none}
+.topbar .where{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--ink-3);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.themer{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.08em;
+  color:var(--ink-2);
+  background:transparent;
+  border:1px solid var(--rule-strong);
+  border-radius:2px;
+  padding:4px 9px;
+  cursor:pointer;
+  flex:none;
+}
+.themer:hover{color:var(--ink);border-color:var(--brand)}
+.themer:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* ---------- shell ---------- */
+.shell{
+  max-width:1160px;
+  margin:0 auto;
+  padding-inline:20px;
+  padding-block:0 72px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
+}
+@media (min-width:1000px){
+  .shell{grid-template-columns:232px minmax(0,1fr);gap:56px;align-items:start}
+}
+
+/* ---------- masthead ---------- */
+.masthead{grid-column:1/-1;padding-block:56px 40px;position:relative;border-bottom:2px solid var(--brand)}
+.masthead::after{content:"";position:absolute;left:0;bottom:-2px;width:84px;height:2px;background:var(--gold-2)}
+.kicker{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 18px;
+}
+.masthead h1{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.06;
+  letter-spacing:-.02em;
+  margin:0 0 20px;
+  text-wrap:balance;
+  max-width:16ch;
+}
+.standfirst{
+  font-size:clamp(17px,2.1vw,20px);
+  color:var(--ink-2);
+  max-width:62ch;
+  margin:0 0 28px;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 28px;
+  font-family:var(--mono);
+  font-size:11.5px;
+  letter-spacing:.04em;
+  color:var(--ink-3);
+}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* ---------- toc ---------- */
+.toc{font-family:var(--sans);font-size:13px}
+@media (min-width:1000px){
+  .toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);max-height:calc(100vh - 110px);overflow-y:auto}
+}
+.toc h2{
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  font-weight:500;
+  margin:0 0 14px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
+}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.toc a{
+  display:block;
+  color:var(--ink-2);
+  text-decoration:none;
+  padding:5px 0 5px 12px;
+  border-left:2px solid var(--rule);
+  line-height:1.35;
+}
+.toc a:hover{color:var(--ink);border-left-color:var(--brand-2)}
+.toc a.on{color:var(--brand);border-left-color:var(--brand);font-weight:600}
+.toc a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* ---------- article ---------- */
+article{min-width:0;max-width:72ch}
+section{padding-block:44px 0;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 76px)}
+section + section{border-top:1px solid var(--rule);margin-top:12px}
+
+h2.sec{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(25px,3.4vw,32px);
+  line-height:1.18;
+  letter-spacing:-.014em;
+  margin:0 0 22px;
+  text-wrap:balance;
+}
+h3{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:16px;
+  letter-spacing:.005em;
+  color:var(--ink);
+  margin:38px 0 12px;
+}
+h4{
+  font-family:var(--mono);
+  font-weight:500;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin:32px 0 10px;
+}
+p{margin:0 0 16px}
+article ul,article ol{margin:0 0 18px;padding-left:22px}
+article li{margin-bottom:8px}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--brand);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.lede{font-size:19px;color:var(--ink-2);margin-bottom:22px}
+
+/* formulas */
+.formula{
+  font-family:var(--mono);
+  font-size:13px;
+  line-height:1.8;
+  background:var(--surface);
+  border-left:2px solid var(--brand);
+  padding:16px 18px;
+  margin:0 0 20px;
+  overflow-x:auto;
+  white-space:pre;
+  color:var(--ink);
+}
+
+/* tables */
+.tw{overflow-x:auto;margin:0 0 22px}
+table{
+  border-collapse:collapse;
+  width:100%;
+  font-family:var(--sans);
+  font-size:13.5px;
+  line-height:1.45;
+  min-width:420px;
+}
+caption{
+  caption-side:top;
+  text-align:left;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  padding-bottom:10px;
+}
+th{
+  text-align:left;
+  font-weight:600;
+  color:var(--ink-2);
+  border-bottom:1px solid var(--rule-strong);
+  padding:8px 16px 8px 0;
+  vertical-align:bottom;
+}
+td{
+  text-align:left;
+  border-bottom:1px solid var(--rule);
+  padding:9px 16px 9px 0;
+  vertical-align:top;
+  font-variant-numeric:tabular-nums;
+}
+tbody tr:last-child td{border-bottom:1px solid var(--rule-strong)}
+td:first-child,th:first-child{padding-left:0}
+
+/* notes */
+.note{
+  font-family:var(--sans);
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--ink-2);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding-block:12px;
+  margin:0 0 20px;
+}
+.note b{color:var(--ink);font-weight:600}
+
+.verified{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--gold);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin:-8px 0 20px;
+}
+.verified::before{content:"";width:5px;height:5px;background:var(--gold-2);border-radius:50%;flex:none}
+
+.pull{
+  font-family:var(--serif);
+  font-size:clamp(19px,2.6vw,23px);
+  line-height:1.38;
+  color:var(--ink);
+  border-left:2px solid var(--brand);
+  padding:2px 0 2px 20px;
+  margin:28px 0;
+  text-wrap:balance;
+}
+
+/* figures */
+figure{margin:28px 0;background:var(--surface);border:1px solid var(--rule);padding:20px 18px}
+figure svg{display:block;width:100%;height:auto;max-width:100%}
+figcaption{
+  font-family:var(--sans);
+  font-size:12.5px;
+  line-height:1.5;
+  color:var(--ink-2);
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--rule);
+}
+.fig-title{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:600;
+  color:var(--ink);
+  margin:0 0 4px;
+}
+.fig-sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--sans);font-size:12px;color:var(--ink-2);margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.swatch{width:11px;height:11px;flex:none;border-radius:1px}
+
+/* case cards */
+.case{margin:0 0 30px;padding-top:22px;border-top:1px solid var(--rule)}
+.case:first-of-type{border-top:none;padding-top:0}
+.case h3{margin-top:0;font-size:17px;font-family:var(--serif);font-weight:600}
+.case .tag{
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  display:block;
+  margin-bottom:4px;
+}
+.case.alarm h3{color:var(--crit)}
+.case.alarm .tag{color:var(--crit)}
+
+/* checklist */
+.check{font-family:var(--sans);font-size:14px}
+.check h4{margin-top:26px}
+.check ol{padding-left:24px}
+.check li{margin-bottom:9px;color:var(--ink-2)}
+.check li::marker{color:var(--gold-2);font-family:var(--mono);font-size:12px}
+
+/* conclusions */
+.concl{list-style:none;padding:0;margin:0;counter-reset:c}
+.concl li{
+  counter-increment:c;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:14px;
+  padding-block:16px;
+  border-bottom:1px solid var(--rule);
+  margin:0;
+}
+.concl li::before{
+  content:counter(c,decimal-leading-zero);
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--gold);
+  padding-top:5px;
+}
+.concl li:first-child{border-top:1px solid var(--rule)}
+
+/* sources */
+.src{font-family:var(--sans);font-size:13px;line-height:1.5}
+.src h4{margin-top:26px}
+.src ul{list-style:none;padding:0;margin:0 0 4px}
+.src li{margin-bottom:9px;color:var(--ink-2);padding-left:14px;text-indent:-14px}
+.src a{word-break:break-word}
+
+footer.end{
+  grid-column:1/-1;
+  margin-top:48px;
+  border-top:2px solid var(--brand);
+  position:relative;
+  padding-block:20px;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.08em;
+  color:var(--ink-3);
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 24px;
+  justify-content:space-between;
+}
+
+/* ---------- anexo: interés compuesto ---------- */
+
+
+.q{margin:30px 0;padding:2px 0 2px 20px;border-left:2px solid var(--gold-2)}
+.q p{margin:0}
+.q .q-es{font-family:var(--serif);font-size:clamp(18px,2.3vw,21px);line-height:1.42;color:var(--ink);text-wrap:pretty}
+.q .q-en{font-family:var(--sans);font-size:13px;line-height:1.55;font-style:italic;color:var(--ink-3);margin-top:10px}
+.q .q-src{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3);margin-top:10px}
+
+.ax-grid line{stroke:var(--rule);stroke-width:1}
+.ax-lab text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+.row-lab text{font-family:var(--sans);font-size:11.5px;fill:var(--ink-2)}
+.bar rect{fill:var(--series-a)}
+.bar rect:hover{opacity:.82}
+.val text{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink)}
+.val text.val-in{fill:var(--on-bar)}
+
+.st{font-family:var(--mono);font-size:11px;letter-spacing:.04em;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.st.ok{color:var(--ink-2)}
+.st.mid{color:var(--warn)}
+.st.bad{color:var(--crit)}
+
+.res{list-style:none;padding:0;margin:0 0 26px;font-family:var(--sans);font-size:14px;line-height:1.5}
+.res li{display:grid;gap:3px;padding-block:12px;margin:0;border-bottom:1px solid var(--rule)}
+.res li:first-child{border-top:1px solid var(--rule)}
+.res .t{font-weight:600;color:var(--ink)}
+.res .rm{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink-3)}
+.res .d{color:var(--ink-2)}
+.route{list-style:none;padding:0;margin:0 0 8px}
+.route > li{margin:0 0 28px}
+.stage{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);margin:0 0 8px;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px}
+.stage span{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+
+.calc-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 16px;margin:0 0 18px}
+.calc-in label{display:grid;gap:5px;font-family:var(--sans);font-size:12px;line-height:1.3;color:var(--ink-2);min-width:0}
+.calc-in input{font-family:var(--mono);font-size:14px;color:var(--ink);background:var(--ground);border:1px solid var(--rule-strong);border-radius:2px;padding:7px 9px;width:100%;min-width:0;font-variant-numeric:tabular-nums}
+.calc-in input:focus-visible{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.calc-out{display:flex;flex-wrap:wrap;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 18px}
+.calc-out > div{flex:1 1 150px;background:var(--surface);padding:10px 12px;display:grid;gap:3px;align-content:start}
+.calc-out .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.calc-out .v{font-family:var(--sans);font-size:17px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.calc-out .v small{display:block;font-size:11.5px;font-weight:400;color:var(--ink-3)}
+.chart-wrap{position:relative}
+.chart-wrap svg{display:block;width:100%;height:auto;touch-action:pan-y}
+.chart-wrap svg:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.tip{position:absolute;top:6px;pointer-events:none;background:var(--surface);border:1px solid var(--rule-strong);padding:8px 10px;font-family:var(--sans);font-size:12px;line-height:1.55;color:var(--ink);min-width:178px}
+.tip b{display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
+.tip .r{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
+.tip .r span:first-child{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2)}
+.tip i{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.swatch.sw-a,.tip i.sw-a{background:var(--series-a)}
+.swatch.sw-b,.tip i.sw-b{background:var(--series-b)}
+.swatch.sw-c{background:none;height:0;width:14px;border-top:2px dashed var(--ink-3)}
+.tip i.sw-c{background:var(--ink-3)}
+.cg line{stroke:var(--rule);stroke-width:1}
+.cg text,.cx text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+.cl{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.cl.a{stroke:var(--series-a)}
+.cl.b{stroke:var(--series-b)}
+.cl.c{stroke:var(--ink-3);stroke-width:1.5;stroke-dasharray:4 4}
+.gap-fill{fill:var(--series-b);opacity:.12}
+.xh{stroke:var(--ink-3);stroke-width:1}
+.dot{stroke:var(--surface);stroke-width:2}
+.dot.a{fill:var(--series-a)}
+.dot.b{fill:var(--series-b)}
+.dot.c{fill:var(--ink-3)}
+.end-lab{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.end-lab tspan.s{font-weight:400;fill:var(--ink-2)}
+.calc-table{margin:14px 0 0;font-family:var(--sans);font-size:13px}
+.calc-table summary{cursor:pointer;color:var(--brand);font-weight:500}
+.calc-table summary:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.calc-table .tw{margin:10px 0 0}
+
+/* ---------- pestañas ---------- */
+.mark .mark-t{display:inline}
+.tabs{flex:1 1 auto;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;align-self:stretch;margin-block:-10px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:none;display:flex;align-items:center;padding:0 14px;font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:.005em;color:var(--ink-2);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
+.tabs a:first-child{margin-left:auto}
+.tabs a:last-child{margin-right:auto}
+.tabs a:hover{color:var(--ink)}
+.tabs a.on{color:var(--brand);border-bottom-color:var(--brand);font-weight:600}
+.tabs a:focus-visible{outline:2px solid var(--brand);outline-offset:-4px}
+.study{display:block}
+@media (max-width:700px){
+  .mark .mark-t{display:none}
+  .topbar{padding-inline:16px;gap:10px}
+  .tabs a{padding:0 10px;font-size:13px}
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:640px){
+  body{font-size:16px}
+  .masthead{padding-block:36px 28px}
+  section{padding-block:34px 0}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark"><span class="dot"></span><span class="mark-t">LUIS R. AGUILAR</span></span>
+  <nav class="tabs" aria-label="Estudios">
+    <a href="#ingreso-recurrente" class="on" aria-current="page">Ingreso recurrente</a>
+    <a href="#interes-compuesto">Interés compuesto</a>
+  </nav>
+  <button class="themer" id="themer" type="button">TEMA</button>
+</div>
+
+<main>
+<div class="study" id="ingreso-recurrente" data-title="Ingreso recurrente">
+<div class="shell">
+
+  <header class="masthead">
+    <p class="kicker">Estudio · Mercados y modelos de negocio</p>
+    <h1>El ingreso recurrente</h1>
+    <p class="standfirst">Cuándo un ingreso que se repite justifica pagar más por él, y cuándo no. Fundamentos, contabilidad, métricas de retención, la aritmética de la valuación y siete casos con datos primarios.</p>
+    <div class="meta">
+      <span>Investigación cerrada al <b>15 de septiembre de 2026</b></span>
+      <span><b>Luis Rodrigo Aguilar</b> · Abogado &amp; Legal Engineer</span>
+      <span>Notas de estudio · <b>Investment</b></span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Contenido">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#metodo">Cómo leer esto</a></li>
+      <li><a href="#que-es">Qué es realmente</a></li>
+      <li><a href="#contable">El lenguaje contable</a></li>
+      <li><a href="#retencion">Retención y sus trampas</a></li>
+      <li><a href="#unit">Unit economics</a></li>
+      <li><a href="#regla40">La Rule of 40</a></li>
+      <li><a href="#cohortes">Cohortes</a></li>
+      <li><a href="#aritmetica">La aritmética de la valuación</a></li>
+      <li><a href="#mercado">Dónde está el mercado</a></li>
+      <li><a href="#casos">Siete casos</a></li>
+      <li><a href="#preguntas">Las preguntas del analista</a></li>
+      <li><a href="#conclusiones">Diez conclusiones</a></li>
+      <li><a href="#huecos">Lo que no se verificó</a></li>
+      <li><a href="#fuentes">Fuentes</a></li>
+    </ol>
+  </nav>
+
+  <article>
+
+    <section id="metodo">
+      <h2 class="sec">Cómo leer esto</h2>
+      <p class="lede">El orden importa. Las primeras secciones enseñan el vocabulario y dónde está trucado; la aritmética de la valuación es el corazón del asunto; los casos muestran cómo se ve todo esto en empresas reales; la última sección es la lista de preguntas que uno hace cuando tiene enfrente a alguien que quiere venderle un negocio recurrente.</p>
+
+      <h3>Ninguna cifra de benchmark es comparable con otra si no viene del mismo universo</h3>
+      <p>SaaS Capital encuesta entre mil y mil quinientas empresas privadas B2B con más de un millón de dólares de ARR y reporta una mediana de retención neta cercana a 103%. ChartMogul mide tres mil quinientas empresas conectadas a su producto de facturación, sesgadas al autoservicio de ticket bajo, y reporta 82%. Jamin Ball mide unas cien empresas públicas de software y reporta 110%.</p>
+      <p>Las tres son correctas. Citar «la mediana de NRR» sin decir de qué población sale es el error de analista más frecuente en este tema.</p>
+
+      <h3>De dónde salen los datos</h3>
+      <p>La investigación se apoyó en fuentes que publican metodología y muestra —Meritech, SaaS Capital, Damodaran, Aventis, Software Equity Group, Clouded Judgement, Benchmarkit, ChartMogul, papers revisados por pares— y descartó el contenido SEO de agencias que reproduce cifras sin decir de dónde salen. El servicio Quartr, que habría dado datos primarios de filings con enlace directo, requiere suscripción de pago y no estuvo disponible; los casos se levantaron de comunicados de resultados, formatos 8-K de la SEC y transcripciones públicas.</p>
+      <p class="verified">Toda la aritmética de este documento fue verificada numéricamente</p>
+    </section>
+
+    <section id="que-es">
+      <h2 class="sec">Qué es realmente el ingreso recurrente</h2>
+
+      <p>La primera distinción no es de marketing sino estadística, y viene de la literatura académica. Fader, Hardie y Shang la formularon en <em>Marketing Science</em> en 2010: un negocio es <strong>contractual</strong> cuando la empresa observa el momento en que el cliente termina la relación, y <strong>no contractual</strong> cuando ese momento no se observa —el cliente simplemente deja de comprar sin avisar.</p>
+
+      <p>La consecuencia es dura y poco apreciada: en un negocio contractual el churn es un dato; en uno no contractual es un parámetro inferido de un modelo. Nadie sabe si un cliente que no compró en seis meses está muerto o dormido. La empresa elige un umbral —«activo es quien compró en los últimos doce meses»— y ese umbral es una palanca discrecional.</p>
+
+      <div class="note"><b>La pregunta obligatoria.</b> Cuando una empresa no contractual reporta «retención», hay que saber si se trata de una renovación observada o de una inferencia. Si es inferencia, el número es una opinión de la gerencia.</div>
+
+      <p>Entre medias vive el ingreso recurrente <strong>por hábito</strong>: Netflix, Amazon, Starbucks. Técnicamente puede haber contrato o no, pero la recurrencia descansa en inercia conductual, no en obligación legal. Tiene beta más alta al ciclo económico que el recurrente contractual entre empresas, porque no hay fricción de salida ni comité de compras que ratifique la cancelación.</p>
+
+      <h3>Suscripción, consumo e híbrido</h3>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>Modelo</th><th>Cómo se genera el ingreso</th><th>Predictibilidad</th><th>Ejemplos</th></tr></thead>
+        <tbody>
+          <tr><td>Suscripción pura</td><td>Precio fijo por asiento o tier, reconocido linealmente</td><td>Alta</td><td>Salesforce, Zoom</td></tr>
+          <tr><td>Consumo</td><td>Se factura lo consumido; el contrato compromete gasto, no servicio</td><td>Baja a media</td><td>Snowflake, AWS, Twilio</td></tr>
+          <tr><td>Híbrido</td><td>Plataforma fija más excedente variable</td><td>Media</td><td>Datadog, MongoDB</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>La distinción que importa es entre <strong>ARR comprometido</strong> y <strong>consumo</strong>. En un modelo de consumo el cliente firma un compromiso de capacidad —dos millones de dólares en veinticuatro meses, por ejemplo— y ese compromiso entra al RPO. Pero el ingreso se reconoce sólo cuando el cliente efectivamente consume. Puede tener un compromiso enorme y consumir poco.</p>
+
+      <p>Que esto es material lo prueba la conducta de las propias empresas: Snowflake, Amazon, Twilio y Fastly <strong>no reportan ARR en absoluto</strong>, precisamente porque el consumo fluctúa demasiado para anualizarlo con honestidad. Las que sí lo reportan usan ventanas cortas: Datadog anualiza el MRR incluyendo uso adicional; MongoDB anualiza los noventa días previos en venta directa y los treinta previos en autoservicio; DigitalOcean multiplica el ingreso del último mes por doce.</p>
+
+      <p class="pull">Un «ARR» en un negocio de consumo es un run-rate extrapolado de una ventana de días, no un contrato. En un trimestre de desaceleración cae antes y más rápido que el ingreso contable; en uno de aceleración exagera al alza.</p>
+
+      <p>Para valuación esto tiene tres consecuencias concretas. La beta de recesión es distinta: la suscripción tiene un colchón contractual de doce meses y el consumo se ajusta en semanas —en 2022 y 2023 las empresas de consumo mostraron desaceleración meses antes que las de suscripción. La retención neta no es comparable entre modelos, porque en consumo la expansión es automática, sin firmar nada. Y la calidad del RPO difiere: en suscripción es ingreso casi seguro, en consumo es un compromiso de gasto que puede no materializarse.</p>
+    </section>
+
+    <section id="contable">
+      <h2 class="sec">El lenguaje contable y dónde está trucado</h2>
+
+      <h3>El ARR no es una métrica auditada</h3>
+      <div class="formula">MRR = Σ ingreso recurrente mensual contratado de los clientes activos
+ARR = MRR × 12</div>
+
+      <p>El ARR no aparece en ningún estado financiero auditado. Es una métrica operativa construida por la gerencia con una definición elegida por la gerencia.</p>
+
+      <p>El marco regulatorio es más débil de lo que la mayoría supone. La SEC, en su Release 33-10751 de enero de 2020, exige que al presentar indicadores clave en el MD&amp;A la empresa divulgue una definición clara y cómo se calcula, por qué es útil al inversionista, cómo la usa la gerencia, los supuestos cuya omisión haría la métrica materialmente engañosa, y cualquier cambio de metodología. Pero la misma guía aclara que las medidas operativas y estadísticas <strong>no son medidas financieras non-GAAP</strong> y por tanto quedan fuera de Regulation G.</p>
+
+      <div class="note"><b>Traducido.</b> El ARR vive en una tierra de nadie regulatoria. No tiene la protección de GAAP —auditoría, consistencia— ni la disciplina de Reg G —reconciliación obligatoria contra la medida contable más cercana. Sólo tiene la obligación genérica de no ser materialmente engañosa. Por eso se abusa de él.</div>
+
+      <h4>Las formas de abuso</h4>
+      <ul>
+        <li>Incluir cuotas no recurrentes de hardware, instalación o puesta en marcha.</li>
+        <li>Incluir servicios profesionales y consultoría.</li>
+        <li>Multiplicar los bookings de un mes por doce.</li>
+        <li>Incluir contratos firmados pero no iniciados, o clientes en piloto pagado.</li>
+        <li>Incluir excedente variable en un negocio de suscripción, inflando el run-rate en el mes pico.</li>
+        <li>Anualizar el mejor mes del trimestre en lugar del último.</li>
+        <li>No restar el ARR de clientes que ya notificaron cancelación pero cuyo contrato no ha vencido.</li>
+      </ul>
+
+      <h3>La cadena completa</h3>
+      <div class="formula">Bookings   →  valor contractual firmado (obligación de pagar)
+Billings   =  ingreso reconocido del período + Δ ingreso diferido
+Revenue    →  reconocido cuando el servicio se presta, o linealmente
+Deferred   →  pasivo: facturado y cobrado, aún no entregado
+RPO        =  ingreso diferido + backlog contratado no cancelable
+cRPO       →  la porción del RPO esperada en los próximos 12 meses</div>
+
+      <p>El patrón a vigilar es concreto: <strong>ingreso creciente junto con ingreso diferido cayendo significa que la empresa está viviendo de la caja del pasado</strong>. El revenue puede enmascarar deterioro mediante el consumo del diferido; los billings son más prospectivos.</p>
+
+      <p>El RPO existe porque ASC 606 e IFRS 15 obligaron a divulgar el precio de transacción asignado a obligaciones de desempeño no satisfechas. Ese mismo estándar hizo otras dos cosas que conviene tener presentes: permite asignar precio entre obligaciones distintas —licencia, soporte, servicios— lo que puede acelerar el reconocimiento de la porción de licencia sin cambio económico alguno; y obliga a capitalizar las comisiones de ventas amortizándolas sobre la vida esperada del cliente, lo que mejora el margen operativo reportado de las empresas que crecen rápido sin mejorar la caja. La cuenta de comisiones diferidas en el balance merece una mirada.</p>
+
+      <h3>Las tres trampas del RPO</h3>
+      <p>El RPO se ha vuelto la métrica más abusada del ciclo actual.</p>
+
+      <h4>Duración</h4>
+      <p>Un contrato de tres años a 360 mil dólares anuales añade 1.08 millones de RPO de golpe. Un trimestre con un mega-contrato multianual produce un salto que no dice nada sobre la salud recurrente. La normalización obligatoria es mirar el cRPO y la razón entre RPO e ingreso anualizado.</p>
+
+      <h4>Cancelabilidad</h4>
+      <p>Sólo cuenta lo genuinamente no cancelable. Las cláusulas de terminación por conveniencia excluyen el monto, y la calidad legal del RPO no es visible desde el número agregado.</p>
+
+      <h4>Concentración y horizonte</h4>
+      <p>El ejemplo de 2026 es extraordinario. Oracle cerró su ejercicio fiscal con <strong>638 mil millones de dólares de RPO, un alza de 363% interanual</strong>, contra 67.4 mil millones de ingreso total y 34 mil millones de ingreso cloud. Eso es del orden de diecinueve veces el ingreso cloud anual.</p>
+      <p>No son diecinueve años de visibilidad: es un compromiso de gasto de un puñado de contrapartes de inteligencia artificial, con riesgo de contraparte concentrado, que además exige capex masivo por adelantado para poder servirse. El RPO en ese caso mide <strong>exposición</strong>, no seguridad: el upside está capado al contrato y el downside incluye el capex hundido si la contraparte no cumple.</p>
+
+      <div class="note"><b>Regla general.</b> RPO creciendo mientras el ingreso desacelera significa que el ingreso se desplazó al futuro. Puede ser bueno —contratos más largos— o malo —momentum perdido—. Hay que desagregar por duración para saber cuál.</div>
+    </section>
+
+    <section id="retencion">
+      <h2 class="sec">Retención: las tres métricas y sus trampas</h2>
+
+      <div class="formula">Logo retention = clientes del período inicial que siguen activos / clientes al inicio
+
+GRR = MRR hoy sólo de clientes que ya existían hace 12 meses, SIN upsell ni aumentos
+      ────────────────────────────────────────────────────────────────────────────
+                            MRR total de hace 12 meses
+
+NRR = MRR hoy sólo de clientes que ya existían hace 12 meses, CON upsell y aumentos
+      ─────────────────────────────────────────────────────────────────────────────
+                            MRR total de hace 12 meses</div>
+
+      <p>El GRR nunca puede exceder 100%: mide sólo la fuga. El denominador de ambas <strong>nunca incluye clientes nuevos, y el numerador tampoco</strong>.</p>
+
+      <h3>Cómo se manipulan</h3>
+
+      <h4>El «lazy NRR»</h4>
+      <p>Es la manipulación más frecuente y la más difícil de detectar desde fuera. El NRR correcto compara la cohorte de hace doce meses contra sí misma. El lazy NRR toma el ARR inicial, le suma toda la expansión neta del período y divide entre el ARR inicial. El defecto es letal: esa expansión incluye la de clientes firmados durante el año, que no están en el denominador. El numerador se infla. Dave Kellogg, que acuñó el término, insiste en que se calcule siempre con cortes de cohorte. La magnitud del sesgo no está cuantificada en ninguna fuente disponible.</p>
+
+      <h4>Las exclusiones discrecionales</h4>
+      <p>Ordway revisó 135 empresas públicas: de las 97 que reportan retención, <strong>48 —prácticamente la mitad— usan ajustes discrecionales a su fórmula</strong>, y se identificaron ocho fórmulas distintas en uso. Lo más excluido: cuotas por uso, servicios profesionales, contratos mensuales y pay-as-you-go, y segmentos enteros de clientes.</p>
+      <p>Los ejemplos concretos ilustran hasta qué punto los números no son comparables. Snowflake usa ventana de dos años y deja dentro del cálculo, contribuyendo cero, a los clientes que dejaron de usar la plataforma —tratamiento honesto. Zoom mide <strong>sólo clientes enterprise</strong> y su fórmula resta el ARR de churn del denominador, lo que infla mecánicamente el ratio. Confluent excluye explícitamente servicios y arreglos pay-as-you-go.</p>
+
+      <h4>Las ventanas de medición</h4>
+      <p>SaaS Capital documenta un caso de una empresa con GRR anual de 87.5% que, vista mes a mes, tuvo un trimestre con GRR de 50%: el promedio anual ocultó el evento. También advierte contra anualizar el churn mes contra mes previo, que produce falsa precisión —un mes sin pérdidas da «100% anualizado» y perder un solo cliente da «35%».</p>
+
+      <h4>La contaminación del cálculo</h4>
+      <p>Si se agregan los totales antes de comparar cliente por cliente, las ganancias de unos encubren las pérdidas de otros. El cálculo correcto es por cliente y después se suma. Y el ingreso variable distorsiona: SaaS Capital estima que un modelo con 95% de ingreso por suscripción muestra un GRR uno o dos puntos más bajo por el componente de uso, y uno con 75% de suscripción, entre cinco y ocho puntos más bajo.</p>
+
+      <h3>La brecha entre NRR y GRR</h3>
+      <p>Es la herramienta diagnóstica más útil de toda esta sección, y casi nadie la usa.</p>
+      <div class="formula">Brecha = NRR − GRR</div>
+      <p>Según SaaS Capital la brecha promedio es de algo más de doce puntos porcentuales, con rango normal entre ocho y veinte. Menos de cinco puntos ocurre en menos del 10% de las empresas e indica que no hay motor de expansión. Más de veinte es anormal y más de treinta es raro.</p>
+      <p>Una empresa con NRR de 115% y GRR de 85% —brecha de treinta— está rellenando una fuga grande con expansión agresiva en las cuentas que sobreviven. Es frágil: si la expansión se detiene por recesión o saturación de asientos, el NRR colapsa hacia 85%. Una empresa con NRR de 108% y GRR de 95% —brecha de trece— es estructuralmente más sólida aunque su NRR titular sea menor.</p>
+
+      <p class="pull">Nunca se evalúa un NRR sin su GRR.</p>
+
+      <h3>Dónde están los números hoy</h3>
+
+      <div class="tw">
+      <table>
+        <caption>Privadas B2B por banda de ACV · SaaS Capital, encuesta 2023, n &gt; 1,500</caption>
+        <thead><tr><th>ACV anual</th><th>NRR mediana</th><th>GRR mediana</th></tr></thead>
+        <tbody>
+          <tr><td>Menos de 12 mil USD</td><td>100%</td><td>90%</td></tr>
+          <tr><td>25 a 50 mil USD</td><td>103%</td><td>93%</td></tr>
+          <tr><td>100 a 250 mil USD</td><td>107%</td><td>93%</td></tr>
+          <tr><td>Más de 250 mil USD</td><td>110%</td><td>93%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>El gradiente es el hallazgo: cada escalón de ACV compra alrededor de dos puntos de NRR, porque las soluciones caras implican ciclos de venta, implementación y soporte más largos, y eso las vuelve más pegajosas.</p>
+
+      <p>Las medianas agregadas recientes: GRR privado de 88%, bajando desde 90%, y NRR privado de 101% (Benchmarkit, 2025); NRR de 103% y GRR de 91% en empresas bootstrapped de tres a veinte millones de ARR (SaaS Capital, encuesta 2026). La expansión ya aporta 40% del ARR nuevo total, y entre 50% y 67% en empresas de más de cincuenta millones. En públicas, la mediana de NRR es de 110%, contra un «best in class» que era de 120 a 125% en 2021.</p>
+
+      <h3>El dato más inquietante del ciclo</h3>
+      <p>Viene de ChartMogul, que mide 3,500 empresas de ticket bajo. En el segmento nativo de inteligencia artificial, el GRR mediano es de 40% y el NRR de 48%. Desagregado por precio:</p>
+
+      <div class="tw">
+      <table>
+        <caption>Empresas AI-native por precio mensual · ChartMogul, 2025</caption>
+        <thead><tr><th>Precio</th><th>GRR</th><th>NRR</th></tr></thead>
+        <tbody>
+          <tr><td>Más de 250 USD al mes</td><td>70%</td><td>85%</td></tr>
+          <tr><td>50 a 249 USD al mes</td><td>45%</td><td>61%</td></tr>
+          <tr><td>Menos de 50 USD al mes</td><td>23%</td><td>32%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Un negocio que retiene 23% de su ingreso a doce meses no tiene ingreso recurrente. Tiene ingreso transaccional con facturación mensual, y debe reemplazar más de tres cuartas partes de su base cada año sólo para quedarse plano. Cualquier ARR que reporte es una extrapolación de una base que se evapora.</p>
+
+      <p>El deterioro general desde 2021 es amplio y continúa: el crecimiento del software público pasó de 30 a 40% durante la década hasta 2021 a 16% interanual; el GRR privado de cerca de 90% a 88%; el período de recuperación del costo de adquisición subió 12.5% en la mediana desde 2022.</p>
+    </section>
+
+    <section id="unit">
+      <h2 class="sec">Unit economics</h2>
+
+      <h3>Costo de adquisición y su período de recuperación</h3>
+      <div class="formula">CAC = gasto total de ventas y marketing del período / clientes nuevos
+
+CAC Ratio = gasto S&amp;M del período / ARR nuevo de clientes nuevos
+
+CAC Payback (meses) = CAC / (ingreso mensual por cuenta × margen bruto)</div>
+
+      <p>La distinción crítica es entre CAC <strong>pagado</strong> y CAC <strong>mezclado</strong>. El mezclado incluye clientes orgánicos y referidos, y oculta la rentabilidad del canal de pago. Como advierte a16z, puede costar un dólar adquirir a los primeros mil usuarios y dos dólares a los siguientes diez mil: el CAC se degrada con la escala, y un CAC mezclado bajo en etapa temprana es casi siempre un artefacto del componente orgánico.</p>
+
+      <p>Los números actuales: el CAC ratio mediano de privadas es de <strong>dos dólares de gasto comercial por cada dólar de ARR nuevo</strong>, catorce por ciento peor que el año anterior, con el peor cuartil en 2.82. El payback ajustado por margen bruto —que Bessemer quiere por debajo de doce meses en pequeña empresa, dieciocho en mercado medio y veinticuatro en corporativo— está hoy en la mediana pública en el orden de <strong>36 a 44 meses</strong> según la fuente y la semana de medición. Esa dispersión es de definición y universo, no un error, y las cifras no deben promediarse; pero la dirección es inequívoca en todos los cortes desde 2021.</p>
+
+      <p class="pull">Si el payback es de tres o cuatro años y la vida del cliente es de cinco, el negocio no funciona y el crecimiento destruye valor.</p>
+
+      <h3>Por qué LTV/CAC es una métrica tramposa</h3>
+      <div class="formula">LTV = margen de contribución × (1 / tasa de churn)</div>
+
+      <ol>
+        <li><strong>Es una división entre un número pequeño y mal estimado.</strong> Con churn mensual de 2% el LTV implícito es cincuenta meses; con 1%, cien meses. Un error de un punto porcentual duplica el resultado.</li>
+        <li><strong>Supone churn constante, y el churn no lo es.</strong> El patrón real documentado por Point Nine es de 4 a 5% en los primeros meses cayendo a 2 o 3% después. Aplicar una tasa promedio única a una curva decreciente subestima el LTV de los sobrevivientes y sobrestima el de los nuevos, simultáneamente.</li>
+        <li><strong>Requiere una muestra que las empresas jóvenes no tienen.</strong> El LTV pide entre tres y siete años de datos; el CAC payback da una métrica validada en catorce a dieciocho meses.</li>
+        <li><strong>Sufre sesgo de supervivencia</strong>, porque se calcula sobre la base actual de clientes, que por construcción excluye a los que ya se fueron.</li>
+        <li><strong>El numerador y el denominador se mueven juntos.</strong> Recortar gasto comercial baja el CAC y mejora el ratio, pero empeora la mezcla de clientes adquiridos. Un 3x logrado recortando marketing no es el mismo negocio que un 3x logrado con producto pegajoso.</li>
+      </ol>
+
+      <p>La posición razonable es tratar el LTV/CAC como una restricción de sanidad de largo plazo, nunca como métrica de decisión, y juzgar el negocio con <strong>CAC payback, GRR y burn multiple</strong>, que son observables en horizontes cortos. Damodaran refuerza el punto desde la valuación: el valor de un suscriptor se construye desde ingreso anual por suscriptor, ratio de gasto de servicio y tasas de renovación explícitas, y la opacidad sobre el churn señala modelos insostenibles —su ejemplo canónico es MoviePass, que cobraba diez dólares al mes y pagaba alrededor de nueve por cada boleto.</p>
+
+      <h3>Las dos métricas de eficiencia que sí sirven</h3>
+      <div class="formula">Magic Number = (revenue del trimestre − revenue del trimestre previo) × 4
+               ─────────────────────────────────────────────────────────
+                        gasto S&amp;M del trimestre ANTERIOR
+
+Burn Multiple = caja neta quemada / ARR neto nuevo</div>
+
+      <p>El magic number por debajo de 0.75 indica ineficiencia; arriba de 1.0, eficiencia suficiente para acelerar. Como usa ingreso contable incremental, es ruidoso en negocios estacionales o con contratos largos: conviene usarlo en promedio móvil de cuatro trimestres.</p>
+
+      <p>El burn multiple —creado por David Sacks en Craft Ventures en abril de 2020, no por Bessemer, como suele citarse mal— es probablemente la mejor métrica única de eficiencia, porque es el cociente de dos números difíciles de manipular y castiga el churn directamente al usar ARR <strong>neto</strong>. Las categorías de Sacks, que él mismo presenta como reglas de pulgar: hasta 0.5x es excepcional, de 0.5 a 1.0 muy bueno, de 1.0 a 2.0 bueno, de 2.0 a 3.0 sospechoso, arriba de 3.0 malo.</p>
+
+      <h3>Márgenes: la comparación que casi todos hacen mal</h3>
+
+      <div class="tw">
+      <table>
+        <caption>Damodaran, NYU Stern · enero de 2026 · universo Estados Unidos</caption>
+        <thead><tr><th>Industria</th><th>Firmas</th><th>Margen bruto</th><th>Margen operativo</th></tr></thead>
+        <tbody>
+          <tr><td>Software de sistema y aplicación</td><td>309</td><td>71.7%</td><td>40.8%</td></tr>
+          <tr><td>Telecom inalámbrico</td><td>12</td><td>63.0%</td><td>22.0%</td></tr>
+          <tr><td>TV por cable</td><td>9</td><td>62.9%</td><td>19.6%</td></tr>
+          <tr><td>Servicios de telecomunicaciones</td><td>39</td><td>58.8%</td><td>21.1%</td></tr>
+          <tr><td>Entretenimiento</td><td>92</td><td>41.4%</td><td>13.3%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>La diferencia entre 72% y 59% <strong>no es una diferencia de calidad del negocio sino de intensidad de capital</strong>. Telecom tiene ingreso recurrente extraordinariamente predecible —churn bajo, contratos, costos de cambio— pero exige capex continuo que no aparece en el margen bruto. Los negocios recurrentes se comparan por flujo libre y retorno sobre capital invertido, no por margen bruto.</p>
+    </section>
+
+    <section id="regla40">
+      <h2 class="sec">La Rule of 40 está calibrada a un régimen que ya murió</h2>
+
+      <div class="formula">Rule of 40 = crecimiento (%) + margen de rentabilidad (%) ≥ 40</div>
+
+      <p>El problema empieza en que <strong>ninguna de las dos variables está estandarizada</strong>. El crecimiento puede ser de ARR, de ingreso contable o de ingreso de los próximos doce meses. La rentabilidad puede ser EBITDA, margen operativo contable o no contable, o margen de flujo libre. La convención dominante en públicas es crecimiento de ingreso más margen de flujo libre.</p>
+
+      <p>Esa ambigüedad es explotable. Una empresa puede reportar su Rule of 40 con margen de flujo libre —favorecido por el cobro anticipado y por excluir la compensación en acciones— cuando su margen operativo contable es profundamente negativo. Y un margen de flujo libre alto en software puede venir simplemente de facturar el año por adelantado: eso es un beneficio de capital de trabajo, no de rentabilidad, y <strong>no se repite una vez que la base de clientes deja de crecer</strong>.</p>
+
+      <h3>Qué evidencia hay realmente</h3>
+      <p>Kellogg afirmó en 2017 que la regla explica casi la mitad de la valuación, sin publicar coeficiente de determinación ni metodología. Meritech presentó en 2023 una estratificación limpia: puntaje arriba de 60 asociado a múltiplos de alrededor de 11 veces el ingreso, puntaje debajo de 20 asociado a 3.8 veces. La única R² formal identificable es de Meritech: <strong>0.62 para un Rule of 40 ponderado donde el crecimiento vale el triple del margen</strong>, sobre cerca de cien empresas públicas. Dos variables explican el 62% de la dispersión transversal de múltiplos; el 38% restante es todo lo demás.</p>
+
+      <p>Nnamdi Iregbulem corrió tres regresiones y encontró que en corte transversal simple el crecimiento pesa entre 2.5 y 6 veces más que el margen, pero que al introducir efectos fijos ambos pesan igual. No publica R², tamaños de muestra ni significancia, así que el resultado no es evaluable econométricamente; se cita porque es el único intento público serio de descomponer la regla.</p>
+
+      <h3>La evidencia que invalida su uso escalar</h3>
+      <p>Meritech publicó el 28 de agosto de 2026 el hallazgo decisivo: con el mismo Rule of 40, las empresas de <strong>alto crecimiento y bajo margen cotizan a 11.4 veces el ingreso y las de bajo crecimiento y alto margen a 4.2 veces</strong>.</p>
+
+      <p class="pull">Dos compañías con idéntico puntaje valen casi tres veces distinto según de dónde venga el puntaje.</p>
+
+      <p>A eso se suma que la barra se mueve con las tasas. Kellogg lo argumentó en marzo de 2026: cuando el precio prevaleciente del software cae de 30 a 15 veces EBITDA, el modelo no se dobla, se rompe. Su propuesta es que la barra efectiva se movió a 60 —veinte por ciento de crecimiento más cuarenta de margen EBITDA.</p>
+
+      <div class="note"><b>Conclusión operativa.</b> Sirve para descartar en una primera pasada, no para decidir.</div>
+    </section>
+
+    <section id="cohortes">
+      <h2 class="sec">Cohortes: el único lugar donde el churn no se puede esconder</h2>
+
+      <p>Una tabla de cohortes agrupa clientes por el mes en que entraron —una fila por cohorte— y muestra su ingreso a lo largo del tiempo. El formato preferido alinea las columnas por mes de vida del cliente en lugar de por mes calendario, para poder comparar cohortes a igual madurez.</p>
+
+      <p>Se lee en tres direcciones. <strong>Horizontalmente</strong>, dentro de una cohorte, para ver si el churn se estabiliza conforme el cliente madura. <strong>Verticalmente</strong>, entre cohortes al mismo mes de vida, para ver si las cohortes recientes retienen mejor que las viejas —ésta es la lectura más informativa, porque mide si el producto y el motor de adquisición están mejorando. Y <strong>en diagonal</strong>, para ver qué parte del ingreso total viene de cada cohorte.</p>
+
+      <div class="tw">
+      <table>
+        <caption>Diagnóstico por combinación de churn</caption>
+        <thead><tr><th>Churn de logos</th><th>Churn de ingreso</th><th>Lectura</th></tr></thead>
+        <tbody>
+          <tr><td>Alto</td><td>Bajo</td><td>Se van los clientes pequeños; puede ser sano</td></tr>
+          <tr><td>Bajo</td><td>Alto</td><td>Se van las cuentas grandes o hay downgrade masivo; alarma</td></tr>
+          <tr><td>Alto</td><td>Alto</td><td>No hay ajuste producto-mercado</td></tr>
+          <tr><td>Bajo</td><td>Bajo</td><td>Sano</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>El patrón sano</h3>
+      <p>Tiene cuatro rasgos: las curvas de cohorte se aplanan en lugar de decaer indefinidamente; las cohortes recientes están por encima de las antiguas al mismo mes de vida; en consumo aparece la «sonrisa» —churn temprano seguido de una base estable cuyo ingreso crece por mejoras de plan—; y entre empresas, la cohorte que supera el 100% de su ARR inicial, que es la definición de churn neto negativo.</p>
+
+      <h3>El patrón enfermo</h3>
+      <p>Tiene una firma inconfundible: el ingreso total crece linealmente mientras cada cohorte individual decae y ninguna se estabiliza. Es un negocio que rellena la fuga con clientes nuevos. Tres pruebas para detectarlo:</p>
+
+      <h4>Aislar la diagonal</h4>
+      <p>Si más de la mitad del ingreso mensual actual viene de cohortes de los últimos doce meses en un negocio maduro, el motor es adquisición, no retención. Es una máquina de marketing con envoltura de suscripción.</p>
+
+      <h4>Congelar mentalmente la adquisición</h4>
+      <p>Proyectar cada cohorte existente hacia adelante con su curva de decaimiento observada, sin añadir clientes nuevos. Si el ingreso cae rápido, el ingreso recurrente no era recurrente. Es exactamente el cálculo que hace Damodaran al separar el valor de los suscriptores existentes del valor de los suscriptores futuros.</p>
+
+      <h4>Contrastar contra el NRR titular</h4>
+      <p>Si el NRR reportado es 110% pero ninguna cohorte de la tabla llega a 100% de su ARR inicial, el NRR reportado es lazy NRR.</p>
+
+      <div class="note"><b>Advertencia de a16z.</b> Los gráficos acumulados siempre suben independientemente del deterioro del negocio. «Clientes totales desde el inicio» o «ARR acumulado facturado» son monótonos crecientes por construcción. Son el instrumento favorito de las presentaciones que ocultan churn: se pide la tabla de cohortes y se rechaza el acumulado.</div>
+    </section>
+
+    <section id="aritmetica">
+      <h2 class="sec">La aritmética de la valuación</h2>
+      <p class="lede">Ésta es la sección que justifica todas las anteriores.</p>
+
+      <h3>El múltiplo es una perpetuidad disfrazada</h3>
+      <div class="formula">EV = Ingreso × m / (WACC − g)      ⇒      EV/Ingreso = m / (WACC − g)</div>
+      <p>donde <span style="font-family:var(--mono);font-size:.92em">m</span> es el margen de caja sobre ingreso y <span style="font-family:var(--mono);font-size:.92em">g</span> el crecimiento perpetuo. Es Gordon aplicado a la línea de arriba en vez de al dividendo. El dólar de <strong>proyecto</strong> no entra en esta fórmula porque no se repite: su valor presente es simplemente su margen de caja.</p>
+
+      <p>Usando el costo de capital del software de sistema y aplicación —9.34%, Damodaran, enero de 2026— y un margen de caja idéntico de 20% en ambos modelos, para aislar el efecto de la persistencia:</p>
+
+      <div class="tw">
+      <table>
+        <caption>Valor presente de un dólar recurrente contra un dólar de proyecto</caption>
+        <thead><tr><th>Churn bruto anual</th><th>Vida media del cliente</th><th>Valor presente por dólar</th><th>Veces el dólar de proyecto</th></tr></thead>
+        <tbody>
+          <tr><td>30%</td><td>3.3 años</td><td>0.51</td><td>2.5x</td></tr>
+          <tr><td>20%</td><td>5.0 años</td><td>0.68</td><td>3.4x</td></tr>
+          <tr><td>15%</td><td>6.7 años</td><td>0.82</td><td>4.1x</td></tr>
+          <tr><td>10%</td><td>10.0 años</td><td>1.03</td><td>5.2x</td></tr>
+          <tr><td>5%</td><td>20.0 años</td><td>1.39</td><td>7.0x</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="verified">Verificado numéricamente</p>
+
+      <p>La persistencia, por sí sola, vale entre dos y siete veces. Ése es el premio real del ingreso recurrente, y es grande pero finito.</p>
+
+      <p>Hay una trampa lógica que conviene ver de frente. Con NRR de 110% —la mediana pública actual— la expansión neta es de 10% y el denominador se vuelve negativo: el modelo diverge, el valor es infinito. El mercado obviamente no capitaliza el NRR a perpetuidad. El NRR alto es un fenómeno de cohorte que decae; quien lo extrapola a perpetuidad no está valuando, está dividiendo por cero.</p>
+
+      <h3>El techo duro: sin crecimiento no hay múltiplo alto</h3>
+      <div class="formula">Múltiplo máximo sin crecimiento = m / WACC = m × 10.71</div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>Margen de flujo libre</th><th>Múltiplo máximo sin crecimiento</th></tr></thead>
+        <tbody>
+          <tr><td>21% (mediana pública actual)</td><td>2.25x</td></tr>
+          <tr><td>25%</td><td>2.68x</td></tr>
+          <tr><td>30%</td><td>3.21x</td></tr>
+          <tr><td>35%</td><td>3.75x</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p class="pull">Cualquier múltiplo por encima de unas 3 veces el ARR es cien por ciento expectativa de crecimiento. No importa cuán persistente sea el ingreso: una perpetuidad plana con 30% de margen de caja vale 3.2x y punto.</p>
+
+      <h3>Qué embebe un múltiplo de 8 veces el ARR</h3>
+      <p>Tomemos una empresa con 100 millones de ARR valuada en 800 millones.</p>
+
+      <p>Por Gordon simple, con margen terminal de 30% el crecimiento perpetuo implícito es de <strong>5.59%</strong>, muy por encima del PIB nominal de largo plazo: la empresa se comería la economía. Fijando en cambio un crecimiento perpetuo defendible de 3%, el margen de flujo libre terminal requerido es de <strong>50.7%</strong>, contra una mediana pública actual de 21%.</p>
+
+      <p>La perpetuidad simple no puede racionalizar 8x. Hace falta un modelo de dos etapas donde el crecimiento esté cargado al frente. Con crecimiento de 20% en el año uno decayendo linealmente a 4% en el año diez, margen de flujo libre subiendo de 10% a 30% en el mismo período, WACC de 9.34% y crecimiento terminal de 3%:</p>
+
+      <div class="formula">Valor presente de los 10 años explícitos       =   262.9
+Valor presente del valor terminal              =   613.4
+─────────────────────────────────────────────────────────
+Enterprise value                               =   876.3
+Múltiplo sobre ARR inicial                     =   8.76x</div>
+      <p class="verified">Verificado numéricamente · el crecimiento del año uno que da exactamente 8.00x es 17.79%</p>
+
+      <p class="pull">Ocho veces ARR significa que esta empresa crece dieciocho por ciento el próximo año, desacelera linealmente a cuatro por ciento en una década, expande su margen de flujo libre de diez a treinta por ciento, y luego crece tres por ciento para siempre, descontado al 9.3%.</p>
+
+      <p>Si no se cree ese enunciado completo, no se debe pagar ocho veces. Y <strong>el valor terminal es el 70% del enterprise value</strong>: ésa es la definición operativa de un activo de duración larga, y explica la sensibilidad brutal a la tasa de descuento.</p>
+
+      <div class="tw">
+      <table>
+        <caption>Múltiplo implícito según costo de capital · margen terminal 30%</caption>
+        <thead><tr><th>WACC</th><th>Múltiplo implícito</th></tr></thead>
+        <tbody>
+          <tr><td>8.44%</td><td>10.54x</td></tr>
+          <tr><td>9.34%</td><td>8.76x</td></tr>
+          <tr><td>10.24%</td><td>7.44x</td></tr>
+          <tr><td>11.00%</td><td>6.57x</td></tr>
+          <tr><td>13.00%</td><td>4.93x</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Noventa puntos base de más en el costo de capital recortan el múltiplo 15%; noventa menos lo suben 20%. Y el bono del Tesoro a diez años pasó de 4.1% en noviembre de 2025 a 5.0% el 11 de septiembre de 2026. Buena parte de lo que los comités de inversión atribuyeron a «deterioro de fundamentales» durante 2026 fue aritmética de descuento.</p>
+
+      <div class="note"><b>Una creencia que conviene corregir.</b> Se dice que el ingreso recurrente tiene beta baja. Los datos de Damodaran de enero de 2026 dicen otra cosa para el software: beta desapalancada de 1.23 en software de sistema y aplicación, contra 1.09 en ingeniería y construcción, que es el negocio de proyecto por excelencia. La formulación correcta es que el flujo <em>operativo</em> de una suscripción es menos cíclico —y eso sí se ve en telecomunicaciones con 0.37, seguros de daños con 0.44 y gestión de activos con 0.53— pero el <em>equity</em> de un software en crecimiento tiene beta alta porque su valor está concentrado en flujos lejanos. La persistencia baja la beta operativa; el crecimiento la sube vía duración.</div>
+
+      <h3>Cuánto del precio es lo que la empresa ya tiene</h3>
+
+      <figure>
+        <p class="fig-title">Un múltiplo de 8x ARR, desarmado</p>
+        <p class="fig-sub">Churn bruto 10% · margen de caja 30% · WACC 9.34%</p>
+        <svg viewBox="0 0 560 168" role="img" aria-label="Barra apilada: de un múltiplo de 8 veces el ARR, alrededor de 1.5 veces corresponde al libro de clientes ya contratado y 6.5 veces a crecimiento futuro.">
+          <defs>
+            <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <rect width="7" height="7" fill="var(--gold-tint)"></rect>
+              <line x1="0" y1="0" x2="0" y2="7" stroke="var(--gold-2)" stroke-width="1.6" opacity=".7"></line>
+            </pattern>
+          </defs>
+          <!-- scale: 0 to 8x across 480px starting at x=40 -->
+          <line x1="40" y1="96" x2="520" y2="96" stroke="var(--rule-strong)" stroke-width="1"></line>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-3)">
+            <text x="40" y="112" text-anchor="middle">0x</text>
+            <text x="160" y="112" text-anchor="middle">2x</text>
+            <text x="280" y="112" text-anchor="middle">4x</text>
+            <text x="400" y="112" text-anchor="middle">6x</text>
+            <text x="520" y="112" text-anchor="middle">8x</text>
+          </g>
+          <!-- installed book: 1.55x -> width 93 -->
+          <rect x="40" y="48" width="93" height="40" rx="3" fill="var(--brand-2)"></rect>
+          <!-- growth option: remaining 6.45x -> width 387, 2px gap -->
+          <rect x="135" y="48" width="385" height="40" rx="3" fill="url(#hatch)" stroke="var(--gold-2)" stroke-width="1"></rect>
+          <g font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--ink)">
+            <text x="86" y="38" text-anchor="middle" font-weight="600">1.5x</text>
+            <text x="327" y="38" text-anchor="middle" font-weight="600">6.5x</text>
+          </g>
+          <g font-family="IBM Plex Sans, sans-serif" font-size="11" fill="var(--ink-2)">
+            <text x="40" y="140">Ya contratado</text>
+            <text x="40" y="155" font-size="10.5" fill="var(--ink-3)">19% del precio</text>
+            <text x="300" y="140">Ventas que todavía no existen</text>
+            <text x="300" y="155" font-size="10.5" fill="var(--ink-3)">81% del precio</text>
+          </g>
+        </svg>
+        <div class="legend">
+          <span><span class="swatch" style="background:var(--brand-2)"></span>Valor descontado del libro de clientes actual</span>
+          <span><span class="swatch" style="background:var(--gold-tint);border:1px solid var(--gold-2)"></span>Opción sobre crecimiento futuro</span>
+        </div>
+        <figcaption>Descontando el ARR actual mientras se erosiona por churn bruto, el libro instalado vale entre 1.2x y 1.7x según el churn y la convención de cálculo. En un múltiplo de ocho veces, eso es entre el 15% y el 20% del precio.</figcaption>
+      </figure>
+
+      <p class="pull">«El ingreso recurrente es predecible» es verdad sobre una quinta parte del precio y falso sobre las otras cuatro. Quien compra recurrente por la seguridad del flujo está comprando un activo de crecimiento con una base contractual pequeña.</p>
+
+      <h3>El riesgo dominante: compresión por desaceleración</h3>
+
+      <figure>
+        <p class="fig-title">Múltiplo por bucket de crecimiento</p>
+        <p class="fig-sub">Software público · EV / ingreso próximos 12 meses · 11 de septiembre de 2026</p>
+        <svg viewBox="0 0 560 210" role="img" aria-label="Barras: las empresas que crecen más de 22% cotizan a 17.1 veces el ingreso, las que crecen entre 15 y 22% a 6.1 veces, y las que crecen menos de 15% a 3.3 veces.">
+          <!-- scale: 0 to 18x across 380px from x=170 -->
+          <g font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--ink-2)">
+            <text x="0" y="40">Crece &gt; 22%</text>
+            <text x="0" y="100">Crece 15–22%</text>
+            <text x="0" y="160">Crece &lt; 15%</text>
+          </g>
+          <line x1="150" y1="16" x2="150" y2="184" stroke="var(--rule-strong)" stroke-width="1"></line>
+          <rect x="150" y="20" width="361" height="30" rx="3" fill="var(--brand-2)"></rect>
+          <rect x="150" y="80" width="129" height="30" rx="3" fill="var(--brand-2)" opacity=".7"></rect>
+          <rect x="150" y="140" width="70" height="30" rx="3" fill="var(--brand-2)" opacity=".45"></rect>
+          <g font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="var(--ink)">
+            <text x="517" y="40">17.1x</text>
+            <text x="289" y="100">6.1x</text>
+            <text x="230" y="160">3.3x</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-3)">
+            <text x="150" y="200">0x</text>
+            <text x="361" y="200" text-anchor="middle">10x</text>
+            <text x="529" y="200" text-anchor="middle">18x</text>
+          </g>
+        </svg>
+        <figcaption>Cruzar de 15% a 22% de crecimiento —siete puntos porcentuales— casi triplica el múltiplo. Esa no linealidad es el fenómeno central de la valuación de software, y funciona igual de brutalmente en reversa.</figcaption>
+      </figure>
+
+      <div class="formula">Compra a 17.1x con ARR 100                                    →  EV 1,710
+Un año después: ARR 120 (+20%), pero cayó al bucket medio      →  EV   732
+                                                                  ─────────
+                                                                    −57%</div>
+      <p class="verified">Verificado numéricamente</p>
+
+      <p>Dos años de desaceleración desde el bucket alto hasta el bajo, con el ARR acumulando +40%, dan <strong>−73%</strong>. Y para empatar el enterprise value cuando el múltiplo cae de 17.1x a 6.1x, el ARR tendría que crecer <strong>180%</strong> en un año. Nadie hace eso.</p>
+
+      <div class="note"><b>Corolario.</b> Cuando se compra a múltiplo de bucket alto, la tesis no es «esta empresa va a crecer». La tesis obligatoria es «esta empresa va a seguir creciendo arriba de 22% durante todo mi horizonte de tenencia». Son afirmaciones distintas y la segunda es muchísimo más fuerte, sobre todo cuando el crecimiento mediano del sector es de 13% y la reversión a la media es la norma estadística.</div>
+
+      <h3>La depuración del ARR se traslada al precio multiplicada</h3>
+      <p>Los rubros que un comprador serio saca del ARR reportado: servicios profesionales e implementación, que no renuevan; pilotos pagados sin obligación de renovación; clientes que ya dieron aviso de terminación; consumo por encima del mínimo comprometido; y contratos con cláusula de terminación por conveniencia.</p>
+
+      <div class="formula">ARR reportado                                    20.00 M   → EV a 7x = 140.0 M
+  − servicios profesionales e implementación     −2.10
+  − pilotos pagados sin renovación               −0.61
+  − clientes con aviso de terminación            −0.90
+  − consumo sobre el mínimo comprometido         −0.59
+────────────────────────────────────────────────────────
+ARR comprometido depurado                        15.80 M   → EV a 7x = 110.6 M
+                                                             Diferencia: −29.4 M</div>
+
+      <p>Un veintiuno por ciento de ARR depurado cuesta veintiún por ciento del precio. <strong>Un punto de ARR falso a siete veces cuesta siete puntos de precio.</strong> Por eso la diligencia de calidad del ingreso tiene el mejor retorno de toda la diligencia en una operación de software.</p>
+    </section>
+
+    <section id="mercado">
+      <h2 class="sec">Dónde está el mercado en septiembre de 2026</h2>
+
+      <div class="tw">
+      <table>
+        <caption>Cuatro fuentes con metodología publicada, cuatro denominadores distintos</caption>
+        <thead><tr><th>Fuente</th><th>Métrica</th><th>Múltiplo</th><th>Fecha</th></tr></thead>
+        <tbody>
+          <tr><td>Clouded Judgement (~100 empresas)</td><td>EV / ingreso próximos 12 meses</td><td>4.0x</td><td>11-sep-2026</td></tr>
+          <tr><td>Meritech</td><td>EV / ARR implícito</td><td>4.7x</td><td>28-ago-2026</td></tr>
+          <tr><td>Software Equity Group (106 empresas)</td><td>EV / ingreso últimos 12 meses</td><td>3.2x</td><td>2T-2026</td></tr>
+          <tr><td>Aventis Advisors</td><td>EV / ingreso</td><td>4.6x</td><td>ago-2026</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Describen en gran medida la misma realidad medida de forma distinta. Nunca se mezcla el numerador de una fuente con el denominador de otra.</p>
+
+      <p>El arco histórico, medido en múltiplo de ARR: entre 2014 y 2019 el rango normal era de 6 a 10 veces; la burbuja de 2020 a 2022 llegó a un pico de alrededor de 16, con percentil 75 arriba de 25; entre 2023 y 2025 el rango fue de 6 a 8; en 2026 se tocaron mínimos de más de una década en el primer trimestre, con recuperación parcial después.</p>
+
+      <p>Las métricas operativas medianas del software público al 11 de septiembre de 2026: crecimiento de 13% a doce meses, margen bruto de 76%, <strong>margen operativo contable de 2%</strong>, margen de flujo libre de 21%, retención neta de 110%, período de recuperación del costo de adquisición de 44 meses. Sólo catorce compañías cotizan arriba de 10 veces el ingreso y el 64% cotiza debajo de 5.</p>
+
+      <p class="pull">El software no está barato. Está creciendo menos.</p>
+
+      <p>El múltiplo ajustado por crecimiento de Meritech está en 0.31 contra 0.30 en el promedio anterior a la era de tasas cero —esencialmente en línea. El crecimiento mediano cayó de más de 30% en 2021 a 13% hoy, y a múltiplo ajustado por crecimiento constante eso solo explica casi toda la compresión.</p>
+
+      <h3>Qué mueve el múltiplo</h3>
+      <p>La evidencia de Meritech es directa y está publicada: en su regresión de dos factores, <strong>el crecimiento está 4.1 veces más correlacionado con el múltiplo que el margen de flujo libre</strong> —un punto porcentual de crecimiento equivale a 4.1 puntos de margen. Pero esa ponderación es inestable en el tiempo, y ése es un hallazgo de primer orden:</p>
+
+      <div class="tw">
+      <table>
+        <caption>Cuántas veces pesa el crecimiento sobre el margen de flujo libre</caption>
+        <thead><tr><th>Momento</th><th>Ponderación</th></tr></thead>
+        <tbody>
+          <tr><td>Era COVID, 2021</td><td>11x</td></tr>
+          <tr><td>2023</td><td>3x</td></tr>
+          <tr><td>Abril de 2026</td><td>2.9x</td></tr>
+          <tr><td>Agosto de 2026</td><td>4.1x</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>El mercado rotó de pagar crecimiento a cualquier precio, a castigarlo, a volver a premiarlo con la ola de inteligencia artificial. <strong>Un múltiplo de ARR no es un parámetro estructural; es un precio que refleja la preferencia temporal del momento.</strong></p>
+
+      <h3>Mercado privado</h3>
+      <p>La serie de Aventis sobre 543 transacciones con múltiplo revelado muestra una mediana histórica de 4.5 veces, con pico de 6.3 en 2021 y mínimo de 2.9 en 2024. Nótese que cuando el público estaba a 16 veces en 2021, el M&amp;A privado estaba a 6.3: <strong>el mercado privado nunca participó de la burbuja en la misma magnitud</strong>.</p>
+
+      <p>Hay además un escalón discreto alrededor de los cincuenta millones de valor de transacción: debajo, de 3.0 a 3.3 veces; arriba, de 5.1 a 6.2. Duplicar el múltiplo al cruzar ese umbral se explica por acceso a compradores estratégicos y fondos institucionales, procesos competitivos reales y menor descuento por iliquidez y dependencia del fundador.</p>
+
+      <p>El descuento privado respecto al público era de 24 a 31% en enero de 2025 —público 7.0x, privado con respaldo de capital 5.3x, bootstrapped 4.8x. No es una constante: se ensancha cuando el público está caro y se comprime cuando está barato. De hecho en el segundo trimestre de 2026, en la muestra de Software Equity Group, <strong>se invirtió</strong>: la mediana de M&amp;A privada, 4.0x, quedó por encima de su propia mediana pública, 3.2x. Es consistente con un público deprimido por el miedo a la disrupción de la inteligencia artificial y tasas de 5%, mientras el M&amp;A privado lo sostiene capital de private equity que debe desplegarse —59% de las transacciones involucró compradores de capital privado o respaldados por capital de riesgo.</p>
+    </section>
+
+    <section id="casos">
+      <h2 class="sec">Siete casos, la misma pregunta</h2>
+
+      <div class="case">
+        <span class="tag">Software corporativo · suscripción</span>
+        <h3>ServiceNow — el caso limpio</h3>
+        <p>Segundo trimestre de 2026: ingreso de 3,987 millones de dólares, alza de 24%; suscripción de 3,877 millones, alza de 24.5%. cRPO de 13.20 mil millones, alza de 21%; RPO total de 29.0 mil millones. Margen bruto de suscripción no contable de 80.5% y guía de flujo libre de 35% para el año.</p>
+        <p>No publica retención neta sino tasa de renovación: <strong>98% en el segundo trimestre de 2026</strong>, contra 99% en 2022 y 98% en 2025. Deterioro nulo o marginal en cuatro años. La expansión es visible en 658 clientes con más de cinco millones de valor anual de contrato, un alza de 23%.</p>
+        <p>Crecimiento de 24% sobre una base de dieciséis mil millones, backlog contratado creciendo casi tan rápido como el ingreso, renovación estable y un tercio del ingreso convirtiéndose en caja.</p>
+      </div>
+
+      <div class="case">
+        <span class="tag">Software · modelo de consumo</span>
+        <h3>Snowflake — el contraste</h3>
+        <p>Trimestre cerrado el 31 de julio de 2026: ingreso de producto de 1,492 millones, alza de 37%; RPO de 9.0 mil millones, alza de 30%; <strong>retención neta de 126%</strong>.</p>
+        <p>La serie al mismo trimestre fiscal es lo interesante: 142% en 2023, 127% en 2024, 125% en 2025, 126% en 2026. Cayó diecisiete puntos cuando los clientes optimizaron gasto, y sólo se recuperó cuando las cargas de inteligencia artificial reaceleraron el consumo. El margen bruto de producto es de 74.7%, bajando desde 76%, y el margen de flujo libre guiado es de 23% contra 25 a 26% en años previos.</p>
+        <p>El modelo de consumo hace el ingreso más elástico al uso del cliente, con margen bruto y margen de caja estructuralmente inferiores a los de un software de asiento. Su retención neta alta no lo hace mejor negocio: mide otra cosa.</p>
+      </div>
+
+      <div class="case">
+        <span class="tag">Suscripción de consumo</span>
+        <h3>Netflix y Spotify — el precio del margen bruto</h3>
+        <p>Netflix reportó en el segundo trimestre de 2026 ingreso de 12.6 mil millones, alza de 13%, con margen operativo de 33.4%. El ejercicio 2025 cerró en 45.2 mil millones, alza de 16%, con flujo libre de 9.5 mil millones. Pero <strong>dejó de reportar suscriptores trimestrales a partir del primer trimestre de 2025</strong> y también el ingreso promedio por membresía. El último dato trimestral fue de 301.6 millones al cierre de 2024; después sólo se mencionó haber cruzado los 325 millones.</p>
+        <p>Spotify reportó 777 millones de usuarios activos mensuales, alza de 12%, y 300 millones de suscriptores premium, alza de 9%. El ingreso creció 14% y el ARPU premium subió 7.4% a moneda constante gracias al aumento de precio, sin fricción visible. Su margen bruto llegó a un máximo histórico de 33.4%.</p>
+        <p>Ese 33% contra el 74 a 81% de un software es la lección: aquí el recurrente se comparte con las discográficas. Spotify tiene la relación con el cliente, pero no el costo variable. Por eso Netflix cotiza a 6.6 veces el ingreso con 50% de margen bruto y Spotify a 4.4 con 32%, pese a que Spotify crece más. <strong>En EV/EBITDA la relación se invierte</strong> —Spotify 29.5x contra Netflix 20.4x— porque el mercado espera expansión de margen. Nunca se comparan empresas con estructuras de costo distintas usando múltiplos de ingreso.</p>
+      </div>
+
+      <div class="case">
+        <span class="tag">Servicios en ruta · no software</span>
+        <h3>Cintas — recurrencia sin software</h3>
+        <p>Ejercicio cerrado el 31 de mayo de 2026: ingreso de 11.26 mil millones, alza de 8.9%, con crecimiento orgánico de 8.3%. Renta de uniformes y servicios de instalaciones aporta 76.6% del ingreso con margen operativo de segmento de 24.1%; primeros auxilios y seguridad aporta 12.3% con margen de 25.4%. <strong>Cerca del 89% del ingreso viene de los dos negocios de ruta recurrente, que son además los de mayor margen.</strong> Margen bruto consolidado en máximo histórico de 50.7%.</p>
+        <p>El foso no es el costo de cambio del dato sino la densidad de ruta: el camión ya pasa, así que cada servicio adicional se vende con costo marginal casi nulo. Y cotiza a <strong>7.3 veces el ingreso, por encima de la mediana del software público</strong>, con un tercio del margen bruto y menos crecimiento. La dirección señaló en la llamada de resultados que éste es el año 55 de los últimos 57 en que crecieron tanto la línea superior como la inferior: una durabilidad que ningún software ha demostrado todavía.</p>
+      </div>
+
+      <div class="case alarm">
+        <span class="tag">Caso de fragilidad</span>
+        <h3>Chegg — recurrente en la forma, no en la sustancia</h3>
+        <div class="tw">
+        <table>
+          <thead><tr><th>Período</th><th>Ingreso</th><th>Suscriptores</th></tr></thead>
+          <tbody>
+            <tr><td>2021 (pico)</td><td>776.3 M (+20%)</td><td>7.8 M (+18%)</td></tr>
+            <tr><td>2024</td><td>617.6 M (−14%)</td><td>6.6 M (−14%)</td></tr>
+            <tr><td>2025</td><td>376.9 M (−39%)</td><td>ya no reportado</td></tr>
+            <tr><td>2T 2026</td><td>51.8 M (−50.7%)</td><td>ya no reportado</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>El margen bruto pasó de 71% a 55% con guía de 48 a 49%. El EBITDA ajustado cayó de 265.9 millones en 2021 a 9.1 millones en el segundo trimestre de 2026. La capitalización de mercado pasó de <strong>11,630 millones al cierre de 2020 a 83.8 millones el 15 de septiembre de 2026, una caída de 99.3%</strong>, y hoy cotiza a 0.24 veces ventas con un enterprise value de 62 millones contra caja e inversiones de 72 millones.</p>
+        <p>La causa, en boca de la compañía: el tráfico de no suscriptores se desplomó 49% en enero de 2025 por los resúmenes de inteligencia artificial de Google, que convirtió el buscador en un motor de respuestas. Chegg demandó a Google.</p>
+        <p><strong>Chegg nunca publicó retención neta</strong>, y ésa es parte de la lección: el mercado infirió durabilidad de una suscripción mensual de 14.95 dólares sin ninguna métrica de cohorte que la sustentara, mientras la empresa reportaba «retención en máximos históricos» en 2021.</p>
+        <div class="note"><b>Dos pruebas de estrés permanentes.</b> ¿De dónde viene el cliente nuevo? Si viene de un canal que la empresa no controla, la recurrencia tiene fecha de caducidad. ¿Qué pasa si el sustituto llega a costo cero? Chegg sigue siendo positivo en flujo libre: la empresa no muere, pero la tesis de capitalización compuesta sí murió.</div>
+      </div>
+
+      <div class="case">
+        <span class="tag">Transición de licencia a suscripción</span>
+        <h3>Adobe — el mismo caso dos veces, en direcciones opuestas</h3>
+        <div class="tw">
+        <table>
+          <thead><tr><th>Ejercicio</th><th>Ingreso</th><th>Utilidad neta</th><th>Utilidad por acción</th></tr></thead>
+          <tbody>
+            <tr><td>2012</td><td>4,404 M (récord)</td><td>832.8 M</td><td>1.66</td></tr>
+            <tr><td>2013</td><td>4,060 M (−8%)</td><td>290.0 M (−65%)</td><td>0.56</td></tr>
+            <tr><td>2014</td><td>4,150 M</td><td>268.4 M (mínimo)</td><td>0.53</td></tr>
+            <tr><td>2015</td><td>4,800 M (+16%)</td><td>629.6 M</td><td>1.24</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>El ingreso tardó tres años en recuperar el nivel de 2012 y la utilidad neta cuatro. En el punto más bajo Adobe ganaba un tercio de lo que ganaba antes de empezar.</p>
+        <p>Lo que hizo el múltiplo fue lo contrario de lo que sugería el estado de resultados: la razón precio-utilidad pasó de 20.9 veces en noviembre de 2012 a 99.6 en 2013 y <strong>150.4 en 2014</strong>, antes de normalizarse a 44.3 en 2016. La acción casi se triplicó mientras el ingreso caía. El múltiplo de 150 veces no era burbuja: era el denominador temporalmente destruido.</p>
+        <p>Hoy la simetría se invirtió. En el trimestre cerrado en agosto de 2026 Adobe reportó ingreso de 6.76 mil millones, alza de 13%, con <strong>ARR total de 27.5 mil millones</strong> y flujo operativo récord. Y sin embargo cotiza a <strong>9.56 veces utilidades esperadas</strong>, contra 23.1 de Microsoft, 24.3 de ServiceNow y 20.1 de SAP, 47% por debajo de su máximo.</p>
+        <p class="pull">En 2013 el mercado ignoró un estado de resultados feo porque creyó en la durabilidad del ARR. En 2026 ignora un ARR de 27.5 mil millones porque duda de esa durabilidad. La pregunta es la misma que en Chegg: ¿el ingreso recurrente descansa en un costo de cambio real, o en la ausencia temporal de un sustituto?</p>
+      </div>
+
+      <h3>Lo que el conjunto deja ver</h3>
+      <div class="tw">
+      <table>
+        <thead><tr><th>Caso</th><th>Recurrencia</th><th>Retención publicada</th><th>Margen bruto</th><th>Margen de flujo libre</th></tr></thead>
+        <tbody>
+          <tr><td>ServiceNow</td><td>~97% suscripción</td><td>Renovación 98%</td><td>80.5%</td><td>35% (guía)</td></tr>
+          <tr><td>Snowflake</td><td>Consumo</td><td>NRR 126%</td><td>74.7%</td><td>23% (guía)</td></tr>
+          <tr><td>Netflix</td><td>Suscripción mensual</td><td>Ninguna desde 2025</td><td>~50%</td><td>~21%</td></tr>
+          <tr><td>Spotify</td><td>Suscripción mensual</td><td>Ninguna</td><td>33.4%</td><td>~17%</td></tr>
+          <tr><td>Cintas</td><td>~89% contratos de ruta</td><td>Cualitativa</td><td>50.7%</td><td>16.7%</td></tr>
+          <tr><td>Chegg</td><td>Aparente</td><td>Nunca publicó NRR</td><td>55% y bajando</td><td>base colapsada</td></tr>
+          <tr><td>Adobe</td><td>~95% ARR</td><td>ARR total, no NRR</td><td>~88%</td><td>~34%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Las compañías que publican una métrica de retención verificable son las que resisten el escrutinio.</strong> Las que no —Netflix, Spotify y sobre todo Chegg— obligan al inversionista a inferir durabilidad del crecimiento del ingreso, que es justamente la variable que se rompe primero.</p>
+      <p><strong>Y el múltiplo no sigue al ingreso reportado, sigue a la creencia sobre su durabilidad.</strong> Adobe entre 2013 y 2016 y Adobe en 2026 son el mismo mecanismo operando en sentidos opuestos; Chegg lo muestra en su forma terminal.</p>
+    </section>
+
+    <section id="preguntas" class="check">
+      <h2 class="sec">Las preguntas que hace el analista</h2>
+
+      <h4>Sobre la definición del ARR</h4>
+      <ol>
+        <li>¿Qué incluye exactamente? ¿Servicios profesionales, instalación, hardware, excedente variable?</li>
+        <li>¿Incluye contratos firmados no iniciados? ¿Clientes con cancelación ya notificada?</li>
+        <li>Si hay consumo, ¿qué ventana anualiza: treinta días, noventa, el último mes?</li>
+        <li>¿Cambió la metodología en los últimos tres años? En públicas la SEC obliga a divulgarlo; en privadas hay que preguntarlo.</li>
+      </ol>
+
+      <h4>Sobre retención</h4>
+      <ol start="5">
+        <li>NRR y GRR juntos, y la brecha entre ambos. Normal de ocho a veinte puntos; arriba de treinta, frágil.</li>
+        <li>¿Es NRR de cohorte con cortes, o lazy NRR? Que muestren el cálculo.</li>
+        <li>¿Qué excluye: pay-as-you-go, mensuales, segmentos enteros, servicios?</li>
+        <li>Retención de logos y de ingreso, no una sola.</li>
+        <li>La serie mensual, no el promedio anual.</li>
+      </ol>
+
+      <h4>Sobre la cadena contable</h4>
+      <ol start="10">
+        <li>Bookings, billings, revenue, ingreso diferido y RPO del mismo período.</li>
+        <li>RPO desagregado por duración, y qué porcentaje es cRPO.</li>
+        <li>Cuánto del RPO es genuinamente no cancelable, y si hay cláusulas de terminación por conveniencia.</li>
+        <li>Si el ingreso diferido crece al menos tan rápido como el ingreso.</li>
+      </ol>
+
+      <h4>Sobre unit economics</h4>
+      <ol start="14">
+        <li>CAC payback ajustado por margen bruto, incluyendo el costo de customer success.</li>
+        <li>CAC pagado, no mezclado.</li>
+        <li>Burn multiple de los últimos cuatro trimestres.</li>
+        <li>Margen bruto de suscripción separado del de servicios.</li>
+      </ol>
+
+      <h4>Sobre cohortes</h4>
+      <ol start="18">
+        <li>Tabla de cohortes alineada por mes de vida, por ingreso y por logos, con veinticuatro meses o más.</li>
+        <li>Qué porcentaje del ingreso mensual actual proviene de cohortes de menos de doce meses.</li>
+        <li>Rechazar cualquier gráfico acumulado.</li>
+      </ol>
+
+      <h4>Sobre el precio</h4>
+      <ol start="21">
+        <li>Cuánto del múltiplo corresponde al libro instalado y cuánto a crecimiento futuro.</li>
+        <li>Qué crecimiento y qué margen terminal están embebidos en el múltiplo, dichos en voz alta como enunciado completo.</li>
+        <li>Qué pasa con el enterprise value si la empresa baja un bucket de crecimiento.</li>
+        <li>Cuánto del ARR sobrevive una depuración de calidad de ingreso.</li>
+      </ol>
+    </section>
+
+    <section id="conclusiones">
+      <h2 class="sec">Diez conclusiones</h2>
+      <ol class="concl">
+        <li><div><strong>El ingreso recurrente es una categoría, no una propiedad.</strong> La distinción entre contractual y no contractual determina si el churn es un dato o una opinión.</div></li>
+        <li><div><strong>El ARR vive en una tierra de nadie regulatoria.</strong> No es GAAP y explícitamente no es una medida non-GAAP: carece tanto de la auditoría de una como de la disciplina de reconciliación de la otra.</div></li>
+        <li><div><strong>La mitad de las empresas públicas ajusta su fórmula de retención neta</strong>, con ocho fórmulas distintas en circulación. No es comparable entre empresas sin leer la nota al pie.</div></li>
+        <li><div><strong>El NRR sin GRR es inútil.</strong> Una brecha mayor a treinta puntos significa una fuga grande tapada con expansión, y colapsa en cuanto la expansión se detiene.</div></li>
+        <li><div><strong>El deterioro posterior a 2021 es real, amplio y continúa.</strong> Y el segmento nativo de inteligencia artificial de bajo precio retiene 23% de su ingreso a doce meses: eso no es ingreso recurrente.</div></li>
+        <li><div><strong>Sin crecimiento no hay múltiplo alto, por perfecta que sea la recurrencia.</strong> El techo es el margen de caja dividido entre el costo de capital: alrededor de 3.2 veces con margen de 30%.</div></li>
+        <li><div><strong>En un múltiplo de ocho veces el ARR, sólo del quince al veinte por ciento del precio corresponde al ingreso ya contratado.</strong> El resto es una opción sobre ventas que no existen.</div></li>
+        <li><div><strong>La compresión por desaceleración es el riesgo dominante</strong> y es aritmético, no narrativo: caer de un bucket de crecimiento al siguiente cuesta 57% del enterprise value aunque el ARR suba veinte por ciento.</div></li>
+        <li><div><strong>El crecimiento pesa alrededor de cuatro veces más que el margen, pero esa ponderación es inestable</strong> —fue de once veces en 2021 y de menos de tres en 2023. Un múltiplo es la preferencia temporal del mercado en un momento dado.</div></li>
+        <li><div><strong>La recurrencia es condición necesaria pero insuficiente.</strong> Lo que determina el múltiplo, en orden: crecimiento, margen de caja, capacidad de reinvertir para crecer, costo de capital, persistencia, expansión y pureza de la mezcla. La persistencia aparece en quinto lugar.</div></li>
+      </ol>
+    </section>
+
+    <section id="huecos">
+      <h2 class="sec">Lo que no se pudo verificar</h2>
+      <ul>
+        <li>No existen benchmarks de burn multiple por etapa para 2025 y 2026 con fuente primaria confiable; sólo la tabla cualitativa original de Sacks de 2020.</li>
+        <li>No existen benchmarks de retención de 2025 y 2026 etiquetados explícitamente por segmento pequeño, medio y corporativo. Se usaron bandas de ACV y de precio como aproximación.</li>
+        <li>Ninguna fuente publica coeficiente de determinación, tamaño de muestra y significancia para la relación entre Rule of 40 y valuación, salvo la R² de 0.62 de Meritech, cuya muestra se describe como «cerca de cien empresas» sin especificarse formalmente. La afirmación de que la regla predice valuación está respaldada por estratificación descriptiva, no por econometría verificable.</li>
+        <li>SaaS Capital declara que la retención neta es una de las tres variables de su modelo de valuación privada, pero no publica los coeficientes.</li>
+        <li>L.E.K. sostiene que los modelos de consumo cotizan con prima, pero no publica las cifras detrás de su gráfica. La afirmación queda como direccional.</li>
+        <li>El servicio Quartr, que habría permitido citar filings con enlace directo, requiere suscripción de pago.</li>
+      </ul>
+    </section>
+
+    <section id="fuentes" class="src">
+      <h2 class="sec">Fuentes</h2>
+
+      <h4>Regulación y marco académico</h4>
+      <ul>
+        <li>SEC, <em>Commission Guidance on MD&amp;A</em>, Release 33-10751, enero 2020 — <a href="https://www.sec.gov/files/rules/interp/2020/33-10751.pdf">sec.gov</a></li>
+        <li>Fader, Hardie &amp; Shang, <em>Customer-Base Analysis in a Discrete-Time Noncontractual Setting</em>, Marketing Science, 2010 — <a href="http://www.brucehardie.com/papers/020/fader_et_al_mksc_10.pdf">brucehardie.com</a></li>
+        <li>McCarthy, Fader &amp; Hardie, <em>Valuing Subscription-Based Businesses Using Publicly Disclosed Customer Data</em>, Journal of Marketing, 2017 — <a href="https://lbsresearch.london.edu/id/eprint/586/1/Hardie_Valuing-subscription-based-businesses_mccarthy_et_al_16.pdf">lbsresearch.london.edu</a></li>
+        <li>Damodaran, <em>Going to Pieces: Valuing Users, Subscribers and Customers</em>, 2018 — <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3175652">ssrn.com</a></li>
+      </ul>
+
+      <h4>Datos sectoriales y costo de capital · Damodaran, NYU Stern, enero 2026</h4>
+      <ul>
+        <li>Márgenes por sector — <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html">stern.nyu.edu</a></li>
+        <li>EV/Sales por sector — <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/psdata.html">stern.nyu.edu</a></li>
+        <li>EV/EBITDA por sector — <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/vebitda.html">stern.nyu.edu</a></li>
+        <li>Betas — <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html">stern.nyu.edu</a></li>
+        <li>Costo de capital — <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.html">stern.nyu.edu</a></li>
+      </ul>
+
+      <h4>Múltiplos y estado del mercado</h4>
+      <ul>
+        <li>Clouded Judgement (Jamin Ball, Altimeter), 11-sep-2026 — <a href="https://cloudedjudgement.substack.com/p/clouded-judgement-91126-paying-for">substack</a></li>
+        <li>Clouded Judgement, 30-ene-2026 — <a href="https://cloudedjudgement.substack.com/p/clouded-judgement-13026-software">substack</a></li>
+        <li>Meritech Software Pulse, 28-ago-2026 — <a href="https://meritech.substack.com/p/meritech-software-pulse-28-august">substack</a></li>
+        <li>Meritech, <em>Time's Up for SaaS</em>, feb-2026 — <a href="https://meritech.substack.com/p/times-up-for-saas-grow-faster-or">substack</a></li>
+        <li>Software Equity Group, reporte trimestral 2T-2026 — <a href="https://softwareequity.com/research/quarterly-saas-report">softwareequity.com</a></li>
+        <li>Aventis Advisors, múltiplos 2015-2026 — <a href="https://aventis-advisors.com/saas-valuation-multiples/">aventis-advisors.com</a></li>
+        <li>SaaS Capital Index — <a href="https://www.saas-capital.com/the-saas-capital-index/">saas-capital.com</a></li>
+        <li>SaaS Capital, brecha público-privado — <a href="https://www.saas-capital.com/blog-posts/public-private-valuation-gap-widens-for-saas-company-multiples/">saas-capital.com</a></li>
+      </ul>
+
+      <h4>Métricas y benchmarks operativos</h4>
+      <ul>
+        <li>SaaS Capital, benchmarks de retención B2B 2023 — <a href="https://www.saas-capital.com/wp-content/uploads/2023/05/RB28WS1-2023-B2B-SaaS-Retention-Benchmarks.pdf">PDF</a></li>
+        <li>SaaS Capital, brecha GRR-NRR — <a href="https://www.saas-capital.com/blog-posts/examining-the-gap-between-gross-revenue-retention-and-net-revenue-retention/">saas-capital.com</a></li>
+        <li>SaaS Capital, trampas en la medición del churn — <a href="https://www.saas-capital.com/blog-posts/grrumbling-about-retention-metrics-or-pitfalls-in-measuring-saas-churn/">saas-capital.com</a></li>
+        <li>Benchmarkit, 2025 SaaS Performance Metrics — <a href="https://www.benchmarkit.ai/2025benchmarks">benchmarkit.ai</a></li>
+        <li>ChartMogul, <em>The AI Churn Wave</em> — <a href="https://chartmogul.com/reports/saas-retention-the-ai-churn-wave/">chartmogul.com</a></li>
+        <li>Ordway, cómo calculan el NRR las empresas públicas — <a href="https://ordwaylabs.com/resources/research/how-public-companies-calculate-net-revenue-retention/">ordwaylabs.com</a></li>
+        <li>Ordway, cómo reportan ARR las empresas de consumo — <a href="https://ordwaylabs.com/blog/cloud-usage-based-pricing-report-arr/">ordwaylabs.com</a></li>
+        <li>a16z, <em>16 Startup Metrics</em> — <a href="https://a16z.com/16-startup-metrics/">a16z.com</a></li>
+        <li>David Sacks, <em>The Burn Multiple</em> — <a href="https://www.craftventures.com/articles/the-burn-multiple">craftventures.com</a></li>
+        <li>Christoph Janz, guía de análisis de cohortes — <a href="https://medium.com/point-nine-news/the-p9-guide-to-cohort-analysis-in-saas-v0-9-63ce366ab427">Point Nine</a></li>
+        <li>Tomasz Tunguz, <em>The False Confidence of the LTV/CAC Ratio</em> — <a href="https://tomtunguz.com/challenge-of-cac-ltv/">tomtunguz.com</a></li>
+        <li>Dave Kellogg, <em>Lazy NRR is Not NRR</em> — <a href="https://www.kellblog.com/accept-no-imitations-or-subtitutes-lazy-nrr-is-not-nrr/">kellblog.com</a></li>
+        <li>Dave Kellogg, <em>Why The Rule of 40 is Becoming the Rule of 60</em>, mar-2026 — <a href="https://kellblog.com/2026/03/12/why-the-rule-of-40-is-becoming-the-rule-of-60-and-what-you-can-do-about-it/">kellblog.com</a></li>
+        <li>Meritech vía Benchmarkit, R² del Rule of 40 ponderado — <a href="https://www.benchmarkit.ai/saas-metrics-palooza-23-1/the-pulse---current-state-of-public-saas">benchmarkit.ai</a></li>
+        <li>Nnamdi Iregbulem, <em>Breaking Apart the Rule of 40</em> — <a href="https://whoisnnamdi.substack.com/p/rule-40">substack</a></li>
+      </ul>
+
+      <h4>Casos</h4>
+      <ul>
+        <li>ServiceNow, resultados 2T-2026 (8-K) — <a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/erq2fy26.htm">sec.gov</a></li>
+        <li>Snowflake, resultados 2T FY2027 — <a href="https://www.stocktitan.net/news/SNOW/snowflake-reports-financial-results-for-the-second-quarter-of-fiscal-h84k25gqskea.html">comunicado</a></li>
+        <li>Netflix, carta a accionistas 2T-2026 — <a href="https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf">PDF</a></li>
+        <li>Spotify, resultados 2T-2026 — <a href="https://newsroom.spotify.com/2026-08-04/spotify-q2-2026-earnings/">newsroom</a></li>
+        <li>Cintas, resultados FY2026 — <a href="https://www.cintas.com/docs/default-source/investor-relations/quarterly-reports/q4-fy26-revenue-and-earnings.pdf">PDF</a></li>
+        <li>Chegg, resultados 2025 — <a href="https://investor.chegg.com/Press-Releases/press-release-details/2026/Chegg-Reports-2025-Fourth-Quarter-and-Full-Year-Financial-Results/default.aspx">comunicado</a></li>
+        <li>Adobe, resultados 3T FY2026 (8-K) — <a href="https://www.sec.gov/Archives/edgar/data/796343/000079634326000147/adbeex991q326.htm">sec.gov</a></li>
+        <li>Adobe, resultados FY2013 — <a href="https://www.adobe.com/content/dam/cc/en/investor-relations/pdfs/Q413Earnings.pdf">PDF</a></li>
+        <li>Oracle, resultados 4T y FY2026 — <a href="https://www.oracle.com/news/announcement/q4fy26-earnings-release-2026-06-10/">oracle.com</a></li>
+      </ul>
+    </section>
+
+  </article>
+
+  <footer class="end">
+    <span>LUIS RODRIGO AGUILAR · ABOGADO &amp; LEGAL ENGINEER</span>
+    <span>Documento de estudio · no constituye recomendación de inversión</span>
+  </footer>
+
+</div>
+</div>
+
+<div class="study" id="interes-compuesto" data-title="Interés compuesto" hidden>
+<div class="shell">
+
+  <header class="masthead">
+    <p class="kicker">Estudio · Finanzas personales y valuación</p>
+    <h1>El interés compuesto</h1>
+    <p class="standfirst">Rendimiento sobre rendimiento. Su matemática y su historia, lo que de verdad dijeron los grandes inversionistas, cómo opera dentro de una empresa, su aplicación en México a octubre de 2026 y una biblioteca de libros, podcasts, documentales y videos.</p>
+    <div class="meta">
+      <span>Investigación cerrada al <b>13 de octubre de 2026</b></span>
+      <span><b>Luis Rodrigo Aguilar</b> · Abogado &amp; Legal Engineer</span>
+      <span>Notas de estudio · <b>Investment</b></span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Contenido del estudio de interés compuesto">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#ic-formula">La fórmula y lo que le resta</a></li>
+      <li><a href="#ic-historia">Cuarenta y cuatro siglos</a></li>
+      <li><a href="#ic-inversionistas">Lo que dijeron los inversionistas</a></li>
+      <li><a href="#ic-empresa">La empresa como cuenta de ahorro</a></li>
+      <li><a href="#ic-mexico">México, octubre de 2026</a></li>
+      <li><a href="#ic-limites">Dónde se rompe el compuesto</a></li>
+      <li><a href="#ic-biblioteca">Biblioteca y ruta de lectura</a></li>
+      <li><a href="#ic-medios">Podcasts, documentales y videos</a></li>
+      <li><a href="#ic-recomendaciones">Qué hacer con todo esto</a></li>
+      <li><a href="#ic-huecos">Lo que no se verificó</a></li>
+      <li><a href="#ic-fuentes">Fuentes</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="ic-formula">
+      <h2 class="sec">La fórmula y lo que le resta</h2>
+      <p class="lede">El interés compuesto es rendimiento sobre rendimiento: los intereses de un periodo se suman al capital y generan intereses en el siguiente. Su fuerza depende más del plazo que de la tasa, y la misma aritmética trabaja en contra cuando el capital es una deuda.</p>
+
+      <div class="formula">Interés simple            A = P · (1 + r·t)
+Interés compuesto         A = P · (1 + r/n)^(n·t)
+Capitalización continua   A = P · e^(r·t)
+Tiempo para duplicar      t = ln 2 / ln(1 + r)  ≈  72 / r(%)
+
+n = capitalizaciones por año</div>
+
+      <p>La capitalización continua es el origen del número <em>e</em>. En 1683 Jacob Bernoulli se preguntó cuánto debería un deudor al cierre del año si el interés se acreditara en cada instante, y demostró que la suma quedaba entre 2½ y 3 veces el capital. Euler empezó a usar la letra <em>e</em> hacia 1727 y la imprimió en su <em>Mechanica</em> de 1736. La convergencia se ve en tres pasos: (1 + 1/n)<sup>n</sup> vale 2.000 con capitalización anual, 2.613 con mensual y 2.7146 con diaria, frente al límite de 2.71828.</p>
+
+      <h3>La regla del 72 tiene más de cinco siglos</h3>
+      <p>Fray Luca Pacioli la imprimió en la <em>Summa de arithmetica</em> (Venecia, 1494, folio 181): para saber en cuántos años se duplica un capital se divide 72 entre la tasa anual. Su ejemplo es 6%, que da 12 años contra los 11.9 exactos. Pacioli no la demuestra, lo que sugiere que ya circulaba entre mercaderes. El 69.3 sale de ln 2 y es exacto con capitalización continua; el 72 funciona bien en las tasas habituales de inversión, y al 8% da 9.0 años contra 9.006 exactos.</p>
+      <p>Aplicada a México en octubre de 2026: un CETE a 28 días al 6.25%, renovado todo el año, duplica el capital nominal en unos 11 años. Neto de la retención de ISR y de la inflación compone a cerca de 2.1% real, y a esa tasa el poder de compra tarda 33 años en duplicarse. Un saldo de tarjeta al 36.29% sin pagos se duplica en menos de dos años.</p>
+
+      <h3>Se compone la tasa geométrica, no el promedio</h3>
+      <div class="formula">Tasa geométrica  G ≈ A − σ² / 2        A = media aritmética, σ = volatilidad
+Pérdida L        exige una ganancia de  L / (1 − L)  para recuperarse</div>
+      <p>El inversionista no obtiene el rendimiento promedio sino el geométrico, que siempre es menor. Los datos de 126 años lo confirman casi al decimal: la bolsa estadounidense tuvo de 1900 a 2025 una media aritmética real de 8.6%, una volatilidad de 19.8% y una media geométrica de 6.6%, y 8.6 − ½(19.8)² da 6.64.</p>
+      <p>Las pérdidas son asimétricas. Una caída de 50% exige +100% para recuperarse y una de 90% exige +900%. Un año de −50% seguido de uno de +50% promedia cero, pero deja el patrimonio 25% abajo. Por eso los grandes inversionistas hablan más de evitar pérdidas permanentes que de maximizar rendimientos.</p>
+
+      <h3>Comisiones, impuestos e inflación también se componen</h3>
+      <p>Una comisión de 1% sobre un rendimiento bruto de 7% se lleva el 31% del patrimonio final a cuarenta años. Un impuesto de 30% cobrado cada año sobre ese 7% deja la tasa en 4.9% y multiplica el capital 4.20 veces en treinta años; el mismo impuesto cobrado una sola vez al final deja 5.63 veces, un 34% más. El diferimiento fiscal es, por sí mismo, una forma de interés compuesto.</p>
+      <p>La inflación es la tercera cuña. La bolsa estadounidense rindió 9.8% nominal y 6.6% real de 1900 a 2025, con inflación promedio de 2.9%: lo que costaba un dólar en 1900 cuesta hoy casi 38.</p>
+
+      <h3>Ciento veintiséis años de evidencia</h3>
+      <div class="tw">
+      <table>
+        <caption>Un dólar invertido en Estados Unidos a fines de 1900 · Dimson, Marsh y Staunton, 2026</caption>
+        <thead><tr><th>Activo</th><th>Valor nominal al cierre de 2025</th><th>Rendimiento real anual</th></tr></thead>
+        <tbody>
+          <tr><td>Acciones</td><td>124,854 dólares</td><td>6.6%</td></tr>
+          <tr><td>Bonos del gobierno</td><td>284 dólares</td><td>1.6%</td></tr>
+          <tr><td>Letras del Tesoro</td><td>69 dólares</td><td>0.5%</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>El oro subió 5.2 veces en términos reales en el mismo periodo, cerca de 1.3% anual. Fuera de Estados Unidos la tasa es menor: 5.3% real para el mundo y 4.5% para el mundo sin Estados Unidos. Las acciones fueron el mejor activo en los 21 países con historia continua. Jeremy Siegel, con datos desde 1802, obtiene 6.9% real para acciones, 3.6% para bonos largos, 2.5% para letras y 0.6% para oro.</p>
+      <div class="note"><b>Cuidado con el «7%».</b> La divulgación casi nunca aclara si una tasa es aritmética o geométrica, nominal o real. Esa ambigüedad vale dos o tres puntos al año, y a cuarenta años cambia el resultado varias veces.</div>
+
+      <h3>La mente linealiza lo exponencial</h3>
+      <p>Stango y Zinman definieron en el <em>Journal of Finance</em> (2009) el sesgo de crecimiento exponencial como la tendencia a linealizar las funciones exponenciales cuando se evalúan de forma intuitiva. Los hogares más sesgados piden más prestado, ahorran menos y prefieren plazos más cortos. En una encuesta sueca se preguntó cuánto valdrían 100 coronas al 7% durante 30 años: la respuesta correcta es 761 y la mediana respondió 410. En una muestra estadounidense de Levy y Tasoff, un tercio de los participantes estaba totalmente sesgado y sólo el 4% respondía bien.</p>
+      <p>La pregunta de interés de Lusardi y Mitchell ni siquiera pide calcular: basta saber que 100 dólares al 2% durante cinco años dan más de 102. Aun así, sólo cerca de 30% de los estadounidenses responde bien las tres preguntas básicas. En la encuesta global de S&amp;P, con datos de 2014, el 32% de los adultos mexicanos resultó financieramente alfabetizado, contra 57% en Estados Unidos y 41% en Chile. Es el dato comparable más reciente: la ENIF 2024 no midió la comprensión del interés compuesto.</p>
+    </section>
+
+    <section id="ic-historia">
+      <h2 class="sec">Cuarenta y cuatro siglos de interés compuesto</h2>
+
+      <p>El registro más antiguo es un cono de fundación de Enmetena, en Lagash, hacia 2400 a. C., que documenta un préstamo de cebada al 33⅓% pagadero a siete años. Del periodo paleobabilónico, entre 2000 y 1600 a. C., procede la tablilla escolar AO 6770, que pregunta cuánto tarda en duplicarse un capital al 20% anual. El escriba respondió, en base sesenta, 3;47,13,20 años, unos 3.79; el valor exacto es 3.80. Se equivocó por unos cinco días.</p>
+      <p>El 20% no era arbitrario: desde alrededor de 2000 a. C. la tasa comercial normal era 1/60 del principal al mes. El Código de Hammurabi fijó 20% para préstamos en plata y 33⅓% para préstamos en grano, y limitó a tres años la servidumbre por deudas. Los reyes mesopotámicos proclamaban además, cada cierto tiempo, «tablas rasas» que cancelaban las deudas agrarias. La lección sigue vigente: cuando una deuda compone más rápido de lo que crece la capacidad de pagarla, alguien termina por romper la cadena.</p>
+
+      <h3>El ajedrez, el penique y Franklin</h3>
+      <p>La leyenda del trigo y el tablero aparece por escrito en Ibn Jallikán en 1256. Un grano en la primera casilla, duplicado en cada una de las 64, suma 2<sup>64</sup> − 1 granos: alrededor de 1.2 billones de toneladas, más de mil veces la cosecha mundial anual. Carl Sagan lo resumió así: las exponenciales no pueden continuar para siempre, porque se lo tragarían todo.</p>
+      <p>En el siglo XVIII Richard Price escribió, en <em>Observations on Reversionary Payments</em>, que un penique invertido al nacer Cristo al 5% compuesto se habría convertido en más oro del que cabría en 150 millones de planetas como la Tierra; a interés simple, en apenas unos chelines. Su plan de amortizar la deuda nacional con un fondo compuesto influyó en Pitt el Joven, y Lord Overstone lo llamó una especie de prestidigitación.</p>
+      <p>Benjamin Franklin lo llevó a la práctica. Al morir en 1790 legó 1,000 libras a Boston y otras 1,000 a Filadelfia para prestarlas al 5% a jóvenes artesanos casados, y proyectó 131,000 libras a los cien años. La aritmética era correcta; la realidad fue otra. En 1907 el fondo de Filadelfia tenía 172,350 dólares, menos de una cuarta parte de lo previsto, porque desapareció el sistema de aprendices que debía tomar los préstamos. En 1990 el de Boston valía unos 4.5 millones de dólares. El caso enseña que el interés compuesto necesita una salida invertible que realmente pague la tasa supuesta.</p>
+      <p>Algo parecido ocurre con los famosos 24 dólares de Manhattan, que son una conversión hecha en 1855 de 60 florines en mercancías pagados en 1626. Componer esa cifra a 400 años da 7,200 millones de dólares al 5% y 562 billones al 8%: el resultado depende casi por completo de la tasa que se suponga.</p>
+    </section>
+
+    <section id="ic-inversionistas">
+      <h2 class="sec">Lo que dijeron los grandes inversionistas</h2>
+      <p class="lede">Lo que dijeron de verdad, contrastado con el documento original, es más sobrio y más útil que el folclor que circula. Cada cita lleva su fuente y su fecha; las que no se pudieron rastrear están señaladas al final de esta sección.</p>
+
+      <h3>Buffett: aritmética con humor</h3>
+      <p>En sus cartas a los socios de la Buffett Partnership armó una trilogía didáctica. En la del 18 de enero de 1963 calculó que los 30,000 dólares con que Isabel la Católica financió a Colón, invertidos al 4% compuesto, habrían sumado unos 2 billones de dólares hacia 1962. Su tabla mostraba que 100,000 dólares se vuelven 432,191 a treinta años al 5%, pero 6,621,140 al 15%. «Siempre asombra ver cómo diferencias relativamente pequeñas en las tasas se convierten en sumas muy significativas con los años», escribió.</p>
+      <p>En la carta del 18 de enero de 1964 tomó a Francisco I, que pagó unos 20,000 dólares por la Mona Lisa en 1540: al 6% después de impuestos, ese dinero valdría más de mil billones. Concluyó que una variación de apenas unos puntos porcentuales tiene un efecto enorme en un programa de composición, y en la misma carta pidió a sus socios meter en sus proyecciones un año de −30%, «que ocurrirá de vez en cuando». El tercer ejemplo, Manhattan, aparece en la carta de enero de 1965 y sólo se verificó en fuente secundaria: a 6.5%, los 24 dólares de 1626 serían unos 42,000 millones tras 338 años. La aritmética cuadra.</p>
+
+      <blockquote class="q">
+        <p class="q-es">«Mi riqueza viene de una combinación de vivir en Estados Unidos, unos genes afortunados y el interés compuesto.»</p>
+        <p class="q-en" lang="en">“My wealth has come from a combination of living in America, some lucky genes, and compound interest.”</p>
+        <p class="q-src">Warren Buffett · carta al Giving Pledge, 2010</p>
+      </blockquote>
+
+      <p>La metáfora de la bola de nieve, «la vida es como una bola de nieve; lo importante es encontrar nieve húmeda y una colina muy larga», es auténtica según su biógrafa autorizada, porque dio título a <em>The Snowball</em> (2008), pero no se ha rastreado cuándo ni dónde la dijo. Sobre el tamaño como freno, la carta de Berkshire de 1994 es inequívoca: «una cartera abultada es enemiga de los resultados de inversión superiores».</p>
+
+      <h3>Munger: el accionista acaba ganando lo que gana el negocio</h3>
+      <blockquote class="q">
+        <p class="q-es">«Si el negocio gana 6% sobre el capital durante 40 años y usted lo conserva esos 40 años, no obtendrá algo muy distinto de un 6%, aunque lo haya comprado con un gran descuento. Si gana 18% sobre el capital durante 20 o 30 años, aunque pague un precio que parezca caro, acabará con un buen resultado.»</p>
+        <p class="q-en" lang="en">“If the business earns 6% on capital over 40 years and you hold it for that 40 years, you’re not going to make much different than a 6% return—even if you originally buy it at a huge discount. Conversely, if a business earns 18% on capital over 20 or 30 years, even if you pay an expensive looking price, you’ll end up with a fine result.”</p>
+        <p class="q-src">Charlie Munger · conferencia en la escuela de negocios de USC, 1994</p>
+      </blockquote>
+      <p>En la misma conferencia hizo el cálculo fiscal que cualquier abogado fiscalista debería tener a mano: un 15% anual durante treinta años, con un solo impuesto de 35% al final, deja 13.3% anual neto; pagado cada año, deja 9.75%. «Si se queda quieto durante tramos muy largos en grandes empresas, puede obtener una enorme ventaja sólo por la forma en que funcionan los impuestos». En su discurso de graduación de la escuela de derecho de USC, en 2007, extendió la idea al conocimiento: quienes ascienden son «máquinas de aprender» que se acuestan cada noche un poco más sabias de lo que se levantaron.</p>
+
+      <h3>Bogle: la tiranía de los costos compuestos</h3>
+      <blockquote class="q">
+        <p class="q-es">«El milagro de los rendimientos compuestos queda sepultado por la tiranía de los costos compuestos.»</p>
+        <p class="q-en" lang="en">“The miracle of compounding returns is overwhelmed by the tyranny of compounding costs.”</p>
+        <p class="q-src">John C. Bogle · <em>The Little Book of Common Sense Investing</em>, capítulo 4, 2007</p>
+      </blockquote>
+      <p>Bogle ya había contrapuesto la «magia» y la «tiranía» del interés compuesto en su discurso ante el Q Group del 29 de marzo de 1998: a quince años, 10,000 dólares crecían a 98,800 en un fondo índice con costo de 0.2% y a 74,200 en un fondo de gestión tradicional. En el libro, 10,000 dólares a cincuenta años se vuelven 469,000 al 8% del mercado y 145,400 al 5.5% neto de costos. El inversionista se queda con cerca del 31% de lo que su propio dinero generó.</p>
+
+      <h3>Housel: el secreto es el tiempo</h3>
+      <p>Morgan Housel aportó en <em>The Psychology of Money</em> (2020) la dimensión del plazo. De un patrimonio de 84,500 millones de dólares, Buffett acumuló 84,200 después de cumplir 50 años y 81,500 después de los 65. Jim Simons compuso a 66% anual desde 1988, pero era 75% menos rico que Buffett porque tuvo muchos menos años de composición. «Su habilidad es invertir, pero su secreto es el tiempo.»</p>
+
+      <figure>
+        <p class="fig-title">Cuándo hizo Buffett su fortuna</p>
+        <p class="fig-sub">Patrimonio acumulado por tramo de edad · miles de millones de dólares · cifras de Housel, 2020</p>
+        <svg viewBox="0 0 480 176" role="img" aria-label="Barras horizontales: antes de los 50 años Buffett acumuló 0.3 mil millones de dólares, de los 50 a los 65 acumuló 2.7 mil millones y después de los 65 acumuló 81.5 mil millones, el 96% de su patrimonio.">
+          <g class="ax-grid">
+            <line x1="132" y1="12" x2="132" y2="138"></line>
+            <line x1="211" y1="12" x2="211" y2="138"></line>
+            <line x1="290" y1="12" x2="290" y2="138"></line>
+            <line x1="369" y1="12" x2="369" y2="138"></line>
+            <line x1="448" y1="12" x2="448" y2="138"></line>
+          </g>
+          <g class="ax-lab" text-anchor="middle">
+            <text x="132" y="156">0</text>
+            <text x="211" y="156">20</text>
+            <text x="290" y="156">40</text>
+            <text x="369" y="156">60</text>
+            <text x="448" y="156">80</text>
+          </g>
+          <g class="row-lab" text-anchor="end">
+            <text x="122" y="35">Antes de los 50</text>
+            <text x="122" y="79">De los 50 a los 65</text>
+            <text x="122" y="123">Después de los 65</text>
+          </g>
+          <g class="bar">
+            <rect x="132" y="20" width="2" height="22" rx="1"><title>Antes de los 50 años: 0.3 mil millones (0.4%)</title></rect>
+            <rect x="132" y="64" width="10.7" height="22" rx="2"><title>De los 50 a los 65 años: 2.7 mil millones (3.2%)</title></rect>
+            <rect x="132" y="108" width="321.9" height="22" rx="3"><title>Después de los 65 años: 81.5 mil millones (96.4%)</title></rect>
+          </g>
+          <g class="val">
+            <text x="140" y="35">0.3 · 0.4%</text>
+            <text x="149" y="79">2.7 · 3.2%</text>
+            <text x="446" y="123" text-anchor="end" class="val-in">81.5 · 96.4%</text>
+          </g>
+        </svg>
+        <figcaption>De 84,500 millones de dólares, el 96% llegó después de los 65 años. Si Buffett hubiera empezado a los 30 y se hubiera retirado a los 60 con la misma tasa, Housel estima que tendría unos 11.9 millones. Las cifras cambian ligeramente entre los extractos de prensa de 2020 y la edición en libro.</figcaption>
+      </figure>
+
+      <h3>Berkshire después de Buffett</h3>
+      <p>La carta anual de Berkshire correspondiente a 2025, firmada el 28 de febrero de 2026 por Greg Abel y ya no por Buffett, trae dos líneas que cierran el círculo abierto en 1963: «A la escala de Berkshire, la aritmética del interés compuesto juega en nuestra contra», y, entre los principios de capital del nuevo director, «mantener la disciplina y dejar que el interés compuesto se despliegue».</p>
+
+      <h3>Otras voces</h3>
+      <p>Naval Ravikant lo generalizó en 2019: «todos los rendimientos de la vida, ya sea en riqueza, relaciones o conocimiento, vienen del interés compuesto». En español, la voz verificada más útil es Alejandro Estebaranz, gestor de True Value, que en 2021 dijo haber empezado a apreciar los <em>compounders</em> y advirtió que un error habitual es vender en cuanto estos negocios suben un poco. De Francisco García Paramés no se encontró una cita textual sobre el interés compuesto, pero su historial lo ilustra: cerca de 16% anual contra 7.8% del índice de la Bolsa de Madrid entre 1993 y 2014, lo que multiplica el capital 22.6 veces contra 4.8 en veintiún años.</p>
+
+      <h3>Lo que nunca dijeron</h3>
+      <p>La frase de Einstein sobre la «octava maravilla del mundo» o la «fuerza más poderosa del universo» es apócrifa. Fred Shapiro, editor del <em>Yale Book of Quotations</em>, ubica su primera aparición en <em>The New York Times</em> del 27 de mayo de 1983, veintiocho años después de la muerte de Einstein, y la califica de «sin duda apócrifa». Según Quote Investigator, un anuncio de 1916 ya llamaba al interés compuesto «el mayor invento» y un anuncio bancario de 1925 usaba lo de la octava maravilla, ambos sin mencionar a Einstein.</p>
+      <p>Tampoco tienen fuente primaria localizada las dos frases rápidas más citadas de Munger, «la primera regla del interés compuesto es no interrumpirlo innecesariamente» y «el dinero grande no está en comprar y vender, sino en esperar», ni la «regla número uno: nunca pierdas dinero» de Buffett, ni la anécdota en la que Buffett le habría dicho a Jeff Bezos que nadie quiere hacerse rico despacio. Pueden usarse como atribuciones, nunca como citas.</p>
+
+      <div class="tw">
+      <table class="vtab">
+        <caption>Estado de verificación de las frases más citadas</caption>
+        <thead><tr><th>Frase, en resumen</th><th>Atribuida a</th><th>Fuente</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Colón: 30,000 dólares al 4% → 2 billones</td><td>Buffett</td><td>Carta a socios, 18-ene-1963</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>«Unos puntos porcentuales tienen un efecto enorme»</td><td>Buffett</td><td>Carta a socios, 18-ene-1964</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>Manhattan: 24 dólares al 6.5% → 42,000 millones</td><td>Buffett</td><td>Carta a socios, ene-1965</td><td><span class="st mid">Sólo secundaria</span></td></tr>
+          <tr><td>«…unos genes afortunados y el interés compuesto»</td><td>Buffett</td><td>Giving Pledge, 2010</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>«La vida es como una bola de nieve…»</td><td>Buffett</td><td>Título de <em>The Snowball</em>, 2008</td><td><span class="st mid">Fecha no rastreada</span></td></tr>
+          <tr><td>«Una cartera abultada es enemiga…»</td><td>Buffett</td><td>Carta de Berkshire, 1994</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>«La aritmética del interés compuesto juega en nuestra contra»</td><td>Greg Abel</td><td>Carta de Berkshire 2025, 28-feb-2026</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>6% durante 40 años contra 18% durante 20 o 30</td><td>Munger</td><td>USC, 1994</td><td><span class="st ok">Transcripción</span></td></tr>
+          <tr><td>«La tiranía de los costos compuestos»</td><td>Bogle</td><td>Q Group, 1998; <em>Little Book</em>, 2007</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>«Todos los rendimientos de la vida…»</td><td>Naval Ravikant</td><td>nav.al, 2019</td><td><span class="st ok">Primaria</span></td></tr>
+          <tr><td>«No interrumpirlo innecesariamente»</td><td>Munger</td><td>Compilaciones de citas</td><td><span class="st mid">No rastreada</span></td></tr>
+          <tr><td>«Regla número uno: nunca pierdas dinero»</td><td>Buffett</td><td>Entrevistas, sin documento fechado</td><td><span class="st mid">No rastreada</span></td></tr>
+          <tr><td>«Nadie quiere hacerse rico despacio»</td><td>Buffett a Bezos</td><td>Relato de segunda mano</td><td><span class="st mid">No verificada</span></td></tr>
+          <tr><td>«La octava maravilla del mundo»</td><td>Einstein</td><td><em>The New York Times</em>, 1983</td><td><span class="st bad">Apócrifa</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section id="ic-empresa">
+      <h2 class="sec">La empresa como cuenta de ahorro</h2>
+      <p class="lede">Una empresa compone igual que un depósito: su tasa de interés es el rendimiento sobre el capital nuevo que invierte, y su interés reinvertido es la parte de la utilidad que no reparte. Ésta es la pieza que lo conecta con el estudio de ingreso recurrente.</p>
+
+      <div class="formula">Crecimiento         g = ROIC × tasa de reinversión
+Valor               V = NOPAT × (1 − g / RONIC) / (WACC − g)
+Valor económico     EVA = capital invertido × (ROIC − WACC)</div>
+
+      <p>Un negocio con ROIC de 20% que reinvierte la mitad de su utilidad operativa después de impuestos crece 10% al año y todavía reparte la otra mitad. La segunda línea es la fórmula de los impulsores de valor de Koller, Goedhart y Wessels en <em>Valuation</em> (McKinsey). Con una utilidad de 100, un costo de capital de 10% y un crecimiento de 5%, la empresa vale 1,500 si su rendimiento sobre el capital nuevo es 20%; vale 1,000 si es 10%, exactamente lo mismo que si no creciera; y vale 571 si es 7%. Crecer con un rendimiento menor al costo de capital es interés compuesto en contra.</p>
+      <p>Descontar es componer al revés, y por eso la <a href="#aritmetica">aritmética de la valuación</a> del estudio de ingreso recurrente es tan sensible a la tasa: el valor presente tiene la misma palanca exponencial que Buffett describía en 1963. La tesis de Munger de 1994 se puede poner en números. Una empresa que compone a 18% durante veinte años, comprada a 30 veces utilidades y vendida a 15, deja cerca de 14% anual; una que compone a 6% durante cuarenta años, comprada a 7.5 veces y vendida a 15, deja cerca de 7.9%. En el largo plazo pesa más el rendimiento sostenido del capital que el múltiplo pagado.</p>
+      <p>McKinsey documentó el límite que más importa al proyectar. En la cohorte de grandes empresas de 1965, la mediana del ROIC se mantuvo cerca de 9% durante cuarenta años, mientras el crecimiento real de ingresos bajó de 7% a 2% en diez años y llegó a cero hacia el año diecisiete. De las empresas que crecían más de 20% en 1994, sólo el 13% sostuvo ese ritmo una década; en cambio, la mitad de las que tenían ROIC superior a 20% siguió por encima. El compuesto empresarial duradero viene más de sostener rendimientos que de sostener crecimiento.</p>
+
+      <h3>Los inversionistas en <em>compounders</em> llegan a la misma premisa</h3>
+      <p>Terry Smith definió el motor en su primera carta de Fundsmith, fechada el 10 de enero de 2011: empresas con altos rendimientos en efectivo sobre el capital que reinvierten una parte a tasas similares, porque esa reinversión produce un efecto compuesto de valor. Diez años después lo resumió en tres instrucciones: comprar buenas empresas, no pagar de más, no hacer nada. Su cartera mostraba un ROCE de 25% a 31% entre 2013 y 2020, contra 10% u 11% de los índices, y la misma carta advierte que los rendimientos altos sirven de poco si el negocio no puede desplegar más capital a esas tasas.</p>
+      <p>Chuck Akre usa un taburete de tres patas: negocio extraordinario, administración talentosa y grandes oportunidades de reinversión. Nick Sleep y Qais Zakaria, en Nomad Investment Partnership, hablaron en 2004 de «maravillosas máquinas de componer», con Costco como ejemplo, y en 2005 de eficiencias de escala compartidas con el cliente. Christopher Mayer estudió 365 acciones que se multiplicaron por cien entre 1962 y 2014: la mayoría tardó de 16 a 30 años y compartía un rendimiento alto sobre el capital con capacidad de reinvertirlo, dueños que operan y un tamaño inicial pequeño.</p>
+
+      <h3>El contrapeso: el compuesto se concentra</h3>
+      <p>Hendrik Bessembinder encontró en el <em>Journal of Financial Economics</em> (2018) que el 58% de las acciones estadounidenses desde 1926 no superó a las letras del Tesoro a lo largo de su vida. El 4% de mejor desempeño, 1,092 empresas, explicó toda la ganancia neta del mercado, y sólo 86 acciones generaron la mitad. En la muestra global de 1990 a 2020, el 2.39% de 63,785 empresas creó toda la riqueza neta y el 57.7% la destruyó. Encontrar un <em>compounder</em> es raro; por eso el interés compuesto de mercado funciona de forma fiable en carteras diversificadas, no en una acción aislada.</p>
+
+      <h3>Berkshire, la máquina que su propio tamaño frena</h3>
+      <p>Según la carta 2025, la ganancia compuesta anual del valor de mercado por acción de Berkshire fue de 19.7% entre 1965 y 2025, contra 10.5% del S&amp;P 500 con dividendos. La ganancia acumulada de 1964 a 2025 fue de 6,099,294% contra 46,061%. Nueve puntos de diferencia al año durante sesenta años producen un patrimonio final 132 veces mayor: es la tabla de Buffett de 1963 llevada al extremo. El mecanismo combinó capital propio reinvertido con el <em>float</em> de los seguros como fuente de financiamiento.</p>
+      <p>La misma serie muestra el límite. En 1994 el valor en libros por acción había pasado de 19 a 10,083 dólares, 23% compuesto anual, y Buffett ya advertía que el tamaño estorbaba. Treinta y dos años después, Abel reconoce que a esa escala la aritmética juega en contra. El capital acumulado eleva el listón para cada dólar incremental.</p>
+
+      <h3>La retención neta es el interés compuesto del ingreso recurrente</h3>
+      <p>En un negocio de suscripción, la <a href="#retencion">retención neta</a> es la tasa de interés de la base instalada y la retención bruta mide su fuga. Una cohorte con NRR de 110% vale 1.61 veces su ingreso inicial a cinco años sin un solo cliente nuevo; con 101% vale 1.05 veces; con una GRR de 91% y sin expansión se reduce a 0.62 veces, y ésa es la fuga que las ventas nuevas tienen que tapar. SaaS Capital reporta para 2025, en más de mil empresas privadas B2B, una NRR mediana de 101% y una GRR mediana de 91%, y una relación fuerte y exponencial entre retención neta y crecimiento.</p>
+      <p>El crecimiento que viene de clientes existentes suele exigir poca reinversión adicional, así que una NRR alta se comporta como un ROIC incremental alto y la fórmula de valor la premia más que al crecimiento comprado con gasto comercial. Pero, como muestra el estudio de ingreso recurrente, capitalizar una NRR de 110% a perpetuidad hace divergir el modelo. La manera correcta es tratar cada cohorte como un capital que compone a NRR − 1, se descuenta al costo de capital y se desvanece con el tiempo, igual que el crecimiento en los datos de McKinsey.</p>
+    </section>
+
+    <section id="ic-mexico">
+      <h2 class="sec">México, octubre de 2026</h2>
+      <p class="lede">El ahorrador en CETES compone a cerca de 2% real después de impuestos. Quien no liquida su tarjeta paga, en promedio, 36.29% nominal. Entre esos dos números está casi todo lo que un mexicano puede hacer con el interés compuesto.</p>
+
+      <div class="tw">
+      <table>
+        <caption>Tablero de cifras · cada una con su fecha</caption>
+        <thead><tr><th>Indicador</th><th>Valor</th><th>Fecha y fuente</th></tr></thead>
+        <tbody>
+          <tr><td>Tasa objetivo de Banxico</td><td>6.50%, cuarta pausa consecutiva</td><td>24-sep-2026 · Banxico</td></tr>
+          <tr><td>CETES a 28, 91, 182 y 364 días</td><td>6.25% · 6.55% · 6.79% · 7.11%</td><td>Subasta del 13-oct-2026 · prensa</td></tr>
+          <tr><td>Inflación anual, general y subyacente</td><td>3.45% · 3.75%</td><td>Septiembre de 2026 · INEGI</td></tr>
+          <tr><td>Tasa real de CETES a 28 y 364 días, antes de impuestos</td><td>2.7% · 3.5%</td><td>Cálculo propio con la inflación de septiembre</td></tr>
+          <tr><td>Retención anual de ISR sobre intereses</td><td>0.90% del capital; era 0.50% en 2025</td><td>LIF 2026, art. 24 · AMCP, Russell Bedford</td></tr>
+          <tr><td>Comisión de las AFORE</td><td>0.54% en nueve AFORE; 0.52% PENSIONISSSTE</td><td>2026 · CONSAR</td></tr>
+          <tr><td>UMA anual</td><td>42,794.64 pesos</td><td>Vigente desde el 1-feb-2026 · INEGI</td></tr>
+          <tr><td>Tasa efectiva de tarjetas: todos, no totaleros, no totaleros sin promociones</td><td>22.82% · 36.29% · 51.34%</td><td>Enero-febrero de 2026 · Banxico</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>CETES Directo: el compuesto de manual, con poco margen real</h3>
+      <p>Banxico mantuvo el 24 de septiembre su tasa objetivo en 6.50% y sigue previendo que la inflación converja a la meta de 3% en el cuarto trimestre de 2027. CETES Directo permite invertir desde 100 pesos, sin comisiones por abrir, invertir ni retirar, con la opción de reinvertir automáticamente los intereses. Renovar CETES a 28 días al 6.25% durante un año da 6.53% efectivo; restada la retención de 0.90% sobre el capital quedan 5.63% nominales, alrededor de 2.1% real con inflación de 3.45%. Los UDIBONOS protegen contra la inflación porque su principal se indexa a la UDI, pero su cupón semestral sólo compone si se reinvierte.</p>
+
+      <h3>El ISR grava distinto el interés y la ganancia en bolsa</h3>
+      <p>La Ley de Ingresos de 2026 subió la retención anual sobre intereses a 0.90% del capital. Es un pago provisional: en la declaración anual sólo se grava el interés real, lo que excede al ajuste por inflación (art. 134 de la LISR), a la tarifa progresiva del art. 152, que llega a 35%. Quien sólo percibe intereses y no rebasa 100,000 pesos puede tomar la retención como pago definitivo (art. 135). Las ganancias en acciones cotizadas, incluidas las del SIC, pagan 10% definitivo (art. 129), y los dividendos de utilidades generadas desde 2014 pagan 10% adicional (art. 140).</p>
+      <p>De ahí salen dos consecuencias. Para un contribuyente de tasa marginal alta, la retención de 0.90% casi iguala el impuesto final sobre el interés real de los CETES. Y para ese mismo contribuyente la cuña fiscal favorece estructuralmente la renta variable, con 10% definitivo, sobre la renta fija, con hasta 35% del interés real, en horizontes largos.</p>
+
+      <h3>AFORE, aportaciones voluntarias y PPR: el mayor acelerador disponible</h3>
+      <p>CONSAR autorizó para 2026 comisiones de 0.54% en nueve AFORE y de 0.52% en PENSIONISSSTE. Los rendimientos netos más altos por SIEFORE generacional iban de 7.95% a 9.61% nominal en agosto de 2026, con la advertencia de CONSAR de que no son una ganancia garantizada. La reforma de 2020 sube cada año la aportación patronal de cesantía y vejez: en el rango salarial más alto pasa de 6.422% en 2025 a 7.513% en 2026 y llegará a 11.875% en 2030, cuando la aportación total a la cuenta rondará el 15% del salario.</p>
+      <p>El art. 151, fracción V, de la LISR permite deducir las aportaciones voluntarias, complementarias y a planes personales de retiro hasta el 10% de los ingresos acumulables, sin rebasar cinco UMA anuales, y esta deducción queda fuera del tope global de deducciones personales. Con la UMA de 2026 el tope es de 213,973.20 pesos; el límite del 10% es el que rige para ingresos menores a unos 2.14 millones. A una tasa marginal de 30% a 35%, cada peso deducido devuelve de 30 a 35 centavos antes de cualquier rendimiento de mercado, y ningún instrumento ofrece un primer año así. El costo es la iliquidez: si se retira antes de tiempo, lo deducido se vuelve ingreso acumulable con retención de 20%. Aun así, en 2024 sólo el 7.9% de los cuentahabientes de AFORE hizo aportaciones voluntarias.</p>
+
+      <h3>Las comisiones convierten el 8% en 6%</h3>
+      <p>No hay una estadística oficial de CNBV o AMIB sobre la comisión promedio de los fondos mexicanos. El SPIVA de cierre de 2025 sí mide el resultado: netos de comisiones, el 75.56% de los fondos activos de renta variable mexicana quedó por debajo del S&amp;P/BMV IRT a un año, el 77.27% a cinco y el 75.61% a diez. Con 100,000 pesos al 8% bruto durante treinta años, el resultado es de unos 574,000 pesos con comisión de 2%, 866,000 con 0.54% y 952,000 con 0.2%. Con aportaciones de 5,000 pesos al mes, la diferencia entre 2% y 0.2% ronda 1.9 millones de pesos. Es la tiranía de Bogle con datos mexicanos.</p>
+
+      <figure class="calc" id="calc">
+        <p class="fig-title">Calculadora de interés compuesto</p>
+        <p class="fig-sub">Pesos · capitalización mensual · ejemplo precargado, cambie cualquier dato</p>
+        <form class="calc-in" id="calcForm" novalidate>
+          <label for="cCap">Capital inicial<input id="cCap" type="number" inputmode="decimal" min="0" step="1000" value="100000"></label>
+          <label for="cApo">Aportación mensual<input id="cApo" type="number" inputmode="decimal" min="0" step="500" value="5000"></label>
+          <label for="cTasa">Rendimiento bruto anual, %<input id="cTasa" type="number" inputmode="decimal" step="0.1" value="8"></label>
+          <label for="cCom">Comisión anual, %<input id="cCom" type="number" inputmode="decimal" min="0" step="0.05" value="1.5"></label>
+          <label for="cInf">Inflación anual, %<input id="cInf" type="number" inputmode="decimal" step="0.05" value="3.45"></label>
+          <label for="cAnos">Años<input id="cAnos" type="number" inputmode="numeric" min="1" max="60" step="1" value="30"></label>
+        </form>
+        <div class="calc-out" aria-live="polite">
+          <div><span class="k">Valor final con comisión</span><span class="v" id="oFin">—</span></div>
+          <div><span class="k">En pesos de hoy</span><span class="v" id="oReal">—</span></div>
+          <div><span class="k">Total aportado</span><span class="v" id="oApo">—</span></div>
+          <div><span class="k">Lo que se llevó la comisión</span><span class="v" id="oCom">—</span></div>
+          <div><span class="k">Se duplica cada</span><span class="v" id="oDup">—</span></div>
+        </div>
+        <div class="chart-wrap" id="chartWrap">
+          <svg id="calcChart" viewBox="0 0 560 250" role="img" aria-label="Gráfica de líneas del valor acumulado por año: sin comisión, con comisión y total aportado."></svg>
+          <div class="tip" id="calcTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="swatch sw-b"></span>Sin comisión</span>
+          <span><span class="swatch sw-a"></span>Con comisión</span>
+          <span><span class="swatch sw-c"></span>Total aportado</span>
+        </div>
+        <details class="calc-table">
+          <summary>Ver los valores por año</summary>
+          <div class="tw"><table id="calcTable"><thead><tr><th>Año</th><th>Aportado</th><th>Sin comisión</th><th>Con comisión</th><th>Con comisión, en pesos de hoy</th></tr></thead><tbody></tbody></table></div>
+        </details>
+        <figcaption>La distancia entre las dos líneas superiores es lo que la comisión se lleva. Los valores son nominales y antes de impuestos; «en pesos de hoy» descuenta la inflación capturada. El tiempo para duplicar usa el rendimiento neto de comisión.</figcaption>
+      </figure>
+
+      <h3>La tarjeta de crédito: el interés compuesto en contra más caro del sistema</h3>
+      <p>Banxico reporta para enero y febrero de 2026 una tasa efectiva de 22.82% para todos los clientes de tarjeta, 36.29% para quienes no pagan el total y 51.34% para los no totaleros sin promociones. Su informe anual con datos a junio de 2025 muestra que el 42.1% de las tarjetas es de no totaleros, que esas tarjetas concentran el 64.3% del saldo y que una cuarta parte de ellos pagó exactamente el mínimo. El pago mínimo es el mayor entre 1.5% del saldo más intereses e IVA, y 1.25% de la línea de crédito.</p>
+      <div class="formula">Deuda de 80,000 pesos · línea de 80,000 · tasa de 36.29% · IVA sobre intereses
+
+Pagando sólo el mínimo          127 meses   intereses 134,000   IVA 21,000
+Pagando el mínimo + 500 al mes   69 meses   intereses  77,000   IVA 12,000</div>
+      <p class="verified">Simulación propia, mes a mes, con la regla de pago mínimo</p>
+      <p>Pagar sólo el mínimo cuesta casi dos veces el principal en intereses e IVA. Liquidar esa deuda equivale a un rendimiento garantizado de más de 30% real, más de diez veces lo que paga un CETE. CONDUSEF usa este mismo escenario para advertir que el pago mínimo da una falsa sensación de control.</p>
+
+      <h3>Para la mayoría, el compuesto todavía no empieza</h3>
+      <p>La ENIF 2024 muestra que el 76.5% de los adultos tiene al menos un producto financiero formal, pero sólo el 42.2% tiene cuenta de ahorro para el retiro y el 68.2% espera apoyo del gobierno en la vejez. El 33.6% no ahorró nada en el año y el 36.6% ahorró sólo de manera informal. El ahorro en tandas o en efectivo no genera intereses y pierde cerca de 3.5% al año contra la inflación: para buena parte de la población el problema no es la tasa, sino que el interés compuesto nunca arranca.</p>
+    </section>
+
+    <section id="ic-limites">
+      <h2 class="sec">Dónde se rompe el compuesto</h2>
+      <p class="lede">La fórmula supone una tasa constante, un plazo ininterrumpido y ningún retiro. La realidad incumple los tres supuestos, y casi todos los fracasos del interés compuesto vienen de ahí y no de la matemática.</p>
+
+      <h3>Supervivencia</h3>
+      <p>Jorion y Goetzmann revisaron 39 mercados del siglo XX: Estados Unidos tuvo el mayor rendimiento real ininterrumpido, 4.73% anual en precios, contra una mediana de 1.5% en los demás, muchos de ellos sacudidos por crisis, expropiaciones y guerras. Los ferrocarriles pasaron de 63% del mercado estadounidense en 1900 a menos de 1%. La historia que se cita para defender el largo plazo es la del mercado que sobrevivió.</p>
+
+      <h3>Secuencia</h3>
+      <p>Cuando hay retiros, el orden de los rendimientos importa tanto como su promedio. William Bengen encontró que el peor jubilado de su muestra, el de 1966, sólo podía retirar 4.15% inicial ajustado por inflación; de ahí viene la regla del 4%.</p>
+      <div class="formula">Un millón · retiros de 60,000 al año · siete rendimientos: −25, −10, +5, +10, +15, +20, +25%
+
+Los años malos primero    termina en 675,000
+Los años malos al final   termina en 992,000</div>
+      <p class="verified">Mismos rendimientos, mismos retiros, distinto orden</p>
+
+      <h3>Desvanecimiento y tamaño</h3>
+      <p>Ni las tasas de crecimiento de las empresas ni las exponenciales físicas se sostienen indefinidamente, y el propio tamaño frena el compuesto, como reconoce Berkshire. Franklin y Price calcularon bien, pero nadie siguió pagando el 5%; las tablas rasas mesopotámicas muestran que las sociedades reinician la deuda cuando el compuesto rebasa la capacidad de pago.</p>
+
+      <h3>Propósito</h3>
+      <p>Bill Perkins sostiene en <em>Die with Zero</em> que morir con dinero sin gastar es desperdiciar vida, y propone gastar y donar en vida porque las experiencias pagan «dividendos de memoria». Sus críticos responden que el propósito importa más que maximizar experiencias. Ambos coinciden en algo útil: el compuesto es un medio, y conviene decidir de antemano para qué se acumula el capital.</p>
+
+      <h3>Los millonarios discretos, con letra pequeña</h3>
+      <p>Ronald Read, empleado de gasolinera y conserje en Vermont, murió en 2014 con unos 8 millones de dólares repartidos en al menos 95 acciones mantenidas durante décadas, y legó 4.8 millones a un hospital y 1.2 millones a una biblioteca. Grace Groner compró en 1935 tres acciones de Abbott por 180 dólares, nunca las vendió y legó unos 7 millones a Lake Forest College: eso implica cerca de 15.1% anual durante 75 años, muy por encima del promedio, así que su caso se explica tanto por haber elegido una ganadora como por el compuesto. Anne Scheiber dejó unos 22 millones a Yeshiva University, pero su cartera inicial rondaba los 21,000 dólares, no los 5,000 del mito. Los tres casos comparten cincuenta a setenta y cinco años de plazo, dividendos reinvertidos, casi ningún retiro y frugalidad. Enseñan más sobre tiempo y tasa de ahorro que sobre rendimiento.</p>
+    </section>
+
+    <section id="ic-biblioteca">
+      <h2 class="sec">Biblioteca y ruta de lectura</h2>
+      <p class="lede">Casi todo el canon ya está traducido. La ruta va de la intuición a la empresa, en cinco etapas que caben en nueve a doce meses, y casi toda se puede leer en español.</p>
+
+      <ol class="route">
+        <li>
+          <p class="stage"><span>Etapa 1</span>Intuición y conducta · meses 1 y 2</p>
+          <ul class="res">
+            <li><span class="t"><a href="https://www.casadellibro.com.co/libro-el-hombre-mas-rico-de-babilonia-los-secretos-del-exito-de-los-an-tiguos-23-ed/9788477203711/468605"><em>El hombre más rico de Babilonia</em></a></span><span class="rm">George S. Clason · 1926 · varias ediciones en español · introductorio</span><span class="d">La mecánica del interés compuesto como parábola: separar una parte de lo que se gana y poner a trabajar también a los rendimientos. Una tarde de lectura.</span></li>
+            <li><span class="t"><a href="https://www.buscalibre.com.mx/libro-pequeno-cerdo-capitalista/9786071107848/p/4241507"><em>Pequeño cerdo capitalista</em></a></span><span class="rm">Sofía Macías · Aguilar, 2011 · introductorio</span><span class="d">Finanzas personales en contexto mexicano: deudas, ahorro, AFORE e instrumentos locales. Más de 660,000 ejemplares vendidos.</span></li>
+            <li><span class="t"><a href="https://www.planetadelibros.com/libro-la-psicologia-del-dinero/334390"><em>La psicología del dinero</em></a></span><span class="rm">Morgan Housel · 2020 · Planeta, 2021 · introductorio</span><span class="d">Su capítulo sobre el interés compuesto explica la fortuna de Buffett por el tiempo y separa hacerse rico de mantenerse rico. La mejor puerta de entrada.</span></li>
+          </ul>
+        </li>
+        <li>
+          <p class="stage"><span>Etapa 2</span>Método y evidencia · meses 2 a 4</p>
+          <ul class="res">
+            <li><span class="t"><a href="https://www.planetadelibros.com/libro-el-pequeno-libro-para-invertir-con-sentido-comun/211833"><em>El pequeño libro para invertir con sentido común</em></a></span><span class="rm">John C. Bogle · 2007 · Deusto, 2016 · introductorio</span><span class="d">Los costos también se componen; un fondo indexado de bajo costo captura casi todo el rendimiento del mercado. Aplica directo a fondos, AFORE y ETF.</span></li>
+            <li><span class="t"><a href="https://proapi.planetadelibros.com/descargas/sala-prensa-libro/sinopsis-y-biografia/428205/el-habito-de-invertir-just-keep-buying.pdf"><em>El hábito de invertir</em></a></span><span class="rm">Nick Maggiulli · 2022 · Península, 2025 · introductorio</span><span class="d">Comprar de forma constante casi siempre supera a esperar la caída. La aplicación más directa para un profesionista con ingreso regular.</span></li>
+            <li><span class="t"><a href="https://www.marcialpons.es/libros/el-camino-simple-a-la-riqueza/9788416997572/"><em>El camino simple a la riqueza</em></a></span><span class="rm">JL Collins · 2016 · Empresa Activa, 2022 · introductorio</span><span class="d">Cero deuda de consumo, tasa de ahorro alta, un fondo de todo el mercado y no tocarlo.</span></li>
+            <li><span class="t"><a href="https://www.alianzaeditorial.es/primer_capitulo/un-paseo-aleatorio-por-wall-street.pdf"><em>Un paseo aleatorio por Wall Street</em></a></span><span class="rm">Burton G. Malkiel · 1973 · Alianza · intermedio</span><span class="d">Por qué es tan difícil ganarle al mercado, y una guía de inversión por etapa de vida.</span></li>
+          </ul>
+        </li>
+        <li>
+          <p class="stage"><span>Etapa 3</span>Buffett, Munger y el valor · meses 4 a 7</p>
+          <ul class="res">
+            <li><span class="t"><a href="https://proapi.planetadelibros.com/descargas/sala-prensa-libro/sinopsis-y-biografia/427153/el-inversor-inteligente.pdf"><em>El inversor inteligente</em></a></span><span class="rm">Benjamin Graham, con comentarios de Jason Zweig · Deusto, 26-nov-2025 · intermedio</span><span class="d">Minimizar pérdidas antes que maximizar ganancias: la primera condición para que el compuesto no se interrumpa. Leer al menos los capítulos 8 y 20.</span></li>
+            <li><span class="t"><a href="https://www.marcialpons.es/libros/los-ensayos-de-warren-buffett/9788494276811/"><em>Los ensayos de Warren Buffett</em></a></span><span class="rm">Lawrence A. Cunningham, ed. · Valor Editions, 2015 · intermedio</span><span class="d">Las cartas ordenadas por temas, como un tratado: asignación de capital, retención de utilidades, recompras y valor intrínseco. La entrada natural para un abogado corporativo.</span></li>
+            <li><span class="t"><a href="https://www.casadellibro.com.co/libro-la-bola-de-nieve-warren-buffett-y-el-negocio-de-la-vida/9788494276880/6411394"><em>La bola de nieve</em></a> o <a href="https://www.planetadelibros.com/libro-buffett/461248"><em>Buffett. La construcción de un capitalista</em></a></span><span class="rm">Alice Schroeder · Valor, 2018 · o Roger Lowenstein · Península, 25-nov-2026</span><span class="d">Dos biografías: la autorizada, más personal, y la de Lowenstein, más financiera. Ambas muestran que la mayor parte de la riqueza llega tarde.</span></li>
+            <li><span class="t"><a href="https://www.goodreads.com/book/show/242829694"><em>El almanaque del pobre Charlie</em></a></span><span class="rm">Peter D. Kaufman, ed. · edición en español de 2025 · avanzado</span><span class="d">Once charlas de Munger y su red de modelos mentales. La edición en inglés de Stripe Press puede leerse gratis en línea.</span></li>
+            <li><span class="t"><a href="https://www.berkshirehathaway.com/letters/letters.html">Cartas de Berkshire Hathaway a los accionistas</a></span><span class="rm">1965 a la fecha · gratuitas · avanzado</span><span class="d">Cada carta abre con la tabla del valor compuesto de Berkshire contra el S&amp;P 500: la demostración más larga del concepto.</span></li>
+          </ul>
+        </li>
+        <li>
+          <p class="stage"><span>Etapa 4</span>Empresas que componen · meses 7 a 10</p>
+          <ul class="res">
+            <li><span class="t"><a href="https://www.marcialpons.es/libros/los-outsiders/9788412432923/"><em>Los outsiders</em></a></span><span class="rm">William N. Thorndike · Valor Editions, 2022 · intermedio</span><span class="d">Ocho directores que superaron al S&amp;P 500 asignando capital con racionalidad. El libro clave para ver el compuesto desde el consejo de administración.</span></li>
+            <li><span class="t"><a href="https://www.planetadelibros.com/libro-invirtiendo-en-calidad/264691"><em>Invirtiendo en calidad</em></a></span><span class="rm">Cunningham, Eide y Hargreaves (AKO Capital) · Deusto, 2018 · intermedio</span><span class="d">Qué hace que una empresa componga durante décadas: rendimientos altos y sostenidos sobre el capital, poder de precio y capacidad de reinversión.</span></li>
+            <li><span class="t"><a href="https://proapi.planetadelibros.com/descargas/sala-prensa-libro/sinopsis-y-biografia/414814/invertir-para-crecer.pdf"><em>Invertir para crecer</em></a></span><span class="rm">Terry Smith · Deusto, abril de 2025 · intermedio</span><span class="d">Comprar buenas empresas, no pagar de más, no hacer nada. Ensayos breves sobre ROCE y reinversión.</span></li>
+            <li><span class="t"><a href="https://www.planetadelibros.com/autor/philip-a-fisher/000022529"><em>Acciones ordinarias y beneficios extraordinarios</em></a></span><span class="rm">Philip A. Fisher · 1958 · Deusto · intermedio</span><span class="d">El origen intelectual de la inversión en <em>compounders</em>: identificar negocios que reinvierten durante décadas y conservarlos.</span></li>
+            <li><span class="t"><a href="https://latam.casadellibro.com/ebook-100-baggers-ebook/9791387936099/17957283"><em>100 baggers</em></a></span><span class="rm">Christopher W. Mayer · 2015 · Tenos, 2026 · intermedio</span><span class="d">Los dos motores del compuesto accionario, crecimiento de utilidades y múltiplo, y el costo de vender demasiado pronto.</span></li>
+            <li><span class="t"><a href="https://www.planetadelibros.com/autor/lawrence-a-cunningham/000048721"><em>Berkshire más allá de Warren Buffett</em></a></span><span class="rm">Lawrence A. Cunningham · Deusto, 2025 · intermedio</span><span class="d">La cultura que permite componer sin el fundador. Útil para el ángulo de gobierno corporativo.</span></li>
+          </ul>
+        </li>
+        <li>
+          <p class="stage"><span>Etapa 5</span>Perspectiva · en paralelo o al cierre</p>
+          <ul class="res">
+            <li><span class="t"><a href="https://www.rankia.com/blog/biblioteca-bursatil/5574037-mas-ricos-sabios-felices"><em>Más ricos, más sabios, más felices</em></a></span><span class="rm">William Green · Valor Editions, 2022 · introductorio</span><span class="d">Entrevistas con Templeton, Marks, Pabrai, Nick Sleep y otros: el compuesto aplicado a la inversión y al carácter.</span></li>
+            <li><span class="t"><a href="https://www.planetadelibros.com/libro-invirtiendo-a-largo-plazo/213705"><em>Invirtiendo a largo plazo</em></a></span><span class="rm">Francisco García Paramés · Deusto, 2016 · intermedio</span><span class="d">Veinte años de inversión en valor contados en español por quien los ejecutó.</span></li>
+            <li><span class="t"><a href="https://proapi.planetadelibros.com/descargas/sala-prensa-libro/sinopsis-y-biografia/388779/habitos-atomicos.pdf"><em>Hábitos atómicos</em></a></span><span class="rm">James Clear · Diana · introductorio</span><span class="d">«Los hábitos son el interés compuesto de la superación personal»: 1% mejor cada día equivale a unas 37 veces en un año.</span></li>
+            <li><span class="t"><a href="https://latam.casadellibro.com/libro-morir-con-cero/9788491118749/12997396"><em>Morir con cero</em></a> y <a href="https://www.planetadelibros.com/libro-el-arte-de-gastar-dinero/426033"><em>El arte de gastar dinero</em></a></span><span class="rm">Bill Perkins · Obelisco, 2022 · Morgan Housel · Planeta, 2025</span><span class="d">El contrapunto: para qué sirve el capital acumulado.</span></li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Sólo en inglés</h3>
+      <ul class="res">
+        <li><span class="t"><em>Stocks for the Long Run</em></span><span class="rm">Jeremy J. Siegel · 6.ª edición, 2022</span><span class="d">Dos siglos de rendimientos reales; el respaldo empírico de la tesis de largo plazo.</span></li>
+        <li><span class="t"><em>100 to 1 in the Stock Market</em></span><span class="rm">Thomas W. Phelps · 1972</span><span class="d">El precursor de Mayer: el mayor enemigo del compuesto es vender.</span></li>
+        <li><span class="t"><a href="https://ingramacademic.com/products/the-joys-of-compounding-9780231197328"><em>The Joys of Compounding</em></a></span><span class="rm">Gautam Baid · Columbia University Press, edición revisada de 2020</span><span class="d">El compuesto del conocimiento y del value investing, con los modelos mentales de Buffett y Munger.</span></li>
+        <li><span class="t"><a href="https://harriman-house.com/authors/lawrence-a-cunningham/dear-shareholder/9781804092248"><em>Dear Shareholder</em></a></span><span class="rm">Lawrence A. Cunningham, ed. · Harriman House, 2020</span><span class="d">Cartas a accionistas de más de veinte directores centrados en el valor por acción. También sirve como modelo de redacción.</span></li>
+        <li><span class="t"><a href="https://www.porchlightbooks.com/products/nomad-letters-nick-sleep-9781953953599"><em>Nomad Letters</em></a></span><span class="rm">Nick Sleep y Qais Zakaria · Stripe Press, 1-dic-2026</span><span class="d">Primera edición impresa de las cartas de Nomad, 2001 a 2014: análisis de destino y economías de escala compartidas.</span></li>
+      </ul>
+      <p>De autoría mexicana, la referencia con tracción verificada es Sofía Macías, con <em>Pequeño cerdo capitalista</em> y su segundo libro dedicado a inversiones (2013). Moris Dieck, que difundió en México la idea del 1% diario, publicó <em>El inversionista de enfrente</em> (2019) en formato electrónico; es divulgación sin el rigor de los clásicos. No se encontró un libro mexicano sobre inversión de largo plazo comparable al canon. Las obras de Planeta, Deusto y Península suelen llegar a México por Planeta; las de Valor Editions, Empresa Activa y Tenos pueden requerir importación o edición electrónica.</p>
+    </section>
+
+    <section id="ic-medios">
+      <h2 class="sec">Podcasts, documentales, videos y cursos</h2>
+      <p class="lede">Ningún documental trata el interés compuesto como tema central: los biográficos lo muestran a lo largo de una vida y las series de Netflix lo muestran sobre todo en contra, a través de la deuda. Los podcasts son mejor fuente.</p>
+
+      <h3>Podcasts en inglés</h3>
+      <ul class="res">
+        <li><span class="t"><a href="https://rationalreminder.ca/podcast/239">Rational Reminder · 239 «The Math of Financial Planning»</a></span><span class="rm">Ben Felix y Cameron Passmore · 23-feb-2023</span><span class="d">Valor del dinero en el tiempo, componer contra descontar, 5% contra 7% a treinta años y el sesgo exponencial.</span></li>
+        <li><span class="t"><a href="https://pwlcapital.com/episode-381-investing-101/">Rational Reminder · 381 «Investing 101»</a></span><span class="rm">30-oct-2025</span><span class="d">La matemática del compuesto y cómo las comisiones pequeñas se componen en pérdidas grandes.</span></li>
+        <li><span class="t"><a href="https://www.joincolossus.com/episode/bloomstran-berkshire-hathaway-the-incomparable-compounder/">Business Breakdowns · 63 «Berkshire Hathaway: The Incomparable Compounder»</a></span><span class="rm">Con Chris Bloomstran · 29-jun-2022</span><span class="d">El <em>float</em> como fuente de capital y Berkshire como máquina de composición.</span></li>
+        <li><span class="t"><a href="https://www.acquired.fm/episodes/charlie-munger">Acquired · serie Berkshire Hathaway y entrevista a Charlie Munger</a></span><span class="rm">Abril a junio de 2021 · 30-oct-2023</span><span class="d">La historia completa de la sociedad y de Berkshire, y la última gran entrevista de Munger, un mes antes de su muerte.</span></li>
+        <li><span class="t"><a href="https://www.theinvestorspodcast.com/episodes/the-joys-of-compounding-by-gautam-baid">We Study Billionaires · TIP534 «The Joys of Compounding»</a></span><span class="rm">13-mar-2023 · y TIP666 «Compounding Beyond Wealth», 6-oct-2024</span><span class="d">El libro de Baid y por qué las empresas que reinvierten a tasas altas pueden componer aunque parezcan caras.</span></li>
+        <li><span class="t"><a href="https://www.capitalallocators.com/?p=40365">Capital Allocators · 153 con Morgan Housel</a></span><span class="rm">Ted Seides · 6-sep-2020</span><span class="d">Compuesto, suerte, riesgo y paciencia según el autor de <em>La psicología del dinero</em>.</span></li>
+        <li><span class="t"><a href="https://www.joincolossus.com/episode/senra-329-charlie-munger-the-new-poor-charlies-almanack/">Founders · 329 sobre el nuevo <em>Poor Charlie’s Almanack</em></a></span><span class="rm">David Senra · diciembre de 2023 · y 380, Buffett y Munger en sus palabras, 25-feb-2025</span><span class="d">Resúmenes de las fuentes primarias de Munger y de treinta años de asambleas de Berkshire.</span></li>
+      </ul>
+
+      <h3>Podcasts en español</h3>
+      <ul class="res">
+        <li><span class="t"><a href="https://www.ivoox.com/en/podcast-dimes-billetes_sq_f1653027_1.html">Dimes y Billetes</a></span><span class="rm">Moris Dieck · México · activo, más de 490 episodios</span><span class="d">Divulgación mexicana. Una de sus ideas recientes: al invertir para los hijos importa más el tiempo que el monto.</span></li>
+        <li><span class="t"><a href="https://podcasts.apple.com/us/podcast/c%C3%B3mo-transformar-nuestras-finanzas-personales-en-la/id1615568111?i=1000715053988&amp;l=es-MX">Invirtiendo y Entendiendo · 74, con Sofía Macías</a></span><span class="rm">Rankia México · 29-jun-2025</span><span class="d">Ahorro, inversión y filosofía de inversión en contexto mexicano.</span></li>
+        <li><span class="t"><a href="https://www.ivoox.com/en/podcast-value-school_sq_f1577550_1.html">Value School</a></span><span class="rm">España · fundado por García Paramés en 2017 · activo, más de 600 episodios</span><span class="d">La fuente en español más sólida sobre inversión en valor y horizontes largos; los ejemplos fiscales son españoles.</span></li>
+        <li><span class="t">El Arte de Invertir (GBM) · Peras y manzanas (Valeria Moy, BBVA)</span><span class="rm">México</span><span class="d">Otros programas mexicanos cercanos a la inversión de largo plazo, según el recuento de julio de 2026.</span></li>
+      </ul>
+
+      <h3>Documentales y series</h3>
+      <ul class="res">
+        <li><span class="t"><a href="https://www.netflix.com/mx/title/81345769">El dinero, en pocas palabras</a></span><span class="rm">Netflix y Vox · 2021 · audio en español</span><span class="d">Los episodios «Tarjetas de crédito» y «Jubilación» muestran el compuesto en contra y a favor en 22 minutos cada uno.</span></li>
+        <li><span class="t"><a href="https://www.netflix.com/mx/title/81410436">Cómo hacerse ricos</a></span><span class="rm">Netflix, con Ramit Sethi · 2023 · audio en español latino</span><span class="d">En el episodio 2, una pareja cuya deuda de tarjeta y comisiones podría costarle más de un millón de dólares.</span></li>
+        <li><span class="t"><a href="https://en.wikipedia.org/wiki/Becoming_Warren_Buffett">Becoming Warren Buffett</a></span><span class="rm">HBO · 30-ene-2017 · inglés</span><span class="d">La biografía en una hora y media, con animaciones que explican la inversión en valor.</span></li>
+        <li><span class="t"><a href="https://www.cnbc.com/2023/11/29/cnbcs-charlie-munger-a-life-of-wit-and-wisdom-premieres-tomorrow-11/30/23.html">Charlie Munger: A Life of Wit and Wisdom</a></span><span class="rm">CNBC · 30-nov-2023 · inglés</span><span class="d">El homenaje de una hora tras su muerte.</span></li>
+        <li><span class="t"><a href="https://www.pbs.org/wnet/ascentofmoney/featured/about-the-film/1">The Ascent of Money</a></span><span class="rm">Niall Ferguson · Channel 4 y PBS, 2008 y 2009</span><span class="d">Historia del crédito, los bonos y los seguros. No nombra el interés compuesto, pero explica el sistema en el que opera.</span></li>
+        <li><span class="t"><a href="https://www.imdb.com/title/tt8941986/plotsummary">Playing with FIRE</a></span><span class="rm">2019 · inglés</span><span class="d">Una pareja eleva su tasa de ahorro a cerca de 70% para retirarse temprano.</span></li>
+      </ul>
+
+      <h3>Discursos y videos</h3>
+      <ul class="res">
+        <li><span class="t"><a href="https://jamesclear.com/great-speeches/a-lesson-on-elementary-worldly-wisdom-by-charlie-munger">Munger · «A Lesson on Elementary, Worldly Wisdom»</a></span><span class="rm">USC, 1994 · transcripción</span><span class="d">El rendimiento del negocio contra el precio pagado y el ejemplo del diferimiento fiscal.</span></li>
+        <li><span class="t"><a href="https://jamesclear.com/great-speeches/2007-usc-law-school-commencement-address-by-charlie-munger">Munger · discurso de graduación de la escuela de derecho de USC</a></span><span class="rm">13-may-2007 · transcripción</span><span class="d">Las «máquinas de aprender»: el compuesto aplicado al conocimiento.</span></li>
+        <li><span class="t"><a href="https://warrington.ufl.edu/news/warren-buffett-to-mba-students-this-is-what-sets-apart-a-big-winner-from-the-rest-of-the-pack">Buffett en la Universidad de Florida</a></span><span class="rm">1998</span><span class="d">La charla a estudiantes de MBA más citada, sobre hábitos y carácter.</span></li>
+        <li><span class="t"><a href="https://www.cnbc.com/2018/05/05/cnbc-launches-the-warren-buffett-archive.html">Archivo Warren Buffett de CNBC</a></span><span class="rm">Asambleas de Berkshire desde 1994, en video y transcripción</span><span class="d">La fuente primaria en video más completa.</span></li>
+        <li><span class="t"><a href="https://www.3blue1brown.com/lessons/eulers-number">3Blue1Brown · «What’s so special about Euler’s number e?»</a></span><span class="rm">2-may-2017</span><span class="d">Por qué <em>e</em> gobierna todo lo que crece en proporción a su tamaño.</span></li>
+        <li><span class="t"><a href="https://www.federalreserveeducation.org/teaching-resources/personal-finance/investing/growing-money-compound-interest">Federal Reserve Education · «Growing Money: Compound Interest»</a></span><span class="rm">inglés</span><span class="d">1,000 dólares al 3% capitalizable mensualmente dan 1,820.75 a veinte años, y 18,235.85 con 50 dólares al mes.</span></li>
+      </ul>
+
+      <h3>Cursos gratuitos y material institucional</h3>
+      <ul class="res">
+        <li><span class="t"><a href="https://www.coursera.org/learn/wharton-finance">Wharton · «Introduction to Corporate Finance»</a></span><span class="rm">Coursera · inglés con subtítulos</span><span class="d">El primer módulo es valor del dinero en el tiempo: componer y descontar con rigor.</span></li>
+        <li><span class="t"><a href="https://www.coursera.org/learn/finanzas-personales">UNAM · «Finanzas personales»</a></span><span class="rm">Coursera · español</span><span class="d">Presupuesto, ahorro, inversión, crédito y seguros aplicados a México.</span></li>
+        <li><span class="t"><a href="https://oyc.yale.edu/economics/econ-252-11/lecture-1">Yale · ECON 252 «Financial Markets», Robert Shiller</a></span><span class="rm">Open Yale Courses, 2011</span><span class="d">Cómo funcionan los mercados. No enseña la matemática del compuesto, pero da el contexto.</span></li>
+        <li><span class="t"><a href="https://www.unotv.com/noticias-utiles/interes-compuesto-o-simple-que-son-y-cuales-son-sus-diferencias-segun-condusef/">CONDUSEF · <em>Proteja su Dinero</em>, junio de 2022</a></span><span class="rm">Español</span><span class="d">Interés simple contra compuesto, con las aportaciones voluntarias a la AFORE como ejemplo.</span></li>
+      </ul>
+    </section>
+
+    <section id="ic-recomendaciones">
+      <h2 class="sec">Qué hacer con todo esto</h2>
+      <p class="lede">La evidencia ordena las prioridades. Casi ninguna depende del mercado: dependen del costo de la deuda, de la cuña fiscal de cada instrumento y de no interrumpir el plan.</p>
+
+      <ol class="concl">
+        <li><div><strong>Primero, eliminar el interés compuesto en contra.</strong> Liquidar la deuda revolvente de tarjeta, que cuesta 36.29% a quien no paga el total, equivale a un rendimiento garantizado de más de 30% real. Si no se puede de golpe, pagar más del mínimo: quinientos pesos adicionales al mes casi reducen el plazo a la mitad.</div></li>
+        <li><div><strong>Separar la liquidez del motor de largo plazo.</strong> CETES Directo con reinversión automática conserva el poder de compra, pero compone a cerca de 2% real neto. Sirve para el fondo de emergencia, no para el retiro. Si la retención de 0.90% excede al impuesto sobre el interés real, recuperarla en la declaración anual.</div></li>
+        <li><div><strong>Capturar el acelerador fiscal.</strong> Las aportaciones voluntarias deducibles o un plan personal de retiro, hasta el 10% del ingreso y 213,973.20 pesos en 2026, devuelven de 30 a 35 centavos por peso el primer año. Sólo se pierde si el dinero se retira antes de tiempo.</div></li>
+        <li><div><strong>Recortar comisiones y diversificar.</strong> Tres de cada cuatro fondos activos de renta variable mexicana quedan por debajo de su índice a diez años. Los ETF indexados de bajo costo vía SIC pagan 10% definitivo sobre la ganancia. La diversificación no es opcional, porque el compuesto se concentra en pocas empresas.</div></li>
+        <li><div><strong>Proteger la continuidad.</strong> Proyectar con la tasa geométrica, real y neta; incluir el año de −30% que pedía Buffett; evitar ventas forzadas; y planear la fase de retiros pensando en el orden de los rendimientos. Mantener a largo plazo también difiere impuestos, y eso es compuesto adicional.</div></li>
+        <li><div><strong>Componer el conocimiento.</strong> La ruta de lectura de este estudio es la versión práctica de las «máquinas de aprender» de Munger: una etapa a la vez, sin saltarse la de los costos.</div></li>
+        <li><div><strong>En la valuación, leer el compuesto en la empresa.</strong> Tratar la retención neta como la tasa de interés de la base instalada y la bruta como su fuga, exigir que el crecimiento venga con un rendimiento sobre el capital nuevo superior a su costo, y modelar el desvanecimiento desde el principio. Crecer por debajo del costo de capital es interés compuesto en contra.</div></li>
+      </ol>
+
+      <p class="pull">El interés compuesto rara vez falla por la matemática. Falla cuando la tasa es menor de lo que se cree, cuando el plazo se interrumpe o cuando desaparece la salida invertible que debía pagarla.</p>
+      <div class="note"><b>Alcance.</b> Estas recomendaciones derivan de la evidencia citada y de la legislación vigente a octubre de 2026. No sustituyen la revisión de la situación fiscal y patrimonial de cada persona.</div>
+    </section>
+
+    <section id="ic-huecos">
+      <h2 class="sec">Lo que no se pudo verificar</h2>
+      <ul>
+        <li>La retención de 0.90% sobre intereses para 2026 (art. 24 de la LIF 2026) la confirman AMCP y Russell Bedford, pero el texto del artículo no pudo leerse en el PDF oficial y un compendio en línea todavía publica 0.50%. Conviene cotejarla con el DOF del 7 de noviembre de 2025 antes de citarla formalmente.</li>
+        <li>Las tasas de CETES del 13 de octubre provienen de la cobertura de prensa de la subasta, no del boletín de Banxico.</li>
+        <li>El ejemplo de Manhattan de la carta de Buffett de enero de 1965 sólo se verificó en fuente secundaria. No se encontró documento primario de «no interrumpirlo innecesariamente» ni de «el dinero grande está en esperar» (Munger), de la «regla número uno» de Buffett ni de la anécdota con Bezos.</li>
+        <li>Las cifras de Housel sobre la riqueza de Buffett varían entre los extractos de prensa de 2020 y la edición en libro; aquí se usan las de la edición en libro según su cobertura de 2024.</li>
+        <li>El valor del fondo de Franklin en Filadelfia en 1990 está en disputa entre fuentes, de unos 520,000 dólares a cerca de 2 millones, y la redacción de la cita de Richard Price varía entre ediciones.</li>
+        <li>No hay una medición reciente de la comprensión del interés compuesto en México: el dato comparable es de 2014 y la ENIF 2024 no lo incluye. Tampoco existe una estadística oficial de la comisión promedio de los fondos mexicanos.</li>
+        <li>No se verificó ningún episodio de podcast en español dedicado específicamente al interés compuesto, ni un video de Morgan Housel en Talks at Google. La editorial de <em>El almanaque del pobre Charlie</em> en español no está confirmada.</li>
+        <li>Los cálculos marcados como propios (tasas reales, retención neta, simulación de tarjeta, comisiones, secuencia de rendimientos y fórmula de valor) se verificaron numéricamente.</li>
+      </ul>
+    </section>
+
+    <section id="ic-fuentes" class="src">
+      <h2 class="sec">Fuentes</h2>
+      <h4>Matemática, historia y evidencia</h4>
+      <ul>
+        <li>Dimson, Marsh y Staunton, <em>UBS Global Investment Returns Yearbook 2026</em>, resumen — <a href="https://www.ubs.com/content/dam/assets/wm/static/cio/documents/giry2026-summary-public.pdf">ubs.com</a></li>
+        <li>Dimson, Marsh y Staunton, <em>Exponential Wealth</em>, CFA Institute Research Foundation, 2026 — <a href="https://rpc.cfainstitute.org/sites/default/files/docs/research-reports/rf_ibbotson_2026_exponentialwealth_section-3_online.pdf">cfainstitute.org</a></li>
+        <li>MacTutor, Pacioli y la regla del 72 — <a href="https://mathshistory.st-andrews.ac.uk/Extras/Pacioli_logarithm/">st-andrews.ac.uk</a></li>
+        <li><em>The oldest example of compound interest in Sumer</em>, arXiv:1510.00330 — <a href="https://arxiv.org/pdf/1510.00330">arxiv.org</a></li>
+        <li>Stango y Zinman, <em>Exponential Growth Bias and Household Finance</em>, Journal of Finance, 2009 — <a href="https://ideas.repec.org/a/bla/jfinan/v64y2009i6p2807-2849.html">repec.org</a></li>
+        <li>Almenberg y Gerdes, IZA DP 5814 — <a href="https://docs.iza.org/dp5814.pdf">iza.org</a></li>
+        <li>Levy y Tasoff, sesgo de crecimiento exponencial — <a href="https://personal.lse.ac.uk/levymr/papers/LevyTasoff.pdf">lse.ac.uk</a></li>
+        <li>Lusardi y Mitchell, NBER WP 18952 — <a href="https://www.nber.org/system/files/working_papers/w18952/w18952.pdf">nber.org</a></li>
+        <li>S&amp;P Global FinLit Survey, 2015 — <a href="https://press.spglobal.com/2015-11-18-Two-Thirds-of-Adults-Worldwide-Are-Not-Financially-Literate-and-Significant-Gender-Gap-Exists-Finds-Global-Study">spglobal.com</a></li>
+        <li>Bessembinder, <em>Do Stocks Outperform Treasury Bills?</em>, Journal of Financial Economics, 2018 — <a href="https://ideas.repec.org/a/eee/jfinec/v129y2018i3p440-457.html">repec.org</a></li>
+        <li>McKinsey, <em>Balancing ROIC and growth to build value</em>, 2006 — <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/balancing-roic-and-growth-to-build-value">mckinsey.com</a></li>
+        <li>Philanthropy Roundtable, el fondo de Franklin — <a href="https://www.philanthropyroundtable.org/magazine/what-miracle-of-compound-interest/">philanthropyroundtable.org</a></li>
+        <li>New Netherland Institute, <em>Manhattan and the $24 Myth</em> — <a href="https://newnetherlandinstitute.org/content/manhattan-and-the-24-myth/">newnetherlandinstitute.org</a></li>
+        <li>Jorion y Goetzmann vía NBER Digest, 1997 — <a href="https://www.nber.org/digest/jul97/century-global-stock-markets">nber.org</a></li>
+        <li>Wade Pfau, la regla del 4% — <a href="https://retirementresearcher.com/the-4-rule-and-the-search-for-a-safe-withdrawal-rate/">retirementresearcher.com</a></li>
+        <li>CNBC, Ronald Read, 2016 — <a href="https://www.cnbc.com/amp/2016/08/29/janitor-secretly-amassed-an-8-million-fortune.html">cnbc.com</a></li>
+      </ul>
+
+      <h4>Inversionistas</h4>
+      <ul>
+        <li>Buffett, cartas a los socios de la Buffett Partnership, transcripciones de 1963 y 1964 — <a href="https://git.petra.celehner.com/learner-long-life/value-investors-tts/raw/branch/main/annual-letters/bpl-1963.txt">1963</a> · <a href="https://git.petra.celehner.com/learner-long-life/value-investors-tts/raw/branch/main/annual-letters/bpl-1964.txt">1964</a></li>
+        <li>Buffett, carta al Giving Pledge, 2010 — <a href="https://givingpledge.org/pledger?pledgerId=177">givingpledge.org</a></li>
+        <li>Berkshire Hathaway, cartas de 1994 y 2025 — <a href="https://www.berkshirehathaway.com/letters/1994.html">1994</a> · <a href="https://www.berkshirehathaway.com/letters/2025ltr.pdf">2025</a></li>
+        <li>Munger, <em>A Lesson on Elementary, Worldly Wisdom</em>, USC, 1994 — <a href="https://fs.blog/great-talks/a-lesson-on-worldly-wisdom/">fs.blog</a></li>
+        <li>Bogle, discurso ante el Q Group, 1998 — <a href="https://boglecenter.net/wp-content/uploads/JCB_Q_Group_3-98.pdf">boglecenter.net</a></li>
+        <li>Housel sobre la riqueza de Buffett, CNBC, 2024 — <a href="https://www.cnbc.com/2024/05/03/most-of-warren-buffetts-wealth-came-after-age-65-heres-why.html">cnbc.com</a></li>
+        <li>Fundsmith, cartas anuales de 2010 y 2020 — <a href="https://www.fundsmith.co.uk/media/2iiacacc/annual-letter-to-shareholders-2010-pdf.pdf">2010</a> · <a href="https://www.fundsmith.co.uk/media/deujnq00/annual-letter-to-shareholders-2020.pdf">2020</a></li>
+        <li>Akre Capital, filosofía de inversión — <a href="https://www.akrecapital.com/our-investment-philosophy/">akrecapital.com</a></li>
+        <li>Nomad Investment Partnership, carta semestral de 2005 — <a href="https://cdn.prod.website-files.com/5b7c186c36ef662dc0a4b05a/677e820689e562b830cc899e_2005%20Nomad%20Interim%20Letter.pdf">PDF</a></li>
+        <li>Naval Ravikant, <em>How to Get Rich</em>, 2019 — <a href="https://nav.al/rich">nav.al</a></li>
+        <li>Fred Shapiro sobre la cita de Einstein — <a href="https://freakonomics.com/?p=11333">freakonomics.com</a> · Quote Investigator, 2011 — <a href="https://quoteinvestigator.com/2011/10/31/compound-interest/">quoteinvestigator.com</a></li>
+        <li>Entrevista a Alejandro Estebaranz, 2021 — <a href="https://galicianinvestor.substack.com/p/entrevista-a-alejandro-estebaranz">substack</a></li>
+        <li>SaaS Capital, <em>2025 B2B SaaS Retention Benchmarks</em> — <a href="https://www.saas-capital.com/wp-content/uploads/2025/09/RB32WS1-2025-B2B-SaaS-Retention-Benchmarks.pdf">PDF</a></li>
+      </ul>
+
+      <h4>México</h4>
+      <ul>
+        <li>Banxico mantiene la tasa en 6.50%, 24-sep-2026 — <a href="https://expansion.mx/economia/2026/09/24/banxico-tasa-de-interes-de-referencia-6-5-septiembre">expansion.mx</a></li>
+        <li>Resultados de la subasta de CETES del 13-oct-2026 — <a href="https://www.imagenradio.com.mx/finanzas/cetes-quedaron-tasas-semana-13-20-octubre-2026">imagenradio.com.mx</a></li>
+        <li>Inflación de septiembre de 2026, INEGI — <a href="https://www.ambito.com/mexico/informacion-general/inflacion-mexico-sube-345-septiembre-2026-inegi-reporta-repunte-los-precios-n6331649">ambito.com</a></li>
+        <li>Retención sobre intereses en la LIF 2026 — <a href="https://amcpdf.org.mx/puntos-relevantes-de-la-ley-de-ingresos-de-la-federacion-para-el-ejercicio-fiscal-2026/">AMCP</a> · <a href="https://russellbedford.mx/fiscal/aumento-en-la-tasa-de-retencion-por-intereses-en-el-ejercicio-2026/">Russell Bedford</a></li>
+        <li>Ley del ISR, arts. 129, 134, 140 y 151 — <a href="https://sdv.com.mx/compendio/ley-isr/articulo-129/">129</a> · <a href="https://sdv.com.mx/compendio/ley-isr/articulo-134/">134</a> · <a href="https://sdv.com.mx/compendio/ley-isr/articulo-140/">140</a> · <a href="https://sdv.com.mx/compendio/ley-isr/articulo-151/">151</a></li>
+        <li>CONSAR, comisiones de las AFORE para 2026 — <a href="https://www.gob.mx/consar/articulos/junta-de-gobierno-de-la-consar-autoriza-comisiones-de-las-afore-para-2026-413436">gob.mx</a></li>
+        <li>Rendimientos netos de las SIEFORE, agosto de 2026 — <a href="https://www.elimparcial.com/mexico/2026/09/25/que-afore-es-mejor-en-2026-consar-revela-cuales-dan-mas-rendimiento/">elimparcial.com</a></li>
+        <li>Cuotas patronales de 2026 — <a href="https://www.elcontribuyente.mx/2025/11/asi-cambiaran-las-cuotas-patronales-del-imss-en-2026-tablas-y-ajustes-clave/">elcontribuyente.mx</a></li>
+        <li>INEGI, valor de la UMA 2026 — <a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf">inegi.org.mx</a></li>
+        <li>Guía <em>Aprende a invertir</em> de CETES Directo — <a href="https://www.gob.mx/cms/uploads/attachment/file/755268/Aprende_a_Invertir_cetesdirecto.pdf">gob.mx</a></li>
+        <li>Banxico, tasas efectivas de tarjetas (cuadro CF840) e indicadores básicos de tarjetas — <a href="https://www.banxico.org.mx/SieInternet/consultarDirectorioInternetAction.do?accion=consultarCuadro&amp;idCuadro=CF840&amp;locale=es">SIE</a> · <a href="https://www.banxico.org.mx/publicaciones-y-prensa/rib-tarjetas-de-credito/%7BEDFAC909-76C7-749D-778B-859D724250E2%7D.pdf">informe</a></li>
+        <li>CONDUSEF sobre el pago mínimo, marzo de 2026 — <a href="https://www.elimparcial.com/dinero/2026/03/04/pagar-el-minimo-de-tu-tarjeta-puede-salirte-caro-esto-advierte-la-condusef/">elimparcial.com</a></li>
+        <li>SPIVA Latinoamérica, cierre de 2025 — <a href="https://www.spglobal.com/spdji/es/documents/spiva/spiva-latin-america-year-end-2025-es.pdf">spglobal.com</a></li>
+        <li>INEGI y CNBV, ENIF 2024 — <a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/enif/ENIF2024_RR.pdf">reporte de resultados</a></li>
+      </ul>
+    </section>
+
+  </article>
+
+  <footer class="end">
+    <span>LUIS RODRIGO AGUILAR · ABOGADO &amp; LEGAL ENGINEER</span>
+    <span>Documento de estudio · no constituye recomendación de inversión ni asesoría fiscal</span>
+  </footer>
+
+</div>
+</div>
+</main>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('themer');
+  function current(){
+    var set = root.getAttribute('data-theme');
+    if(set) return set;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  btn.addEventListener('click', function(){
+    root.setAttribute('data-theme', current() === 'dark' ? 'light' : 'dark');
+  });
+
+  var studies = Array.prototype.slice.call(document.querySelectorAll('.study'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs a'));
+  var memory = {};
+  var active = null;
+
+  function activate(study){
+    if(active === study) return false;
+    if(active) memory[active.id] = window.scrollY;
+    studies.forEach(function(s){ s.hidden = (s !== study); });
+    tabs.forEach(function(t){
+      var on = t.getAttribute('href').slice(1) === study.id;
+      t.classList.toggle('on', on);
+      if(on){ t.setAttribute('aria-current', 'page'); t.scrollIntoView({block:'nearest', inline:'nearest'}); }
+      else t.removeAttribute('aria-current');
+    });
+    active = study;
+    try { localStorage.setItem('estudio-pestana', study.id); } catch(e) {}
+    window.dispatchEvent(new Event('resize'));
+    return true;
+  }
+  function route(){
+    var id = '';
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch(e) {}
+    var target = id ? document.getElementById(id) : null;
+    var study = target ? (target.classList.contains('study') ? target : target.closest('.study')) : null;
+    if(!study){
+      var saved = null;
+      try { saved = localStorage.getItem('estudio-pestana'); } catch(e) {}
+      study = (saved && document.getElementById(saved)) || studies[0];
+      target = null;
+    }
+    var changed = activate(study);
+    if(target && target !== study) target.scrollIntoView();
+    else if(changed || target === study) window.scrollTo(0, memory[study.id] || 0);
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(e){
+      var id = t.getAttribute('href').slice(1);
+      if(active && active.id === id){ e.preventDefault(); window.scrollTo(0, 0); }
+    });
+  });
+  window.addEventListener('hashchange', route);
+  route();
+
+  if('IntersectionObserver' in window){
+    studies.forEach(function(study){
+      var links = Array.prototype.slice.call(study.querySelectorAll('.toc a'));
+      var secs = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(!e.isIntersecting) return;
+          var i = secs.indexOf(e.target);
+          if(i < 0) return;
+          links.forEach(function(l){ l.classList.remove('on'); });
+          links[i].classList.add('on');
+        });
+      }, {rootMargin: '-80px 0px -70% 0px'});
+      secs.forEach(function(s){ if(s) io.observe(s); });
+    });
+  }
+})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('calcForm');
+  if(!form) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('calcChart');
+  var tip = document.getElementById('calcTip');
+  var wrap = document.getElementById('chartWrap');
+  var tbody = document.querySelector('#calcTable tbody');
+  var money = new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
+  var W = 560, H = 250, L = 56, R = 104, T = 14, B = 30;
+  var PW = W - L - R, PH = H - T - B;
+  function size(){
+    var narrow = wrap.clientWidth > 0 && wrap.clientWidth < 520;
+    drawnNarrow = narrow;
+    W = narrow ? 380 : 560; H = narrow ? 230 : 250; L = narrow ? 44 : 56; R = narrow ? 84 : 104;
+    PW = W - L - R; PH = H - T - B;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  }
+  var rows = [], sx, sy, hover = null, drawnNarrow = null;
+
+  function val(id, def){
+    var v = parseFloat(document.getElementById(id).value);
+    return isFinite(v) ? v : def;
+  }
+  function short(v){
+    var a = Math.abs(v);
+    if(a >= 1e6) return (v/1e6).toLocaleString('es-MX',{maximumFractionDigits: a >= 1e8 ? 0 : 1}) + ' M';
+    if(a >= 1e3) return Math.round(v/1e3).toLocaleString('es-MX') + ' mil';
+    return Math.round(v).toLocaleString('es-MX');
+  }
+  function el(name, attrs, parent){
+    var n = document.createElementNS(NS, name);
+    for(var k in attrs) n.setAttribute(k, attrs[k]);
+    if(parent) parent.appendChild(n);
+    return n;
+  }
+  function niceStep(max, count){
+    var raw = max / count, mag = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / mag;
+    var nice = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10;
+    return nice * mag;
+  }
+
+  function compute(){
+    var cap = Math.max(0, val('cCap', 0));
+    var apo = Math.max(0, val('cApo', 0));
+    var tasa = val('cTasa', 0) / 100;
+    var com = Math.max(0, val('cCom', 0)) / 100;
+    var inf = val('cInf', 0) / 100;
+    var anos = Math.round(Math.min(60, Math.max(1, val('cAnos', 1))));
+    var netA = Math.max(tasa - com, -0.99);
+    var rg = Math.pow(1 + Math.max(tasa, -0.99), 1/12) - 1;
+    var rn = Math.pow(1 + netA, 1/12) - 1;
+    var vg = cap, vn = cap, ap = cap;
+    rows = [{y:0, ap:ap, g:vg, n:vn, real:vn}];
+    for(var m = 1; m <= anos * 12; m++){
+      vg = vg * (1 + rg) + apo;
+      vn = vn * (1 + rn) + apo;
+      ap += apo;
+      if(m % 12 === 0){
+        var y = m / 12;
+        rows.push({y:y, ap:ap, g:vg, n:vn, real: vn / Math.pow(1 + inf, y)});
+      }
+    }
+    var last = rows[rows.length - 1];
+    document.getElementById('oFin').textContent = money.format(last.n);
+    document.getElementById('oReal').textContent = money.format(last.real);
+    document.getElementById('oApo').textContent = money.format(last.ap);
+    var lost = last.g - last.n;
+    var oCom = document.getElementById('oCom');
+    oCom.textContent = money.format(lost);
+    if(last.g > 0){
+      var s = document.createElement('small');
+      s.textContent = (lost / last.g * 100).toLocaleString('es-MX',{maximumFractionDigits:1}) + '% del valor sin comisión';
+      oCom.appendChild(s);
+    }
+    var oDup = document.getElementById('oDup');
+    if(netA > 0){
+      var exact = Math.log(2) / Math.log(1 + netA);
+      oDup.textContent = exact.toLocaleString('es-MX',{maximumFractionDigits:1}) + ' años';
+      var s2 = document.createElement('small');
+      s2.textContent = 'regla del 72: ' + (72 / (netA * 100)).toLocaleString('es-MX',{maximumFractionDigits:1}) + ' años';
+      oDup.appendChild(s2);
+    } else {
+      oDup.textContent = 'No se duplica';
+    }
+    draw(anos);
+    fillTable(anos);
+  }
+
+  function draw(anos){
+    size();
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var maxV = 0;
+    rows.forEach(function(r){ maxV = Math.max(maxV, r.g, r.n, r.ap); });
+    if(maxV <= 0) maxV = 1;
+    var step = niceStep(maxV, 4), top = Math.ceil(maxV / step) * step;
+    sx = function(y){ return L + (y / anos) * PW; };
+    sy = function(v){ return T + PH - (v / top) * PH; };
+
+    var grid = el('g', {'class':'cg'}, svg);
+    for(var v = 0; v <= top + step / 2; v += step){
+      el('line', {x1:L, x2:L + PW, y1:sy(v), y2:sy(v)}, grid);
+      var t = el('text', {x:L - 8, y:sy(v) + 3.5, 'text-anchor':'end'}, grid);
+      t.textContent = v === 0 ? '0' : short(v);
+    }
+    var xs = el('g', {'class':'cx'}, svg);
+    var xstep = anos <= 10 ? 2 : anos <= 30 ? 5 : 10;
+    for(var x = 0; x <= anos; x += xstep){
+      var tx = el('text', {x:sx(x), y:H - 10, 'text-anchor':'middle'}, xs);
+      tx.textContent = x === 0 ? 'Año 0' : String(x);
+    }
+
+    function path(key){
+      return rows.map(function(r, i){ return (i ? 'L' : 'M') + sx(r.y).toFixed(1) + ' ' + sy(r[key]).toFixed(1); }).join(' ');
+    }
+    var gap = rows.map(function(r, i){ return (i ? 'L' : 'M') + sx(r.y).toFixed(1) + ' ' + sy(r.g).toFixed(1); }).join(' ');
+    for(var j = rows.length - 1; j >= 0; j--) gap += ' L' + sx(rows[j].y).toFixed(1) + ' ' + sy(rows[j].n).toFixed(1);
+    el('path', {d: gap + ' Z', 'class':'gap-fill'}, svg);
+    el('path', {d: path('ap'), 'class':'cl c'}, svg);
+    el('path', {d: path('n'), 'class':'cl a'}, svg);
+    el('path', {d: path('g'), 'class':'cl b'}, svg);
+
+    var last = rows[rows.length - 1];
+    var yb = sy(last.g) + 4, ya = sy(last.n) + 4;
+    if(ya - yb < 26){ var mid = (ya + yb) / 2; yb = mid - 13; ya = mid + 13; }
+    yb = Math.max(T + 8, yb);
+    function endLabel(y, name, v){
+      var t = el('text', {x:L + PW + 8, y:y, 'class':'end-lab'}, svg);
+      var a = el('tspan', {x:L + PW + 8, dy:0}, t); a.textContent = short(v);
+      var b = el('tspan', {x:L + PW + 8, dy:12, 'class':'s'}, t); b.textContent = name;
+    }
+    endLabel(yb - 4, 'sin comisión', last.g);
+    endLabel(ya - 4, 'con comisión', last.n);
+    el('circle', {cx:sx(last.y), cy:sy(last.g), r:3.5, 'class':'dot b'}, svg);
+    el('circle', {cx:sx(last.y), cy:sy(last.n), r:3.5, 'class':'dot a'}, svg);
+
+    hover = el('g', {}, svg);
+    hover.style.display = 'none';
+    el('line', {y1:T, y2:T + PH, 'class':'xh'}, hover);
+    ['c','a','b'].forEach(function(k){ el('circle', {r:4, 'class':'dot ' + k, 'data-k':k}, hover); });
+    var hit = el('rect', {x:L, y:T, width:PW, height:PH, fill:'transparent'}, svg);
+    hit.addEventListener('pointermove', onMove);
+    hit.addEventListener('pointerdown', onMove);
+    hit.addEventListener('pointerleave', hide);
+  }
+
+  function show(i){
+    var r = rows[i];
+    if(!r) return;
+    hover.style.display = '';
+    var line = hover.querySelector('line');
+    line.setAttribute('x1', sx(r.y)); line.setAttribute('x2', sx(r.y));
+    hover.querySelectorAll('circle').forEach(function(c){
+      var k = c.getAttribute('data-k');
+      c.setAttribute('cx', sx(r.y));
+      c.setAttribute('cy', sy(k === 'a' ? r.n : k === 'b' ? r.g : r.ap));
+    });
+    tip.innerHTML = '';
+    var b = document.createElement('b'); b.textContent = 'Año ' + r.y; tip.appendChild(b);
+    [['sw-b','Sin comisión', r.g],['sw-a','Con comisión', r.n],['sw-c','Aportado', r.ap]].forEach(function(row){
+      var d = document.createElement('div'); d.className = 'r';
+      var s1 = document.createElement('span'); var dot = document.createElement('i'); dot.className = row[0];
+      s1.appendChild(dot); s1.appendChild(document.createTextNode(row[1]));
+      var s2 = document.createElement('span'); s2.textContent = money.format(row[2]);
+      d.appendChild(s1); d.appendChild(s2); tip.appendChild(d);
+    });
+    tip.hidden = false;
+    var box = wrap.getBoundingClientRect();
+    var px = sx(r.y) / W * box.width;
+    var tw = tip.offsetWidth;
+    var left = px + 14;
+    if(left + tw > box.width) left = px - tw - 14;
+    tip.style.left = Math.max(0, left) + 'px';
+  }
+  function hide(){ if(hover) hover.style.display = 'none'; tip.hidden = true; }
+  function onMove(e){
+    var box = svg.getBoundingClientRect();
+    var x = (e.clientX - box.left) / box.width * W;
+    var anos = rows[rows.length - 1].y;
+    var i = Math.round((x - L) / PW * anos);
+    show(Math.max(0, Math.min(rows.length - 1, i)));
+  }
+  var kIndex = -1;
+  svg.setAttribute('tabindex', '0');
+  svg.addEventListener('keydown', function(e){
+    if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    kIndex = kIndex < 0 ? rows.length - 1 : kIndex + (e.key === 'ArrowRight' ? 1 : -1);
+    kIndex = Math.max(0, Math.min(rows.length - 1, kIndex));
+    show(kIndex);
+  });
+  svg.addEventListener('blur', function(){ kIndex = -1; hide(); });
+
+  function fillTable(anos){
+    tbody.innerHTML = '';
+    var every = anos <= 15 ? 1 : 5;
+    rows.forEach(function(r){
+      if(r.y === 0) return;
+      if(r.y % every !== 0 && r.y !== anos) return;
+      var tr = document.createElement('tr');
+      [String(r.y), money.format(r.ap), money.format(r.g), money.format(r.n), money.format(r.real)].forEach(function(c){
+        var td = document.createElement('td'); td.textContent = c; tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  form.addEventListener('input', compute);
+  window.addEventListener('resize', function(){
+    var w = wrap.clientWidth;
+    if(!w) return;
+    if((w < 520) !== drawnNarrow){ hide(); compute(); }
+  });
+  form.addEventListener('submit', function(e){ e.preventDefault(); compute(); });
+  compute();
+})();
+</script>
+</body>
+</html>
