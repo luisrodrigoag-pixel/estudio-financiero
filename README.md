@@ -1,17 +1,45 @@
 # Estudio financiero
 
-Notas de estudio de inversión, valuación y fiscalidad de Luis Rodrigo Aguilar. Una sola página con una pestaña por estudio, cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
+Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con dieciséis estudios en siete carpetas, una por tipo de producto financiero. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
 
-Orden sugerido de lectura:
+## Carpetas y orden sugerido de lectura
 
-1. **Interés compuesto**: matemática, historia, lo que dijeron los grandes inversionistas y su aplicación en México.
-2. **Cómo leer estados financieros**: calidad de las utilidades, señales de alerta y Walmex 2025 de principio a fin.
-3. **Ventajas competitivas**: qué sostiene rendimientos altos por décadas y cómo el derecho crea y destruye fosos.
-4. **Valuación de empresas**: flujos descontados, múltiplos, empresas privadas y el costo de capital en México.
-5. **Ingreso recurrente**: cuándo un ingreso que se repite justifica pagar más por él.
-6. **Inversión indexada desde México**: evidencia, construcción de cartera e implementación con costos reales.
-7. **Fiscalidad de las inversiones en México**: el ISR de cada instrumento en el ejercicio 2026.
-8. **FIBRAS e inmuebles**: cómo funcionan las FIBRAS y cómo se comparan con comprar un inmueble.
+**Fundamentos**
+
+1. Interés compuesto
+2. Cómo leer estados financieros
+
+**Sistema y mercados**
+
+3. El sistema financiero mexicano
+4. La bolsa de valores
+5. El mercado cambiario y el peso
+
+**Acciones**
+
+6. Ventajas competitivas
+7. Valuación de empresas
+8. El ingreso recurrente
+
+**Deuda e híbridos**
+
+9. Bonos y renta fija
+10. Notas convertibles y SAFEs
+11. Las notas estructuradas
+
+**Derivados**
+
+12. El mercado de derivados
+13. Swaps
+
+**Fondos e inmuebles**
+
+14. Inversión indexada desde México
+15. FIBRAS e inmuebles
+
+**Impuestos**
+
+16. Fiscalidad de las inversiones en México
 
 Se consulta en https://luisrodrigoag-pixel.github.io/estudio-financiero/
 
