@@ -1,0 +1,31 @@
+{
+  "name": "Estudio financiero",
+  "short_name": "Estudio financiero",
+  "description": "Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad en México.",
+  "lang": "es-MX",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5F6F9",
+  "theme_color": "#FCFCFD",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icono-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

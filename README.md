@@ -63,7 +63,7 @@ Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad
 
 Veinte expedientes con línea del tiempo, de 1929 a 2023: el crac de 1929, la deuda de 1982, el Lunes Negro, el Tequila, FOBAPROA, LTCM, la burbuja puntocom, Enron, Lehman y 2008, Madoff, Grecia, la LIBOR, Oceanografía, Wirecard, GameStop, Archegos, Evergrande, las SOFOMES de 2022, FTX, y SVB y Credit Suisse.
 
-La app guarda tu avance, tiene calculadoras, tarjetas y quiz por estudio, certificados por carpeta, buscador (tecla «/») y glosario.
+La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con las 24 calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
 
 Se consulta en https://luisrodrigoag-pixel.github.io/estudio-financiero/
 
