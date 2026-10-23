@@ -1,6 +1,6 @@
 # Estudio financiero
 
-Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con veintiocho estudios en nueve carpetas, una por tipo de producto financiero, y veinte expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
+Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con treinta y dos estudios en diez carpetas, una por tipo de producto financiero, y veinte expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
 
 ## Carpetas y orden sugerido de lectura
 
@@ -24,46 +24,53 @@ Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad
 10. Valuación de empresas
 11. El ingreso recurrente
 12. Dividendos y recompras
-13. Fusiones, adquisiciones y OPAs
-14. Capital privado y venture capital
+13. Capital privado y venture capital
 
 **Deuda e híbridos**
 
-15. Bonos y renta fija
-16. Bursatilización
-17. Notas convertibles y SAFEs
-18. Las notas estructuradas
+14. Bonos y renta fija
+15. Bursatilización
+16. Notas convertibles y SAFEs
+17. Las notas estructuradas
 
 **Derivados**
 
-19. El mercado de derivados
-20. Swaps
+18. El mercado de derivados
+19. Swaps
 
 **Activos alternativos**
 
-21. Materias primas
-22. Criptoactivos y stablecoins
+20. Materias primas
+21. Criptoactivos y stablecoins
 
 **Fondos e inmuebles**
 
-23. Inversión indexada desde México
-24. FIBRAS e inmuebles
+22. Inversión indexada desde México
+23. FIBRAS e inmuebles
 
 **Retiro y patrimonio**
 
-25. El AFORE y el retiro
-26. Planeación patrimonial y sucesión
-27. Family offices
+24. El AFORE y el retiro
+25. Planeación patrimonial y sucesión
+26. Family offices
+
+**M&A y regulación**
+
+27. Derecho corporativo y gobierno
+28. Fusiones, adquisiciones y OPAs
+29. El contrato de M&A
+30. Due diligence en México
+31. Inversión extranjera y competencia
 
 **Impuestos**
 
-28. Fiscalidad de las inversiones en México
+32. Fiscalidad de las inversiones en México
 
 **Crisis y controversias**
 
 Veinte expedientes con línea del tiempo, de 1929 a 2023: el crac de 1929, la deuda de 1982, el Lunes Negro, el Tequila, FOBAPROA, LTCM, la burbuja puntocom, Enron, Lehman y 2008, Madoff, Grecia, la LIBOR, Oceanografía, Wirecard, GameStop, Archegos, Evergrande, las SOFOMES de 2022, FTX, y SVB y Credit Suisse.
 
-La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con las 24 calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
+La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con todas las calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
 
 Se consulta en https://luisrodrigoag-pixel.github.io/estudio-financiero/
 
