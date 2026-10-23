@@ -1,6 +1,6 @@
 # Estudio financiero
 
-Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con treinta y dos estudios en diez carpetas, una por tipo de producto financiero, y veinte expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
+Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con treinta y cuatro estudios en diez carpetas, una por tipo de producto financiero, y veinte expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
 
 ## Carpetas y orden sugerido de lectura
 
@@ -58,19 +58,21 @@ Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad
 
 27. Derecho corporativo y gobierno
 28. Fusiones, adquisiciones y OPAs
-29. El contrato de M&A
-30. Due diligence en México
-31. Inversión extranjera y competencia
+29. Escisiones
+30. El contrato de M&A
+31. Due diligence en México
+32. Inversión extranjera y competencia
+33. Casos de M&A
 
 **Impuestos**
 
-32. Fiscalidad de las inversiones en México
+34. Fiscalidad de las inversiones en México
 
 **Crisis y controversias**
 
 Veinte expedientes con línea del tiempo, de 1929 a 2023: el crac de 1929, la deuda de 1982, el Lunes Negro, el Tequila, FOBAPROA, LTCM, la burbuja puntocom, Enron, Lehman y 2008, Madoff, Grecia, la LIBOR, Oceanografía, Wirecard, GameStop, Archegos, Evergrande, las SOFOMES de 2022, FTX, y SVB y Credit Suisse.
 
-La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con todas las calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
+La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, examen por carpeta, preguntas de desarrollo con respuesta modelo, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con todas las calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
 
 Se consulta en https://luisrodrigoag-pixel.github.io/estudio-financiero/
 
