@@ -1,6 +1,6 @@
 # Estudio financiero
 
-Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con treinta y cuatro estudios en diez carpetas, una por tipo de producto financiero, y veinte expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
+Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con cuarenta estudios en once carpetas, una por tipo de producto financiero, y veintisiete expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
 
 ## Carpetas y orden sugerido de lectura
 
@@ -17,62 +17,71 @@ Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad
 6. El sistema financiero mexicano
 7. La bolsa de valores
 8. El mercado cambiario y el peso
+9. Banca, pagos y fintech
+10. Seguros y fianzas
 
 **Acciones**
 
-9. Ventajas competitivas
-10. Valuación de empresas
-11. El ingreso recurrente
-12. Dividendos y recompras
-13. Capital privado y venture capital
+11. Ventajas competitivas
+12. Valuación de empresas
+13. El ingreso recurrente
+14. Dividendos y recompras
+15. Capital privado y venture capital
+
+**Finanzas de empresas**
+
+16. Finanzas corporativas
+17. Financiamiento de empresas en México
 
 **Deuda e híbridos**
 
-14. Bonos y renta fija
-15. Bursatilización
-16. Notas convertibles y SAFEs
-17. Las notas estructuradas
+18. Bonos y renta fija
+19. Bursatilización
+20. Notas convertibles y SAFEs
+21. Las notas estructuradas
 
 **Derivados**
 
-18. El mercado de derivados
-19. Swaps
+22. El mercado de derivados
+23. Swaps
 
 **Activos alternativos**
 
-20. Materias primas
-21. Criptoactivos y stablecoins
+24. Materias primas
+25. Criptoactivos y stablecoins
 
 **Fondos e inmuebles**
 
-22. Inversión indexada desde México
-23. FIBRAS e inmuebles
+26. Fondos de inversión mexicanos y CETES
+27. Inversión indexada desde México
+28. FIBRAS e inmuebles
 
-**Retiro y patrimonio**
+**Finanzas personales y patrimonio**
 
-24. El AFORE y el retiro
-25. Planeación patrimonial y sucesión
-26. Family offices
+29. Finanzas personales del profesionista independiente
+30. El AFORE y el retiro
+31. Planeación patrimonial y sucesión
+32. Family offices
 
 **M&A y regulación**
 
-27. Derecho corporativo y gobierno
-28. Fusiones, adquisiciones y OPAs
-29. Escisiones
-30. El contrato de M&A
-31. Due diligence en México
-32. Inversión extranjera y competencia
-33. Casos de M&A
+33. Derecho corporativo y gobierno
+34. Fusiones, adquisiciones y OPAs
+35. Escisiones
+36. El contrato de M&A
+37. Due diligence en México
+38. Inversión extranjera y competencia
+39. Casos de M&A
 
 **Impuestos**
 
-34. Fiscalidad de las inversiones en México
+40. Fiscalidad de las inversiones en México
 
 **Crisis y controversias**
 
-Veinte expedientes con línea del tiempo, de 1929 a 2023: el crac de 1929, la deuda de 1982, el Lunes Negro, el Tequila, FOBAPROA, LTCM, la burbuja puntocom, Enron, Lehman y 2008, Madoff, Grecia, la LIBOR, Oceanografía, Wirecard, GameStop, Archegos, Evergrande, las SOFOMES de 2022, FTX, y SVB y Credit Suisse.
+Veintisiete expedientes con línea del tiempo, de 1929 a 2023: el crac de 1929, la deuda de 1982, el Lunes Negro, el Tequila, FOBAPROA, LTCM, la burbuja puntocom, Enron, Lehman y 2008, Comercial Mexicana, Madoff, Grecia, Vitro, la LIBOR, Homex, Geo y Urbi, Oceanografía, Ficrea, Wirecard, Famsa, GameStop, Archegos, TV Azteca, Evergrande, las SOFOMES de 2022, FTX, SVB y Credit Suisse, y AHMSA.
 
-La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, examen por carpeta, preguntas de desarrollo con respuesta modelo, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con todas las calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
+La app guarda tu avance y tiene tarjetas y quiz por estudio, Repaso del día con repetición espaciada, examen por carpeta, preguntas de desarrollo con respuesta modelo, panel de indicadores, certificados por carpeta, buscador (tecla «/»), glosario con modo de tarjetas y una página con todas las calculadoras. Una vez abierta, funciona sin internet y se actualiza sola al volver a conectarse.
 
 Se consulta en https://luisrodrigoag-pixel.github.io/estudio-financiero/
 

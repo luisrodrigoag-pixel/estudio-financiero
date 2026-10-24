@@ -3,7 +3,7 @@
    caché primero para íconos y fuentes. build3.py sustituye VERSION por un hash del
    index y del manifiesto, así que cada build instala una caché nueva y borra las viejas. */
 'use strict';
-const VERSION = 'c72e7f7c0d2e';
+const VERSION = '2388674941c2';
 const PREFIX = 'estudio-financiero-';
 const CACHE = PREFIX + VERSION;
 const SCOPE = self.registration.scope;
