@@ -1,10 +1,11 @@
 /* Estudio financiero · service worker (sólo la versión de GitHub Pages)
    Red primero para la navegación y el HTML, con respaldo en caché sin conexión;
    caché primero para íconos y fuentes. build3.py sustituye VERSION por un hash del
-   index y del manifiesto, así que cada build instala una caché nueva y borra las viejas. */
+   index y del manifiesto, así que cada build instala una caché nueva y borra las viejas. El ensamblador
+   sustituye también PREFIJO (estudio-financiero- o estudio-legal-) y NOMBRE. */
 'use strict';
-const VERSION = '2388674941c2';
-const PREFIX = 'estudio-financiero-';
+const VERSION = '47d9ea8a5588';
+const PREFIX = 'estudio-financiero-';   // propio de cada mundo: un build sólo borra cachés de su sitio
 const CACHE = PREFIX + VERSION;
 const SCOPE = self.registration.scope;
 const SCOPE_PATH = new URL(SCOPE).pathname;
