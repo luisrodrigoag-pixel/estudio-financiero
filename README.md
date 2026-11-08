@@ -1,6 +1,6 @@
 # Estudio financiero
 
-Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con treinta y cinco estudios en diez carpetas, una por tipo de producto financiero, y veintisiete expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
+Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad. Es una sola página con treinta y nueve estudios en once carpetas, una por tipo de producto financiero, y veintisiete expedientes de crisis y controversias. Cada estudio trae cifras verificadas, fuentes primarias y el ángulo jurídico y fiscal de México.
 
 ## Carpetas y orden sugerido de lectura
 
@@ -20,54 +20,61 @@ Notas de estudio de Luis Rodrigo Aguilar sobre inversión, mercados y fiscalidad
 9. Banca, pagos y fintech
 10. Seguros y fianzas
 
+**La bolsa por dentro**
+
+11. Wall Street, la BMV y BIVA
+12. La terminal Bloomberg y las pantallas del mercado
+13. Pump and dump y otras manipulaciones del mercado
+14. PM, broker y asesor financiero
+
 **Acciones**
 
-11. Ventajas competitivas
-12. Valuación de empresas
-13. El ingreso recurrente
-14. Dividendos y recompras
-15. Capital privado y venture capital
+15. Ventajas competitivas
+16. Valuación de empresas
+17. El ingreso recurrente
+18. Dividendos y recompras
+19. Capital privado y venture capital
 
 **Finanzas de empresas**
 
-16. Finanzas corporativas
-17. Financiamiento de empresas en México
-18. Fusiones, adquisiciones y OPAs
-19. Casos de M&A
+20. Finanzas corporativas
+21. Financiamiento de empresas en México
+22. Fusiones, adquisiciones y OPAs
+23. Casos de M&A
 
 **Deuda e híbridos**
 
-20. Bonos y renta fija
-21. Bursatilización
-22. Notas convertibles y SAFEs
-23. Las notas estructuradas
+24. Bonos y renta fija
+25. Bursatilización
+26. Notas convertibles y SAFEs
+27. Las notas estructuradas
 
 **Derivados**
 
-24. El mercado de derivados
-25. Swaps
+28. El mercado de derivados
+29. Swaps
 
 **Activos alternativos**
 
-26. Materias primas
-27. Criptoactivos y stablecoins
+30. Materias primas
+31. Criptoactivos y stablecoins
 
 **Fondos e inmuebles**
 
-28. Fondos de inversión mexicanos y CETES
-29. Inversión indexada desde México
-30. FIBRAS e inmuebles
+32. Fondos de inversión mexicanos y CETES
+33. Inversión indexada desde México
+34. FIBRAS e inmuebles
 
 **Finanzas personales y patrimonio**
 
-31. Finanzas personales del profesionista independiente
-32. El AFORE y el retiro
-33. Planeación patrimonial y sucesión
-34. Family offices
+35. Finanzas personales del profesionista independiente
+36. El AFORE y el retiro
+37. Planeación patrimonial y sucesión
+38. Family offices
 
 **Impuestos**
 
-35. Fiscalidad de las inversiones en México
+39. Fiscalidad de las inversiones en México
 
 **Crisis y controversias**
 
